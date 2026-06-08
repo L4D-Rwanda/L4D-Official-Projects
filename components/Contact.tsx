@@ -1,9 +1,20 @@
-import React from 'react';
-import { Mail, MapPin, Globe, Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, MapPin, Globe, Send, CheckCircle2 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
 import Reveal from './Reveal';
 
 const Contact: React.FC = () => {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setTimeout(() => {
+      setStatus('success');
+      setTimeout(() => setStatus('idle'), 3000);
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-24 bg-gradient-to-br from-teal-900 via-teal-800 to-teal-950 text-white scroll-mt-24 relative overflow-hidden">
       {/* Background decoration */}
@@ -66,14 +77,16 @@ const Contact: React.FC = () => {
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">Send us a Message</h3>
                   <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you shortly.</p>
                   
-                  <form className="space-y-5">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-semibold text-gray-700 ml-1">First Name</label>
                         <input 
                           type="text" 
                           id="firstName" 
-                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900" 
+                          required
+                          disabled={status !== 'idle'}
+                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                           placeholder="John" 
                         />
                       </div>
@@ -82,7 +95,9 @@ const Contact: React.FC = () => {
                         <input 
                           type="text" 
                           id="lastName" 
-                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900" 
+                          required
+                          disabled={status !== 'idle'}
+                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                           placeholder="Doe" 
                         />
                       </div>
@@ -93,7 +108,9 @@ const Contact: React.FC = () => {
                       <input 
                         type="email" 
                         id="email" 
-                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900" 
+                        required
+                        disabled={status !== 'idle'}
+                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                         placeholder="john@example.com" 
                       />
                     </div>
@@ -101,7 +118,7 @@ const Contact: React.FC = () => {
                     <div className="space-y-2">
                       <label htmlFor="subject" className="text-sm font-semibold text-gray-700 ml-1">Subject</label>
                       <div className="relative">
-                        <select id="subject" className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all appearance-none text-gray-700 cursor-pointer">
+                        <select id="subject" disabled={status !== 'idle'} className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all appearance-none text-gray-700 cursor-pointer disabled:opacity-50">
                             <option>General Inquiry</option>
                             <option>Partnership Proposal</option>
                             <option>Research Request</option>
@@ -118,14 +135,27 @@ const Contact: React.FC = () => {
                       <textarea 
                         id="message" 
                         rows={4} 
-                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none" 
+                        required
+                        disabled={status !== 'idle'}
+                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none disabled:opacity-50" 
                         placeholder="How can we help you?"
                       ></textarea>
                     </div>
 
-                    <button type="submit" className="w-full bg-burgundy-700 text-white font-bold py-4 rounded-xl hover:bg-burgundy-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group mt-2">
-                      Send Message
-                      <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <button 
+                      type="submit" 
+                      disabled={status !== 'idle'}
+                      className={`w-full font-bold py-4 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 group mt-2 ${
+                        status === 'success' ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-900/20' : 'bg-burgundy-700 hover:bg-burgundy-800 text-white hover:shadow-xl'
+                      }`}
+                    >
+                      {status === 'submitting' ? (
+                        <span className="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                      ) : status === 'success' ? (
+                        <>Message Sent! <CheckCircle2 className="h-5 w-5 animate-in zoom-in" /></>
+                      ) : (
+                        <>Send Message <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" /></>
+                      )}
                     </button>
                   </form>
                </div>

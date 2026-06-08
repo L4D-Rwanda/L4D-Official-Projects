@@ -13,9 +13,9 @@ import { NavItem, Service, FocusArea, Project, Publication, Client, Stat, Testim
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: 'home' },
-  { label: 'About', href: 'about' },
+  { label: 'Who We Are', href: 'about' },
   { 
-    label: 'What we do', 
+    label: 'What We Do', 
     href: 'services',
     subItems: [
       { label: 'Policy Research', href: 'service/policy-research' },

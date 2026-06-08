@@ -5,9 +5,10 @@ import { Page } from './Navbar';
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
+  onNavigateToPublicationCategory?: (category: string) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCategory }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
@@ -126,19 +127,37 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#publications" onClick={(e) => handleNavClick(e, 'publications')} className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
+                <a href="#publications" 
+                   onClick={(e) => { 
+                     e.preventDefault(); 
+                     if (onNavigateToPublicationCategory) onNavigateToPublicationCategory('Report');
+                     else handleNavClick(e, 'publications');
+                   }} 
+                   className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
                   Research Reports
                 </a>
               </li>
               <li>
-                <a href="#publications" onClick={(e) => handleNavClick(e, 'publications')} className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
+                <a href="#publications" 
+                   onClick={(e) => { 
+                     e.preventDefault(); 
+                     if (onNavigateToPublicationCategory) onNavigateToPublicationCategory('Policy Brief');
+                     else handleNavClick(e, 'publications');
+                   }} 
+                   className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
                   Policy Briefs
                 </a>
               </li>
               <li>
-                <a href="#publications" onClick={(e) => handleNavClick(e, 'publications')} className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
+                <a href="#publications" 
+                   onClick={(e) => { 
+                     e.preventDefault(); 
+                     if (onNavigateToPublicationCategory) onNavigateToPublicationCategory('News & Insights');
+                     else handleNavClick(e, 'publications');
+                   }} 
+                   className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
                   News & Insights
                 </a>
@@ -199,8 +218,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             &copy; {new Date().getFullYear()} High Lands Centre of Leadership for Development (L4D). All rights reserved.
           </p>
           <div className="flex space-x-8">
-            <a href="#" className="hover:text-teal-400 transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-teal-400 transition-colors duration-300">Terms of Service</a>
+            <a href="#privacy" onClick={(e) => handleNavClick(e, 'privacy')} className="hover:text-teal-400 transition-colors duration-300">Privacy Policy</a>
+            <a href="#terms" onClick={(e) => handleNavClick(e, 'terms')} className="hover:text-teal-400 transition-colors duration-300">Terms of Service</a>
           </div>
         </div>
       </div>

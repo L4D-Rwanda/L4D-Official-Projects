@@ -6,9 +6,10 @@ import { FileText, Download, Search, Filter, ArrowRight, BookOpen, Calendar, Che
 interface PublicationsPageProps {
   initialCategory?: string;
   initialPublicationTitle?: string;
+  onNavigateToPublication?: (title: string) => void;
 }
 
-const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, initialPublicationTitle }) => {
+const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, initialPublicationTitle, onNavigateToPublication }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,37 +44,15 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
     }, 800);
   };
 
-  const [selectedAbstract, setSelectedAbstract] = useState<typeof PUBLICATIONS[0] | null>(null);
-
   const handleDownload = async (pub: typeof PUBLICATIONS[0]) => {
-    if (pub.pdfUrl) {
-      try {
-        const response = await fetch(pub.pdfUrl);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `${pub.title}.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(link);
-      } catch (error) {
-        console.error('Download failed:', error);
-        // Fallback to opening in new tab
-        window.open(pub.pdfUrl, '_blank');
-      }
-    } else {
-      setSelectedAbstract(pub);
+    if (onNavigateToPublication) {
+      onNavigateToPublication(pub.title);
     }
   };
 
   const handleRead = (pub: typeof PUBLICATIONS[0]) => {
-    if (pub.pdfUrl) {
-      window.open(pub.pdfUrl, '_blank');
-    } else {
-      setSelectedAbstract(pub);
+    if (onNavigateToPublication) {
+      onNavigateToPublication(pub.title);
     }
   };
 
@@ -123,32 +102,13 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                      Our latest comprehensive analysis providing actionable recommendations for stakeholders in the region.
                    </p>
                    <div className="flex flex-wrap gap-4">
-                      {featuredPub.pdfUrl ? (
-                        <button 
-                          onClick={() => handleDownload(featuredPub)}
-                          className="px-8 py-4 bg-teal-700 text-white font-bold rounded-full hover:bg-teal-800 transition-all shadow-lg hover:shadow-teal-900/20 hover:-translate-y-1 active:scale-95 flex items-center gap-2 group"
-                        >
-                          <Download size={20} />
-                          Download Full Report
-                        </button>
-                      ) : (
-                        <button 
-                          onClick={() => setSelectedAbstract(featuredPub)}
-                          className="px-8 py-4 bg-gray-100 text-gray-600 font-bold rounded-full hover:bg-gray-200 transition-all active:scale-95 flex items-center gap-2 group"
-                        >
-                          <FileText size={20} />
-                          View Abstract
-                        </button>
-                      )}
-                      
-                      {featuredPub.pdfUrl && (
-                        <button 
-                          onClick={() => handleRead(featuredPub)}
-                          className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 hover:border-gray-300 transition-all active:scale-95 flex items-center gap-2"
-                        >
-                          Read Online <ArrowRight size={18} />
-                        </button>
-                      )}
+                      <button 
+                        onClick={() => handleRead(featuredPub)}
+                        className="px-8 py-4 bg-teal-700 text-white font-bold rounded-full hover:bg-teal-800 transition-all shadow-lg hover:shadow-teal-900/20 hover:-translate-y-1 active:scale-95 flex items-center gap-2 group"
+                      >
+                        <FileText size={20} />
+                        View Full Details
+                      </button>
                    </div>
                 </div>
                 <div className="lg:w-1/2 relative flex justify-center lg:justify-end">
@@ -276,13 +236,6 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                           >
                              <Share2 size={18} />
                           </button>
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); handleDownload(pub); }}
-                            className={`flex items-center justify-center w-10 h-10 rounded-full ${pub.pdfUrl ? 'bg-gray-50 text-gray-700 hover:bg-teal-700 hover:text-white' : 'bg-gray-50 text-gray-400 hover:bg-gray-200 hover:text-gray-600'} transition-all duration-300`}
-                            title={pub.pdfUrl ? "Download" : "View Abstract"}
-                          >
-                             {pub.pdfUrl ? <Download size={18} /> : <Eye size={18} />}
-                          </button>
                         </div>
                      </div>
                   </div>
@@ -328,59 +281,6 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
         )}
 
       </div>
-
-      {/* Abstract Modal */}
-      {selectedAbstract && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 relative">
-            <button 
-              onClick={() => setSelectedAbstract(null)}
-              className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-500 transition-colors"
-            >
-              <X size={20} />
-            </button>
-            
-            <div className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
-                    selectedAbstract.type === 'Report' ? 'bg-blue-50 text-blue-700' :
-                    selectedAbstract.type === 'Policy Brief' ? 'bg-emerald-50 text-emerald-700' :
-                    selectedAbstract.type === 'News & Insights' ? 'bg-purple-50 text-purple-700' :
-                    'bg-amber-50 text-amber-700'
-                }`}>
-                  {selectedAbstract.type}
-                </span>
-                <span className="text-gray-400 text-sm font-medium flex items-center gap-1">
-                  <Calendar size={14} />
-                  {selectedAbstract.date}
-                </span>
-              </div>
-              
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-6">
-                {selectedAbstract.title}
-              </h2>
-              
-              <div className="prose prose-lg text-gray-600 mb-8">
-                <p>
-                  Detailed analysis and findings regarding {selectedAbstract.title.toLowerCase()}. This resource offers key data, methodological insights, and strategic recommendations for policymakers.
-                </p>
-                <p className="mt-4">
-                  This publication is currently available for abstract view only. For full access or inquiries, please contact our research department.
-                </p>
-              </div>
-              
-              <div className="flex justify-end pt-6 border-t border-gray-100">
-                <button 
-                  onClick={() => window.location.href = `mailto:info@hlcl4d.rw?subject=Request for Publication: ${selectedAbstract.title}`}
-                  className="px-6 py-3 bg-teal-700 text-white font-bold rounded-xl hover:bg-teal-800 transition-colors"
-                >
-                  Request Full Copy
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
