@@ -19,6 +19,7 @@ import ProjectsPage from './components/ProjectsPage';
 import PublicationsPage from './components/PublicationsPage';
 import PublicationDetailPage from './components/PublicationDetailPage';
 import CareersPage from './components/CareersPage';
+import ContactPage from './components/ContactPage';
 
 import PrivacyTermsPage from './components/StaticPage';
 
