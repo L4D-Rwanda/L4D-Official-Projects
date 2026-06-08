@@ -236,21 +236,21 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
 
         {/* Spontaneous Application CTA */}
         <Reveal delay={300}>
-          <div className="bg-gradient-to-br from-burgundy-900 to-burgundy-800 rounded-[30px] p-12 text-center text-white relative overflow-hidden shadow-2xl mb-12">
+          <div className="bg-teal-900/90 backdrop-blur-lg border border-teal-700/50 rounded-[30px] p-12 text-center text-white relative overflow-hidden shadow-2xl mb-12">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
              <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
              
              <div className="relative z-10 max-w-2xl mx-auto">
                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/10">
-                  <Briefcase className="h-8 w-8 text-burgundy-200" />
+                  <Briefcase className="h-8 w-8 text-teal-200" />
                </div>
                <h3 className="text-3xl font-serif font-bold mb-4">Don't see the right fit?</h3>
-               <p className="text-burgundy-100 text-lg mb-10 leading-relaxed">
+               <p className="text-teal-100 text-lg mb-10 leading-relaxed">
                  We are always interested in meeting talented individuals who share our vision. Send us your resume for future consideration.
                </p>
                <a 
                   href="mailto:info@hlcl4d.rw" 
-                  className="inline-flex items-center px-8 py-4 bg-white text-burgundy-900 font-bold rounded-full hover:bg-burgundy-50 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+                  className="inline-flex items-center px-8 py-4 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 group"
                 >
                   Send Spontaneous Application <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                </a>
