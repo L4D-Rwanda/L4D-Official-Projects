@@ -172,7 +172,7 @@ const AboutPage: React.FC = () => {
         <div className="mb-24">
           <Reveal>
             <div className="text-center mb-12">
-               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Meet Our Leadership</h2>
+               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Our Team</h2>
                <p className="text-gray-600 max-w-2xl mx-auto text-lg">
                  Our team combines academic rigor with practical experience in government and international development.
                </p>
@@ -182,17 +182,17 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TEAM.map((member, index) => (
               <Reveal key={index} delay={index * 100}>
-                <div className="group relative bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
-                  <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-4">
+                <div className="group relative bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+                  <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 rounded-t-[24px] rounded-b-xl border border-gray-100 bg-white"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                   </div>
-                  <div className="p-8 relative">
+                  <div className="p-8 relative flex-1 flex flex-col">
                     <div className="absolute -top-10 right-8 w-16 h-16 bg-burgundy-700 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
                        <Users size={24} />
                     </div>

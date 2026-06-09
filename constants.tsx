@@ -370,13 +370,85 @@ export const TEAM: TeamMember[] = [
     name: "Marie Chantal Rwakazina",
     role: "Managing Director",
     bio: "Experienced executive driving operational excellence and strategic partnerships to strengthen credible development initiatives.",
-    image: "https://images.unsplash.com/photo-1573496359-136d475583dc?auto=format&fit=crop&q=80&w=400"
+    image: "https://images.unsplash.com/photo-1573496359-136d475583dc?auto=format&fit=crop&q=80&w=800"
   },
   {
     name: "Dr. Teferi Tensay Mequaninte",
     role: "Head of Research",
     bio: "Accomplished researcher leading comprehensive studies in socio-economic development and guiding policy formulation.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400"
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    name: "Patrick Byishimo",
+    role: "Research Fellow/Data Manager",
+    bio: "Specializes in data management and quantitative research, ensuring data integrity and robust analysis for policy formulation.",
+    image: "https://ui-avatars.com/api/?name=Patrick+Byishimo&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Jean Bosco Nkurikiye",
+    role: "Research Fellow/Data Analyst",
+    bio: "Skilled data analyst with a deep understanding of statistical methods and their application in developmental research.",
+    image: "https://ui-avatars.com/api/?name=Jean+Bosco+Nkurikiye&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Yvette Kagoyire",
+    role: "Research Operations Manager",
+    bio: "Coordinates research activities, manages logistics, and ensures the smooth execution of field operations.",
+    image: "https://ui-avatars.com/api/?name=Yvette+Kagoyire&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Divine Irakoze",
+    role: "Finance & HR",
+    bio: "Manages financial planning and human resources, supporting the administrative backbone of the Centre.",
+    image: "https://ui-avatars.com/api/?name=Divine+Irakoze&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Belise Kangabe Hategeka",
+    role: "Impact Analyst",
+    bio: "Focuses on monitoring and evaluating the impact of research findings and developmental interventions.",
+    image: "https://ui-avatars.com/api/?name=Belise+Kangabe+Hategeka&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Monique Abimpaye",
+    role: "Evaluation Coordinator",
+    bio: "Leads coordination for project evaluations to ensure alignment with expected outcomes and quality standards.",
+    image: "https://ui-avatars.com/api/?name=Monique+Abimpaye&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Iris Landi",
+    role: "Consultant - Gender Expert",
+    bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
+    image: "https://ui-avatars.com/api/?name=Iris+Landi&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Richard Ngabo",
+    role: "IT & Comms Officer",
+    bio: "Drives internal IT infrastructure and leads communication strategies to amplify the Centre's research impact.",
+    image: "https://ui-avatars.com/api/?name=Richard+Ngabo&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Simeon Sibomana",
+    role: "Research Assistant/Field Supervisor",
+    bio: "Supervises field operations and assists in comprehensive data collection strategies for ongoing projects.",
+    image: "https://ui-avatars.com/api/?name=Simeon+Sibomana&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Bridget Vuguziga",
+    role: "Research Assistant/Field Supervisor",
+    bio: "Plays a vital role in fieldwork, providing oversight and contributing to crucial qualitative and quantitative assessments.",
+    image: "https://ui-avatars.com/api/?name=Bridget+Vuguziga&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Dusabe Ruth",
+    role: "Research Assistant/Field Supervisor",
+    bio: "Engages in rigorous field monitoring, ensuring data fidelity and bridging community insights with research objectives.",
+    image: "https://ui-avatars.com/api/?name=Dusabe+Ruth&background=115e59&color=fff&size=512"
+  },
+  {
+    name: "Bonaventure Mugabe",
+    role: "Research Assistant/Field Supervisor",
+    bio: "Brings deep contextual knowledge to field supervision, guaranteeing the accurate capture of localized research inputs.",
+    image: "https://ui-avatars.com/api/?name=Bonaventure+Mugabe&background=115e59&color=fff&size=512"
   }
 ];
 
