@@ -57,11 +57,17 @@ export interface Testimonial {
 export interface Job {
   id: string;
   title: string;
-  type: 'Full-time' | 'Part-time' | 'Contract' | 'Internship';
+  type: string;
   location: string;
   description: string;
   department: string;
   requirements: string[];
+  sector?: string;
+  educationLevel?: string;
+  desiredExperience?: string;
+  contractType?: string;
+  deadline?: string;
+  positions?: number;
 }
 
 export interface TeamMember {

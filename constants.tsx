@@ -462,44 +462,83 @@ export const CONTACT_INFO = {
 export const JOBS: Job[] = [
   {
     id: '1',
-    title: 'Senior Policy Analyst',
-    type: 'Full-time',
-    location: 'Kigali, Rwanda',
-    department: 'Policy Research',
-    description: 'We are seeking an experienced Policy Analyst to lead our agricultural policy research initiatives. The ideal candidate will have strong analytical skills and a deep understanding of East African agricultural frameworks.',
+    title: 'Quantitative Field Enumerators',
+    type: 'Contract',
+    location: 'Various locations, Rwanda',
+    department: 'Data Collection',
+    description: 'We are seeking motivated Quantitative Field Enumerators to conduct structured interviews and administer surveys for our ongoing research projects. You will be responsible for accurate data entry using electronic devices while maintaining research ethics.',
+    sector: 'Field Research',
+    educationLevel: 'Bachelor’s degree',
+    desiredExperience: '1+ years',
+    contractType: 'Temporary',
+    deadline: '14-06-2026 at 11:59 PM',
+    positions: 15,
     requirements: [
-      'Master’s degree in Public Policy, Economics, or Agriculture.',
-      'Minimum 5 years of experience in policy analysis.',
-      'Strong publication record.',
-      'Excellent command of English and Kinyarwanda.'
+      'Bachelor’s degree in Social Sciences, Statistics, Economics, or related fields.',
+      'Prior experience in quantitative data collection and survey administration.',
+      'Familiarity with electronic data collection tools (e.g., ODK, SurveyCTO, Qualtrics).',
+      'Fluency in English and Kinyarwanda; strong communication skills.'
     ]
   },
   {
     id: '2',
-    title: 'Research Assistant (Intern)',
-    type: 'Internship',
-    location: 'Kigali, Rwanda',
-    department: 'Research & Mentorship',
-    description: 'Join our mentorship program as a Research Assistant. You will support senior researchers in data collection, literature reviews, and report drafting while receiving hands-on training.',
+    title: 'Qualitative Field Enumerators (Note-Takers)',
+    type: 'Contract',
+    location: 'Various locations, Rwanda',
+    department: 'Data Collection',
+    description: 'We are looking for Detail-oriented Qualitative Field Enumerators to serve as Note-Takers during Focus Group Discussions (FGDs) and Key Informant Interviews (KIIs). You will accurately record sessions, capture non-verbal cues, and assist with transcriptions.',
+    sector: 'Field Research',
+    educationLevel: 'Bachelor’s degree',
+    desiredExperience: '1+ years',
+    contractType: 'Temporary',
+    deadline: '14-06-2026 at 11:59 PM',
+    positions: 5,
     requirements: [
-      'Recent graduate or final year student in Social Sciences or Development Studies.',
-      'Basic understanding of qualitative and quantitative research methods.',
-      'Strong writing skills.',
-      'Eagerness to learn.'
+      'Bachelor’s degree in Anthropology, Sociology, or related qualitative fields.',
+      'Excellent listening and fast, accurate typing/note-taking skills.',
+      'Experience observing and transcribing interviews and focus groups.',
+      'Fluency in English and Kinyarwanda.'
     ]
   },
   {
     id: '3',
-    title: 'Communications Officer',
-    type: 'Part-time',
-    location: 'Hybrid / Kigali',
-    department: 'Operations',
-    description: 'We are looking for a creative Communications Officer to manage our online presence, publish our research findings, and engage with our stakeholders.',
+    title: 'Qualitative Field Enumerators (Facilitators)',
+    type: 'Contract',
+    location: 'Various locations, Rwanda',
+    department: 'Data Collection',
+    description: 'We are hiring Qualitative Field Enumerators to act as Facilitators for Focus Group Discussions (FGDs) and Key Informant Interviews (KIIs). You will guide conversations, probe for in-depth insights, and ensure all research objectives are covered.',
+    sector: 'Field Research',
+    educationLevel: 'Bachelor’s degree',
+    desiredExperience: '2+ years',
+    contractType: 'Temporary',
+    deadline: '14-06-2026 at 11:59 PM',
+    positions: 5,
     requirements: [
-      'Bachelor’s degree in Communications, Journalism, or Marketing.',
-      'Experience managing social media for organizations.',
-      'Graphic design skills are a plus.',
-      'Excellent storytelling abilities.'
+      'Bachelor’s or Master’s degree in Social Sciences or related disciplines.',
+      'Proven experience facilitating FGDs and conducting qualitative interviews.',
+      'Strong interpersonal skills and ability to build rapport with diverse communities.',
+      'Fluency in English and Kinyarwanda.'
+    ]
+  },
+  {
+    id: '4',
+    title: 'Field Supervisors',
+    type: 'Contract',
+    location: 'Various locations, Rwanda',
+    department: 'Field Operations',
+    description: 'We are seeking experienced Field Supervisors to oversee data collection activities across various sites. You will manage teams of enumerators, ensure data quality control, handle logistics, and report daily progress to the research coordination team.',
+    sector: 'Field Research',
+    educationLevel: 'Bachelor’s or Master’s degree',
+    desiredExperience: '3+ years',
+    contractType: 'Temporary',
+    deadline: '14-06-2026 at 11:59 PM',
+    positions: 4,
+    requirements: [
+      'Degree in Social Sciences, Project Management, or related fields.',
+      'Extensive experience in field data collection and managing enumerator teams.',
+      'Strong leadership, organizational, and problem-solving skills.',
+      'Proficiency with data monitoring tools and quality assurance protocols.',
+      'Fluency in English and Kinyarwanda.'
     ]
   }
 ];

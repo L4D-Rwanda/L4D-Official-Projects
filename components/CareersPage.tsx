@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, MapPin, Clock, Briefcase, X, Upload, Send, FileText, User, Mail, Phone, CheckCircle, Info, Heart, Zap, Coffee, Globe, Calendar, Users, Star, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Briefcase, X, Upload, Send, FileText, User, Mail, Phone, CheckCircle, Info, Heart, Zap, Coffee, Globe, Calendar, Users, Star, ArrowRight, Sparkles, GraduationCap } from 'lucide-react';
 import { JOBS } from '../constants';
 import { Job } from '../types';
 import Reveal from './Reveal';
@@ -23,6 +23,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
   });
   const [fileName, setFileName] = useState<string>('');
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success'>('idle');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleApplyClick = (job: Job) => {
     setSelectedJob(job);
@@ -48,25 +49,67 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedJob) return;
 
-    const subject = encodeURIComponent(`Application for ${selectedJob.title} - ${formData.name}`);
-    const body = encodeURIComponent(
-      `Dear Hiring Team,\n\n` +
-      `I am writing to apply for the position of ${selectedJob.title} in the ${selectedJob.department} department.\n\n` +
-      `--- Applicant Details ---\n` +
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n\n` +
-      `--- Cover Letter ---\n` +
-      `${formData.coverLetter}\n\n` +
-      `[NOTE: My CV and degrees are attached to this email.]`
-    );
-    
-    window.location.href = `mailto:info@hlcl4d.rw?subject=${subject}&body=${body}`;
-    setSubmitStatus('success');
+    setIsSubmitting(true);
+
+    // To connect directly to the Google Sheet (1VPliad1kvgks6jJIPT6iVv_miEkkStFkYm7bENj9uwM),
+    // you need to deploy a Google Apps Script Web App attached to that spreadsheet.
+    // Replace this URL with the Web App URL generated from your Google Sheet.
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby2fr253nOhu0FCw71pza2K1Hqo8qX52IsLTHqnWP3pq3CK9BaAyoHZGAJq9GooO-k8AQ/exec';
+
+    try {
+      const formParams = new URLSearchParams();
+      formParams.append('Job Title', selectedJob.title);
+      formParams.append('Department', selectedJob.department);
+      formParams.append('Name', formData.name);
+      formParams.append('Email', formData.email);
+      formParams.append('Phone', formData.phone);
+      formParams.append('Cover Letter', formData.coverLetter);
+      formParams.append('Documents', fileName);
+      
+      // Also append camelCase variants
+      formParams.append('jobTitle', selectedJob.title);
+      formParams.append('department', selectedJob.department);
+      formParams.append('name', formData.name);
+      formParams.append('email', formData.email);
+      formParams.append('phone', formData.phone);
+      formParams.append('coverLetter', formData.coverLetter);
+      formParams.append('documents', fileName);
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formParams.toString()
+      });
+
+      setSubmitStatus('success');
+    } catch (error) {
+      console.warn('Google Sheet submission failed or not configured, falling back to email.', error);
+      
+      const subject = encodeURIComponent(`Application for ${selectedJob.title} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Dear Hiring Team,\n\n` +
+        `I am writing to apply for the position of ${selectedJob.title} in the ${selectedJob.department} department.\n\n` +
+        `--- Applicant Details ---\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone}\n\n` +
+        `--- Cover Letter ---\n` +
+        `${formData.coverLetter}\n\n` +
+        `[NOTE: My CV and degrees are attached to this email.]`
+      );
+      
+      window.location.href = `mailto:info@hlcl4d.rw?subject=${subject}&body=${body}`;
+      setSubmitStatus('success');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -190,25 +233,43 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         }`}>
                           {job.department}
                         </span>
-                        {index === 0 && (
-                            <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600">
-                                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New
-                            </span>
-                        )}
+                        <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600">
+                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New
+                        </span>
                       </div>
                       
                       <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition-colors">
                         {job.title}
                       </h3>
                       
-                      <div className="flex flex-wrap gap-6 text-sm text-gray-500 mb-6">
-                        <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg">
-                          <MapPin className="mr-2 h-4 w-4 text-gray-400" />
-                          {job.location}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-600 mb-6 font-medium">
+                        <div className="flex items-center">
+                          <MapPin className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Location</span>{job.location}</span>
                         </div>
-                        <div className="flex items-center bg-gray-50 px-3 py-1.5 rounded-lg">
-                          <Clock className="mr-2 h-4 w-4 text-gray-400" />
-                          {job.type}
+                        <div className="flex items-center">
+                          <Briefcase className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Sector</span>{job.sector || job.department}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <GraduationCap className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Education Level</span>{job.educationLevel || 'Not specified'}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Star className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Experience</span>{job.desiredExperience || 'Not specified'}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <FileText className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Contract Type</span>{job.contractType || job.type}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Calendar className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Deadline</span>{job.deadline || 'Rolling'}</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Users className="mr-2 h-4 w-4 text-teal-600" />
+                          <span><span className="text-gray-400 block text-xs uppercase tracking-wider font-semibold">Positions</span>{job.positions || 1}</span>
                         </div>
                       </div>
 
@@ -431,10 +492,20 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                   <div className="pt-4">
                     <button 
                       type="submit" 
-                      className="w-full bg-teal-700 text-white font-bold py-4 rounded-full hover:bg-teal-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group ring-4 ring-teal-500/20"
+                      disabled={isSubmitting}
+                      className="w-full bg-teal-700 text-white font-bold py-4 rounded-full hover:bg-teal-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group ring-4 ring-teal-500/20 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                     >
-                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                      Submit Application
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                          Submit Application
+                        </>
+                      )}
                     </button>
                     <p className="text-center text-xs text-gray-400 mt-4">
                       We respect your privacy. Your data is sent securely.
