@@ -24,7 +24,14 @@ export const NAV_ITEMS: NavItem[] = [
       { label: 'Research Mentorship', href: 'service/research-mentorship' }
     ]
   },
-  { label: 'Projects', href: 'projects' },
+  { 
+    label: 'Impact', 
+    href: 'impact',
+    subItems: [
+      { label: 'Projects', href: 'projects' },
+      { label: 'Programs & Partnerships', href: 'programs' }
+    ]
+  },
   { label: 'Publications', href: 'publications' },
   { label: 'Careers', href: 'careers' },
 ];

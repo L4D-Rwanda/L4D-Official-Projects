@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { PROJECTS, FOCUS_AREAS, PUBLICATIONS } from '../constants';
 import Reveal from './Reveal';
 import { Project } from '../types';
-import { X, Calendar, User, Tag, Activity, ArrowRight, CheckCircle2, FileText, Download, ExternalLink } from 'lucide-react';
+import { X, Calendar, User, Tag, Activity, ArrowRight, ArrowLeft, CheckCircle2, FileText, Download, ExternalLink } from 'lucide-react';
 import LazyImage from './LazyImage';
 
 interface ProjectsPageProps {
   initialCategory?: string;
   onNavigateToPublicationCategory?: (category: string, title?: string) => void;
+  onBack?: () => void;
 }
 
-const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigateToPublicationCategory }) => {
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigateToPublicationCategory, onBack }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -52,6 +53,14 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigate
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {onBack && (
+          <button 
+            onClick={onBack}
+            className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" /> Back to Impact
+          </button>
+        )}
         <Reveal>
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Our Projects</h1>

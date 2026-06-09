@@ -16,6 +16,8 @@ import AboutPage from './components/AboutPage';
 import ServicesPage from './components/ServicesPage';
 import ServiceDetailPage from './components/ServiceDetailPage';
 import ProjectsPage from './components/ProjectsPage';
+import ImpactPage from './components/ImpactPage';
+import ProgramsPage from './components/ProgramsPage';
 import PublicationsPage from './components/PublicationsPage';
 import PublicationDetailPage from './components/PublicationDetailPage';
 import CareersPage from './components/CareersPage';
@@ -73,7 +75,7 @@ const App: React.FC = () => {
             <About onViewMore={() => handleNavigation('about')} />
             <Services onViewMore={() => handleNavigation('services')} onServiceClick={(id) => handleNavigation(`service/${id}`)} />
             <FocusAreas onNavigateToCategory={handleFocusAreaClick} />
-            <Projects onViewMore={() => handleNavigation('projects')} onContact={() => handleNavigation('contact')} />
+            <Projects onViewMore={() => handleNavigation('impact')} onContact={() => handleNavigation('contact')} />
             <Publications onViewMore={() => handleNavigation('publications')} onNavigateToCategory={handlePublicationClick} />
             <Careers onViewAll={() => handleNavigation('careers')} />
             <Contact />
@@ -83,8 +85,12 @@ const App: React.FC = () => {
         return <AboutPage />;
       case 'services':
         return <ServicesPage onNavigateToService={(id) => handleNavigation(`service/${id}`)} />;
+      case 'impact':
+        return <ImpactPage onNavigate={handleNavigation} />;
       case 'projects':
-        return <ProjectsPage initialCategory={projectCategory} onNavigateToPublicationCategory={handlePublicationClick} />;
+        return <ProjectsPage initialCategory={projectCategory} onNavigateToPublicationCategory={handlePublicationClick} onBack={() => handleNavigation('impact')} />;
+      case 'programs':
+        return <ProgramsPage onBack={() => handleNavigation('impact')} onContact={() => handleNavigation('contact')} />;
       case 'publications':
         return <PublicationsPage initialCategory={publicationCategory} initialPublicationTitle={selectedPublicationTitle} onNavigateToPublication={(title) => handlePublicationClick(publicationCategory || 'All', title)} />;
       case 'careers':

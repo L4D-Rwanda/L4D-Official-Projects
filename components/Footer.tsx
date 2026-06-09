@@ -99,9 +99,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                 </a>
               </li>
               <li>
-                <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')} className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
+                <a href="#impact" onClick={(e) => handleNavClick(e, 'impact')} className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
-                  Projects
+                  Impact
                 </a>
               </li>
               <li>
