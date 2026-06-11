@@ -22,6 +22,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     coverLetter: ''
   });
   const [fileName, setFileName] = useState<string>('');
+  const [coverLetterFileName, setCoverLetterFileName] = useState<string>('');
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success'>('idle');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -34,6 +35,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     setSelectedJob(null);
     setFormData({ name: '', email: '', phone: '', coverLetter: '' });
     setFileName('');
+    setCoverLetterFileName('');
     setSubmitStatus('idle');
   };
 
@@ -61,13 +63,14 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby2fr253nOhu0FCw71pza2K1Hqo8qX52IsLTHqnWP3pq3CK9BaAyoHZGAJq9GooO-k8AQ/exec';
 
     try {
+      const finalCoverLetter = `[File Uploaded: ${coverLetterFileName}]`;
       const formParams = new URLSearchParams();
       formParams.append('Job Title', selectedJob.title);
       formParams.append('Department', selectedJob.department);
       formParams.append('Name', formData.name);
       formParams.append('Email', formData.email);
       formParams.append('Phone', formData.phone);
-      formParams.append('Cover Letter', formData.coverLetter);
+      formParams.append('Cover Letter', finalCoverLetter);
       formParams.append('Documents', fileName);
       
       // Also append camelCase variants
@@ -76,7 +79,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
       formParams.append('name', formData.name);
       formParams.append('email', formData.email);
       formParams.append('phone', formData.phone);
-      formParams.append('coverLetter', formData.coverLetter);
+      formParams.append('coverLetter', finalCoverLetter);
       formParams.append('documents', fileName);
 
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -92,6 +95,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     } catch (error) {
       console.warn('Google Sheet submission failed or not configured, falling back to email.', error);
       
+      const finalCoverLetterEmail = `[Cover letter attached: ${coverLetterFileName}]`;
       const subject = encodeURIComponent(`Application for ${selectedJob.title} - ${formData.name}`);
       const body = encodeURIComponent(
         `Dear Hiring Team,\n\n` +
@@ -101,8 +105,8 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
         `Email: ${formData.email}\n` +
         `Phone: ${formData.phone}\n\n` +
         `--- Cover Letter ---\n` +
-        `${formData.coverLetter}\n\n` +
-        `[NOTE: My CV and degrees are attached to this email.]`
+        `${finalCoverLetterEmail}\n\n` +
+        `[NOTE: My CV, degrees, and any other required documents are attached to this email.]`
       );
       
       window.location.href = `mailto:info@hlcl4d.rw?subject=${subject}&body=${body}`;
@@ -113,10 +117,10 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-gray-50 relative font-sans">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50 relative font-sans print:pt-4 print:bg-white print:pb-0">
       
       {/* Top Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 print:hidden">
          <button 
             onClick={onBack}
             className="inline-flex items-center text-teal-700 font-bold hover:text-teal-900 group transition-colors py-2"
@@ -131,62 +135,80 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Modern Hero Section */}
-        <Reveal>
-            <div className="relative rounded-[40px] overflow-hidden bg-teal-900 text-white shadow-2xl mb-20">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0">
-                    <img 
-                      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" 
-                      alt="Team working together" 
-                      className="w-full h-full object-cover opacity-20 mix-blend-overlay"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-900 via-teal-900/90 to-teal-800/80"></div>
-                </div>
+        <div className="relative rounded-[40px] overflow-hidden bg-teal-900 text-white shadow-2xl mb-20 print:bg-white print:text-black print:shadow-none print:mb-8 print:border-b print:border-gray-200 print:rounded-none">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 print:hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" 
+                  alt="Team working together" 
+                  className="w-full h-full object-cover opacity-20 mix-blend-overlay"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-900 via-teal-900/90 to-teal-800/80"></div>
+            </div>
 
-                <div className="relative z-10 p-10 md:p-20 flex flex-col md:flex-row items-center gap-12">
-                    <div className="md:w-3/5">
-                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-800/50 border border-teal-700 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+            <div className="relative z-10 p-10 md:p-20 flex flex-col md:flex-row items-center gap-12 print:p-0 print:block">
+                <div className="md:w-3/5 print:w-full">
+                    <Reveal delay={100}>
+                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-800/50 border border-teal-700 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm print:text-teal-800 print:bg-teal-50 print:border-teal-200">
                             <Sparkles size={12} className="text-yellow-400" />
                             We Are Hiring
                         </span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+                    </Reveal>
+                    <Reveal delay={200}>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight print:text-3xl">
                             Build Your Career <br/>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-white">With Impact</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-white print:text-teal-900 print:bg-none">With Impact</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-teal-100/90 max-w-xl leading-relaxed mb-8">
+                    </Reveal>
+                    <Reveal delay={300}>
+                        <p className="text-lg md:text-xl text-teal-100/90 max-w-xl leading-relaxed mb-8 print:text-gray-800">
                             Join a team of dedicated professionals committed to shaping policy and fostering development. We offer a dynamic work environment where research meets real-world application.
                         </p>
-                        <div className="flex gap-4">
-                            <a href="#open-positions" className="px-8 py-3.5 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                    </Reveal>
+                    <Reveal delay={400}>
+                        <div className="flex flex-wrap gap-4 print:hidden">
+                            <a href="#open-positions" className="px-8 py-3.5 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-block">
                                 View Positions
                             </a>
                         </div>
+                    </Reveal>
+                </div>
+                
+                {/* Floating Stats/Culture Cards */}
+                <div className="md:w-2/5 relative h-64 md:h-auto w-full print:hidden">
+                    <div className="absolute top-0 right-0 z-10">
+                        <Reveal delay={500}>
+                            <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
+                                <Heart className="text-pink-400 h-8 w-8 mb-2" />
+                                <p className="text-white font-bold text-lg">Work-Life Balance</p>
+                                <p className="text-teal-200 text-sm">Flexible hours & remote options</p>
+                            </div>
+                        </Reveal>
                     </div>
-                    
-                    {/* Floating Stats/Culture Cards */}
-                    <div className="md:w-2/5 relative h-64 md:h-auto w-full">
-                        <div className="absolute top-0 right-0 p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 animate-in fade-in slide-in-from-right-8">
-                            <Heart className="text-pink-400 h-8 w-8 mb-2" />
-                            <p className="text-white font-bold text-lg">Work-Life Balance</p>
-                            <p className="text-teal-200 text-sm">Flexible hours & remote options</p>
-                        </div>
-                        <div className="absolute bottom-4 left-4 p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 animate-in fade-in slide-in-from-left-8 delay-150">
-                            <Zap className="text-yellow-400 h-8 w-8 mb-2" />
-                            <p className="text-white font-bold text-lg">Fast Growth</p>
-                            <p className="text-teal-200 text-sm">Mentorship & Career paths</p>
-                        </div>
-                         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-5 bg-white text-teal-900 rounded-2xl shadow-xl animate-in zoom-in delay-300">
-                            <Users className="text-teal-600 h-8 w-8 mb-2" />
-                            <p className="font-bold text-lg">Great Culture</p>
-                            <p className="text-gray-500 text-sm">Inclusive & Collaborative</p>
-                        </div>
+                    <div className="absolute bottom-4 left-4 z-10 w-48">
+                        <Reveal delay={600}>
+                            <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
+                                <Zap className="text-yellow-400 h-8 w-8 mb-2" />
+                                <p className="text-white font-bold text-lg">Fast Growth</p>
+                                <p className="text-teal-200 text-sm">Mentorship & Career paths</p>
+                            </div>
+                        </Reveal>
+                    </div>
+                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-48">
+                        <Reveal delay={700}>
+                            <div className="p-5 bg-white text-teal-900 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
+                                <Users className="text-teal-600 h-8 w-8 mb-2" />
+                                <p className="font-bold text-lg">Great Culture</p>
+                                <p className="text-gray-500 text-sm">Inclusive & Collaborative</p>
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>
-        </Reveal>
+        </div>
 
         {/* Benefits Grid */}
-        <div className="mb-20">
+        <div className="mb-20 print:hidden">
             <Reveal>
                 <h2 className="text-3xl font-serif font-bold text-gray-900 mb-10 text-center">Why Join L4D?</h2>
             </Reveal>
@@ -211,16 +233,16 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
         </div>
 
         {/* Job Listings */}
-        <div id="open-positions" className="mb-20 scroll-mt-24">
+        <div id="open-positions" className="mb-20 scroll-mt-24 print:mt-8">
           <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
-            <h2 className="text-2xl font-serif font-bold text-gray-900">Open Positions</h2>
-            <span className="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full">{JOBS.length} Roles Available</span>
+            <h2 className="text-2xl font-serif font-bold text-gray-900 print:text-xl">Open Positions</h2>
+            <span className="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full print:hidden">{JOBS.length} Roles Available</span>
           </div>
           
-          <div className="grid gap-6">
+          <div className="grid gap-6 print:gap-4">
             {JOBS.map((job, index) => (
               <Reveal key={job.id} delay={index * 100}>
-                <div className="bg-white rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group">
+                <div className="bg-white rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group print:shadow-none print:border print:border-gray-300 print:rounded-none print:p-6 print:page-break-inside-avoid">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     
                     {/* Job Info */}
@@ -273,13 +295,13 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         </div>
                       </div>
 
-                      <p className="text-gray-600 mb-6 leading-relaxed max-w-3xl">
+                      <p className="text-gray-600 mb-6 leading-relaxed max-w-3xl print:mb-2">
                         {job.description}
                       </p>
                     </div>
 
                     {/* Apply Action */}
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 print:hidden">
                        <button 
                          onClick={() => handleApplyClick(job)}
                          className="w-full lg:w-auto text-center px-8 py-4 bg-gray-900 text-white font-bold rounded-full hover:bg-teal-700 transition-all shadow-md transform active:scale-95 duration-200 flex items-center justify-center gap-2 group/btn"
@@ -297,7 +319,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
 
         {/* Spontaneous Application CTA */}
         <Reveal delay={300}>
-          <div className="bg-teal-900/90 backdrop-blur-lg border border-teal-700/50 rounded-[30px] p-12 text-center text-white relative overflow-hidden shadow-2xl mb-12">
+          <div className="bg-teal-900/90 backdrop-blur-lg border border-teal-700/50 rounded-[30px] p-12 text-center text-white relative overflow-hidden shadow-2xl mb-12 print:hidden">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
              <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/20 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none"></div>
              
@@ -473,20 +495,38 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                      </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="coverLetter" className="text-sm font-bold text-gray-700">
+                  <div className="space-y-4">
+                    <label className="text-sm font-bold text-gray-700">
                       Cover Letter
                     </label>
-                    <textarea 
-                      required
-                      id="coverLetter" 
-                      name="coverLetter"
-                      rows={5}
-                      value={formData.coverLetter}
-                      onChange={handleInputChange}
-                      placeholder="Tell us why you are a great fit..."
-                      className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white shadow-sm focus:shadow-md resize-none"
-                    ></textarea>
+                    <div className="relative border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center hover:border-teal-500 hover:bg-teal-50/50 transition-all cursor-pointer group bg-gray-50/50 animate-in fade-in duration-300">
+                      <input 
+                        type="file" 
+                        id="coverLetterFile" 
+                        name="coverLetterFile"
+                        required={!coverLetterFileName}
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files.length > 0) {
+                            setCoverLetterFileName(e.target.files[0].name);
+                          }
+                        }}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                      />
+                      <div className="flex flex-col items-center pointer-events-none">
+                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-teal-600 mb-2 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                          <Upload className="h-4 w-4" />
+                        </div>
+                        {coverLetterFileName ? (
+                          <p className="text-sm font-bold text-teal-700 break-all px-4 bg-teal-100/50 py-1 rounded-full">{coverLetterFileName}</p>
+                        ) : (
+                          <>
+                            <p className="text-sm font-bold text-gray-900 group-hover:text-teal-700 transition-colors">Upload Cover Letter</p>
+                            <p className="text-xs text-gray-500 mt-1">PDF, DOC, or DOCX</p>
+                          </>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="pt-4">

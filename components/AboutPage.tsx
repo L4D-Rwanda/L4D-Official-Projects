@@ -54,6 +54,46 @@ const CountUp = ({ end, duration = 2000, suffix = '' }: { end: number, duration?
   return <span ref={elementRef}>{count}{suffix}</span>;
 };
 
+const TeamCard = ({ member, index }: { member: any, index: number }) => {
+  return (
+    <Reveal delay={index * 100}>
+      <div className="group relative bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+        <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
+          <img 
+            src={member.image} 
+            alt={member.name} 
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
+            loading="lazy"
+          />
+          <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+        </div>
+        <div className="p-8 relative flex-1 flex flex-col">
+          <div className="absolute -top-10 right-8 w-16 h-16 bg-burgundy-700 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+             <Users size={24} />
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">{member.name}</h3>
+          <p className="text-teal-600 font-medium text-sm mb-4 uppercase tracking-wide">{member.role}</p>
+          <p className="text-gray-600 leading-relaxed mb-6">
+            {member.bio}
+          </p>
+          {member.focusArea && member.focusArea.length > 0 && (
+            <div className="mt-auto pt-4 border-t border-gray-100">
+              <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Focus Area</p>
+              <div className="flex flex-wrap gap-2">
+                {member.focusArea.map((focus: string, idx: number) => (
+                  <span key={idx} className="bg-teal-50 text-teal-700 text-xs font-medium px-2.5 py-1 rounded-full border border-teal-100">
+                    {focus}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </Reveal>
+  );
+};
+
 const AboutPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -179,33 +219,37 @@ const AboutPage: React.FC = () => {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TEAM.map((member, index) => (
-              <Reveal key={index} delay={index * 100}>
-                <div className="group relative bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
-                  <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                  </div>
-                  <div className="p-8 relative flex-1 flex flex-col">
-                    <div className="absolute -top-10 right-8 w-16 h-16 bg-burgundy-700 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                       <Users size={24} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">{member.name}</h3>
-                    <p className="text-teal-600 font-medium text-sm mb-4 uppercase tracking-wide">{member.role}</p>
-                    <p className="text-gray-600 leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          {/* Leadership & Board */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Leadership & Board</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {TEAM.filter(m => m.type === 'Board' || m.type === 'Leadership').map((member, index) => (
+                 <TeamCard key={index} member={member} index={index} />
+              ))}
+            </div>
           </div>
+
+          {/* Staff */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Our Experts & Staff</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {TEAM.filter(m => m.type === 'Staff').map((member, index) => (
+                 <TeamCard key={index} member={member} index={index} />
+              ))}
+            </div>
+          </div>
+
+          {/* Consultants */}
+          {TEAM.filter(m => m.type === 'Consultant').length > 0 && (
+            <div className="mb-16">
+              <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Consultants</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {TEAM.filter(m => m.type === 'Consultant').map((member, index) => (
+                   <TeamCard key={index} member={member} index={index} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Legal Status CTA */}

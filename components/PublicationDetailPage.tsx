@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import { PUBLICATIONS } from '../constants';
+import { PUBLICATIONS, PROJECTS } from '../constants';
 import Reveal from './Reveal';
-import { ArrowLeft, Download, Calendar, FileText, Share2, Printer } from 'lucide-react';
+import { ArrowLeft, Download, Calendar, FileText, Share2, Printer, Activity, User, ArrowRight } from 'lucide-react';
 
 interface PublicationDetailPageProps {
   title: string;
   onBack: () => void;
+  onNavigateToProject?: (id: string) => void;
 }
 
-const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, onBack }) => {
+const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, onBack, onNavigateToProject }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [title]);
@@ -23,6 +24,16 @@ const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, on
       </div>
     );
   }
+
+  // Find related projects based on matching publication title keywords to project category or title
+  const relatedProjects = PROJECTS.filter(project => {
+    const categoryKeywords = project.category.split(' ').filter((w: string) => w.length > 3);
+    if (project.category === 'Socioeconomic Development') categoryKeywords.push('Economic', 'Urban', 'Employment');
+    const titleKeywords = project.title.split(' ').filter((w: string) => w.length > 4);
+    const searchTerms = [...categoryKeywords, ...titleKeywords];
+    
+    return searchTerms.some((term: string) => publication.title.toLowerCase().includes(term.toLowerCase()));
+  }).slice(0, 2);
 
   const handlePrint = () => {
     window.print();
@@ -180,6 +191,48 @@ Published by High Lands Centre of Leadership for Development (L4D).
                     <li>Invest in comprehensive monitoring and evaluation systems.</li>
                   </ul>
                   
+                  {/* Related Projects Section */}
+                  {relatedProjects.length > 0 && (
+                     <div className="mt-12 pt-8 border-t border-gray-100 print:hidden">
+                        <h3 className="text-xl font-bold font-serif text-gray-900 mb-6 flex items-center gap-2">
+                           Related Projects
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                           {relatedProjects.map((project, idx) => (
+                              <div 
+                                key={idx} 
+                                onClick={() => onNavigateToProject && onNavigateToProject(project.id)}
+                                className="flex flex-col bg-slate-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-teal-200 hover:shadow-md transition-all group/project cursor-pointer"
+                              >
+                                 <div className="h-32 w-full overflow-hidden relative">
+                                    <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/project:scale-105" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                    <div className="absolute bottom-3 left-4">
+                                       <span className="text-xs font-bold uppercase tracking-wider text-white bg-teal-600/80 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                                          {project.category}
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div className="p-5 flex-1 flex flex-col">
+                                    <h4 className="font-bold text-gray-900 mb-2 group-hover/project:text-teal-700 transition-colors line-clamp-2">
+                                       {project.title}
+                                    </h4>
+                                    <p className="text-sm text-gray-500 line-clamp-2 flex-1">
+                                       {project.description}
+                                    </p>
+                                    <div className="mt-4 pt-3 border-t border-gray-200/60 flex items-center justify-between">
+                                       <span className="text-xs font-medium text-gray-500">{project.year}</span>
+                                       <span className="text-teal-600 group-hover/project:translate-x-1 transition-transform flex items-center gap-1 text-sm font-medium">
+                                          View Project <ArrowRight className="w-3.5 h-3.5" />
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  )}
+
                   <hr className="my-8 border-gray-100" />
                   
                   <p className="text-sm text-gray-500 italic">

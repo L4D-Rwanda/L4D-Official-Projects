@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Publications from './components/Publications';
 import Careers from './components/Careers';
 import Contact from './components/Contact';
+import SocialMediaFeed from './components/SocialMediaFeed';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
@@ -20,6 +21,8 @@ import ImpactPage from './components/ImpactPage';
 import ProgramsPage from './components/ProgramsPage';
 import PublicationsPage from './components/PublicationsPage';
 import PublicationDetailPage from './components/PublicationDetailPage';
+import NewsEventsPage from './components/NewsEventsPage';
+import NewsEventDetailPage from './components/NewsEventDetailPage';
 import CareersPage from './components/CareersPage';
 import ContactPage from './components/ContactPage';
 
@@ -28,12 +31,14 @@ import PrivacyTermsPage from './components/StaticPage';
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [projectCategory, setProjectCategory] = useState<string | undefined>(undefined);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | undefined>(undefined);
   const [publicationCategory, setPublicationCategory] = useState<string | undefined>(undefined);
   const [selectedPublicationTitle, setSelectedPublicationTitle] = useState<string | undefined>(undefined);
 
   const handleNavigation = (page: Page) => {
     setCurrentPage(page);
     setProjectCategory(undefined); // Reset filter when navigating normally
+    setSelectedProjectId(undefined);
     setPublicationCategory(undefined);
     setSelectedPublicationTitle(undefined);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -41,6 +46,14 @@ const App: React.FC = () => {
 
   const handleFocusAreaClick = (category: string) => {
     setProjectCategory(category);
+    setSelectedProjectId(undefined);
+    setCurrentPage('projects');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleProjectClick = (id: string) => {
+    setSelectedProjectId(id);
+    setProjectCategory(undefined);
     setCurrentPage('projects');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -64,7 +77,12 @@ const App: React.FC = () => {
 
     if (currentPage.startsWith('publication-detail/')) {
       const pubTitle = decodeURIComponent(currentPage.replace('publication-detail/', ''));
-      return <PublicationDetailPage title={pubTitle} onBack={() => handleNavigation('publications')} />;
+      return <PublicationDetailPage title={pubTitle} onBack={() => handleNavigation('publications')} onNavigateToProject={handleProjectClick} />;
+    }
+
+    if (currentPage.startsWith('news-event/')) {
+      const eventId = currentPage.split('/')[1];
+      return <NewsEventDetailPage id={eventId} onBack={() => handleNavigation('news-events')} onNavigateToProject={handleProjectClick} />;
     }
 
     switch (currentPage) {
@@ -78,6 +96,7 @@ const App: React.FC = () => {
             <Projects onViewMore={() => handleNavigation('impact')} onContact={() => handleNavigation('contact')} />
             <Publications onViewMore={() => handleNavigation('publications')} onNavigateToCategory={handlePublicationClick} />
             <Careers onViewAll={() => handleNavigation('careers')} />
+            <SocialMediaFeed />
             <Contact />
           </>
         );
@@ -88,11 +107,13 @@ const App: React.FC = () => {
       case 'impact':
         return <ImpactPage onNavigate={handleNavigation} />;
       case 'projects':
-        return <ProjectsPage initialCategory={projectCategory} onNavigateToPublicationCategory={handlePublicationClick} onBack={() => handleNavigation('impact')} />;
+        return <ProjectsPage initialCategory={projectCategory} initialProjectId={selectedProjectId} onNavigateToPublicationCategory={handlePublicationClick} onNavigateToNewsEvent={(id) => handleNavigation(`news-event/${id}`)} onBack={() => handleNavigation('impact')} />;
       case 'programs':
         return <ProgramsPage onBack={() => handleNavigation('impact')} onContact={() => handleNavigation('contact')} />;
       case 'publications':
         return <PublicationsPage initialCategory={publicationCategory} initialPublicationTitle={selectedPublicationTitle} onNavigateToPublication={(title) => handlePublicationClick(publicationCategory || 'All', title)} />;
+      case 'news-events':
+        return <NewsEventsPage onNavigateToNewsEvent={(id) => handleNavigation(`news-event/${id}`)} />;
       case 'careers':
         return <CareersPage onBack={() => handleNavigation('home')} />;
       case 'contact':

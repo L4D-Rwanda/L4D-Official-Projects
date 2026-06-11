@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PROJECTS, FOCUS_AREAS, PUBLICATIONS } from '../constants';
+import { PROJECTS, FOCUS_AREAS, PUBLICATIONS, NEWS_EVENTS } from '../constants';
 import Reveal from './Reveal';
 import { Project } from '../types';
 import { X, Calendar, User, Tag, Activity, ArrowRight, ArrowLeft, CheckCircle2, FileText, Download, ExternalLink } from 'lucide-react';
@@ -7,13 +7,24 @@ import LazyImage from './LazyImage';
 
 interface ProjectsPageProps {
   initialCategory?: string;
+  initialProjectId?: string;
   onNavigateToPublicationCategory?: (category: string, title?: string) => void;
+  onNavigateToNewsEvent?: (id: string) => void;
   onBack?: () => void;
 }
 
-const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigateToPublicationCategory, onBack }) => {
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialProjectId, onNavigateToPublicationCategory, onNavigateToNewsEvent, onBack }) => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial data load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,6 +32,19 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigate
       setActiveCategory(initialCategory);
     }
   }, [initialCategory]);
+
+  useEffect(() => {
+    if (initialProjectId) {
+      const project = PROJECTS.find(p => p.id === initialProjectId);
+      if (project) {
+        setSelectedProject(project);
+        if (!initialCategory) {
+           setActiveCategory('All');
+        }
+      }
+    }
+  }, [initialProjectId]);
+
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -48,6 +72,15 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigate
     const searchTerms = [...categoryKeywords, ...titleKeywords];
     
     return searchTerms.some(term => pub.title.toLowerCase().includes(term.toLowerCase()));
+  }).slice(0, 2) : [];
+
+  const relatedNewsEvents = selectedProject ? NEWS_EVENTS.filter(item => {
+    if (item.relatedProjectId === selectedProject.id) return true;
+    const categoryKeywords = selectedProject.category.split(' ').filter(w => w.length > 3);
+    if (selectedProject.category === 'Socioeconomic Development') categoryKeywords.push('Economic', 'Urban', 'Employment');
+    const titleKeywords = selectedProject.title.split(' ').filter(w => w.length > 4);
+    const searchTerms = [...categoryKeywords, ...titleKeywords];
+    return searchTerms.some(term => item.title.toLowerCase().includes(term.toLowerCase()) || item.summary.toLowerCase().includes(term.toLowerCase()));
   }).slice(0, 2) : [];
 
   return (
@@ -91,7 +124,29 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigate
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.length > 0 ? (
+          {isLoading ? (
+            Array.from({ length: 6 }).map((_, index) => (
+              <div key={index} className="bg-white rounded-[30px] overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full animate-pulse">
+                <div className="h-64 bg-gray-200 w-full" />
+                <div className="p-8 flex flex-col flex-grow">
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="h-4 bg-gray-200 rounded w-1/4" />
+                    <div className="h-4 bg-gray-200 rounded w-1/4" />
+                  </div>
+                  <div className="h-8 bg-gray-200 rounded w-3/4 mb-4" />
+                  <div className="space-y-2 mb-6 flex-grow">
+                    <div className="h-4 bg-gray-200 rounded w-full" />
+                    <div className="h-4 bg-gray-200 rounded w-full" />
+                    <div className="h-4 bg-gray-200 rounded w-2/3" />
+                  </div>
+                  <div className="pt-6 border-t border-gray-100 mt-auto flex items-center justify-between">
+                    <div className="h-4 bg-gray-200 rounded w-1/3" />
+                    <div className="h-8 bg-gray-200 rounded-full w-24" />
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 100}>
                 <div className="group bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
@@ -265,6 +320,45 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, onNavigate
                                                 {pub.type}
                                             </span>
                                             <span>{pub.date}</span>
+                                         </div>
+                                      </div>
+                                      <button className="self-center p-2 text-gray-400 hover:text-teal-700 transition-colors">
+                                         <ArrowRight size={18} />
+                                      </button>
+                                   </div>
+                                ))}
+                             </div>
+                          </div>
+                       )}
+
+                       {/* Related News & Events Section */}
+                       {relatedNewsEvents.length > 0 && (
+                          <div className="pt-8 border-t border-gray-100">
+                             <h3 className="text-xl font-bold text-gray-900 mb-6 font-serif flex items-center gap-2">
+                               Related News & Events
+                             </h3>
+                             <div className="grid grid-cols-1 gap-4">
+                                {relatedNewsEvents.map((item, idx) => (
+                                   <div 
+                                     key={idx} 
+                                     onClick={() => onNavigateToNewsEvent && onNavigateToNewsEvent(item.id)}
+                                     className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all group/pub cursor-pointer"
+                                   >
+                                      <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden relative">
+                                        <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover/pub:scale-105 transition-transform" />
+                                      </div>
+                                      <div className="flex-1">
+                                         <h4 className="font-bold text-gray-900 mb-1 group-hover/pub:text-teal-700 transition-colors leading-tight line-clamp-2">
+                                            {item.title}
+                                         </h4>
+                                         <div className="flex items-center gap-3 text-xs text-gray-500 mt-2">
+                                            <span className={`px-2 py-0.5 rounded-full ${
+                                                item.type === 'News' ? 'bg-indigo-50 text-indigo-700' :
+                                                'bg-orange-50 text-orange-700'
+                                            } font-bold uppercase tracking-wide`}>
+                                                {item.type}
+                                            </span>
+                                            <span>{item.date}</span>
                                          </div>
                                       </div>
                                       <button className="self-center p-2 text-gray-400 hover:text-teal-700 transition-colors">

@@ -10,7 +10,7 @@ interface PublicationsProps {
 
 const Publications: React.FC<PublicationsProps> = ({ onViewMore, onNavigateToCategory }) => {
   const [activeTab, setActiveTab] = useState('All');
-  const categories = ['All', 'Report', 'Policy Brief', 'Working Paper', 'News & Insights'];
+  const categories = ['All', 'Report', 'Policy Brief', 'Working Paper'];
 
   // Only show first 3 items on homepage/section view
   const displayLimit = 3;

@@ -18,8 +18,17 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(6);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial data load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    return () => clearTimeout(timer);
+  }, []);
   
-  const categories = ['All', 'Report', 'Policy Brief', 'Working Paper', 'News & Insights'];
+  const categories = ['All', 'Report', 'Policy Brief', 'Working Paper'];
 
   // Determine featured publication
   const featuredPub = initialPublicationTitle 
@@ -76,13 +85,13 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-gray-50 font-sans">
+    <div className="pt-24 min-h-screen bg-gray-50 font-sans print:pt-4 print:bg-white">
       
       {/* Featured Publication Hero */}
-      <div className="bg-white border-b border-gray-100 pb-16 pt-10 relative overflow-hidden">
+      <div className="bg-white border-b border-gray-100 pb-16 pt-10 relative overflow-hidden print:border-none print:pb-8">
         {/* Background Pattern */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-50/50 -skew-x-12 translate-x-1/4 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-burgundy-50/30 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-teal-50/50 -skew-x-12 translate-x-1/4 pointer-events-none print:hidden" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-burgundy-50/30 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none print:hidden" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
            <Reveal>
@@ -95,13 +104,13 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                       </span>
                       Featured Insight
                    </div>
-                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight">
+                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6 leading-tight print:text-3xl">
                      {featuredPub.title}
                    </h1>
-                   <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+                   <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl print:text-gray-800">
                      Our latest comprehensive analysis providing actionable recommendations for stakeholders in the region.
                    </p>
-                   <div className="flex flex-wrap gap-4">
+                   <div className="flex flex-wrap gap-4 print:hidden">
                       <button 
                         onClick={() => handleRead(featuredPub)}
                         className="px-8 py-4 bg-teal-700 text-white font-bold rounded-full hover:bg-teal-800 transition-all shadow-lg hover:shadow-teal-900/20 hover:-translate-y-1 active:scale-95 flex items-center gap-2 group"
@@ -111,7 +120,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                       </button>
                    </div>
                 </div>
-                <div className="lg:w-1/2 relative flex justify-center lg:justify-end">
+                <div className="lg:w-1/2 relative flex justify-center lg:justify-end print:hidden">
                    <div className="absolute inset-0 bg-gradient-to-tr from-teal-600 to-teal-400 rounded-[30px] rotate-3 opacity-10 transform scale-95 translate-y-4"></div>
                    <div className="bg-white rounded-[30px] w-full max-w-md aspect-[4/3] flex items-center justify-center border border-gray-100 shadow-2xl relative z-10 overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
                       <div className="absolute inset-0 bg-gray-50 pattern-grid-lg opacity-50"></div>
@@ -144,7 +153,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
         
         {/* Controls - Enhanced Search Visibility */}
         <Reveal delay={100}>
-          <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-12 gap-6 sticky top-24 z-30 bg-white/95 backdrop-blur-md py-4 rounded-3xl px-6 border border-gray-100 shadow-lg transition-all">
+          <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-12 gap-6 sticky top-24 z-30 bg-white/95 backdrop-blur-md py-4 rounded-3xl px-6 border border-gray-100 shadow-lg transition-all print:hidden">
              <div className="flex flex-wrap gap-2">
                 {categories.map((category) => (
                   <button
@@ -179,13 +188,33 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
         </Reveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-           {visiblePublications.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 print:grid-cols-1 print:gap-4 print:my-0">
+           {isLoading ? (
+             Array.from({ length: 6 }).map((_, index) => (
+               <div key={index} className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm flex flex-col h-full animate-pulse">
+                  <div className="flex justify-between items-start mb-6">
+                     <div className="w-12 h-12 bg-gray-200 rounded-2xl" />
+                     <div className="h-6 bg-gray-200 rounded-full w-24" />
+                  </div>
+                  <div className="h-6 bg-gray-200 rounded w-3/4 mb-4" />
+                  <div className="h-6 bg-gray-200 rounded w-1/2 mb-4" />
+                  <div className="space-y-2 mb-8">
+                     <div className="h-4 bg-gray-200 rounded w-full" />
+                     <div className="h-4 bg-gray-200 rounded w-full" />
+                     <div className="h-4 bg-gray-200 rounded w-4/5" />
+                  </div>
+                  <div className="mt-auto flex items-center justify-between border-t border-gray-50 pt-6">
+                     <div className="h-4 bg-gray-200 rounded w-24" />
+                     <div className="h-10 w-10 bg-gray-200 rounded-full" />
+                  </div>
+               </div>
+             ))
+           ) : visiblePublications.length > 0 ? (
               visiblePublications.map((pub, index) => (
                 <Reveal key={`${pub.title}-${index}`} delay={index % 3 * 100}>
                   <div 
                     onClick={() => handleRead(pub)}
-                    className="group bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 hover:border-teal-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer relative overflow-hidden"
+                    className="group bg-white rounded-[24px] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 hover:border-teal-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer relative overflow-hidden print:shadow-none print:border-b print:border-gray-200 print:rounded-none print:p-4 print:mt-4 print:page-break-inside-avoid"
                   >
                      {/* Top colored bar based on type */}
                      <div className={`absolute top-0 left-0 w-full h-1.5 ${
@@ -260,7 +289,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
 
         {/* Load More Pagination */}
         {hasMore && (
-           <div className="text-center">
+           <div className="text-center print:hidden">
               <button 
                 onClick={handleLoadMore}
                 disabled={loadingMore}

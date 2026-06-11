@@ -57,7 +57,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
             <div className="bg-white p-8 md:p-12 rounded-[30px] shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Approach</h2>
               <p className="text-gray-600 leading-relaxed mb-8">
-                At HLC-L4D, our approach to {service.title.toLowerCase()} is deeply rooted in rigorous methodology and practical application. We work closely with stakeholders to ensure that our insights translate directly into actionable outcomes that drive sustainable development.
+                At L4D, our approach to {service.title.toLowerCase()} is deeply rooted in rigorous methodology and practical application. We work closely with stakeholders to ensure that our insights translate directly into actionable outcomes that drive sustainable development.
               </p>
               
               <div className="bg-teal-50 p-6 rounded-xl border-l-4 border-teal-500">

@@ -60,7 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
     : `${isActive ? 'text-white font-bold bg-white/20' : 'text-white/90 hover:text-white hover:bg-white/20'}`;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 transition-all duration-300">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4 transition-all duration-300 print:hidden">
       <nav 
         className={`w-full max-w-7xl rounded-[30px] transition-all duration-500 ease-in-out border px-4 sm:px-6 lg:px-8 ${navContainerClasses}`}
       >
@@ -76,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center lg:space-x-0 xl:space-x-1">
             {NAV_ITEMS.map((item) => (
               <div 
                 key={item.label}
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                 <a
                   href={`#${item.href}`}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`flex items-center gap-1 font-medium text-sm px-4 py-2.5 rounded-[30px] transition-all duration-200 ${linkClasses(currentPage === item.href)}`}
+                  className={`flex items-center gap-1 font-medium text-[13px] lg:px-2.5 xl:px-4 xl:text-sm py-2.5 rounded-[30px] transition-all duration-200 ${linkClasses(currentPage === item.href)}`}
                 >
                   {item.label}
                   {item.subItems && <ChevronDown size={14} className={`transition-transform duration-200 ${openSubmenu === item.label ? 'rotate-180' : ''}`} />}
@@ -116,11 +116,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                 )}
               </div>
             ))}
-            <div className="pl-2">
+            <div className="lg:pl-1 xl:pl-2">
                 <a 
                   href="#contact" 
                   onClick={(e) => handleNavClick(e, 'contact')}
-                  className={`px-6 py-2.5 rounded-[30px] text-sm font-semibold transition-all duration-300 shadow-md hover:-translate-y-0.5 ${
+                  className={`lg:px-4 xl:px-6 py-2.5 rounded-[30px] text-[13px] xl:text-sm font-semibold transition-all duration-300 shadow-md hover:-translate-y-0.5 ${
                     isSolid 
                       ? 'bg-burgundy-700 text-white hover:bg-burgundy-800' 
                       : 'bg-white text-burgundy-900 hover:bg-gray-100'

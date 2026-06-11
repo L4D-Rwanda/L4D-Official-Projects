@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Contact from './Contact'; // Reusing existing Contact component logic/UI
 import Reveal from './Reveal';
+import SocialMediaFeed from './SocialMediaFeed';
 
 const ContactPage: React.FC = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const ContactPage: React.FC = () => {
         </Reveal>
       </div>
 
+      <SocialMediaFeed />
       <Contact />
     </div>
   );

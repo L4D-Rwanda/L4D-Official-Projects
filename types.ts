@@ -33,9 +33,20 @@ export interface Project {
 
 export interface Publication {
   title: string;
-  type: 'Report' | 'Policy Brief' | 'Working Paper' | 'News & Insights';
+  type: 'Report' | 'Policy Brief' | 'Working Paper';
   date: string;
   pdfUrl?: string;
+}
+
+export interface NewsEvent {
+  id: string;
+  title: string;
+  type: 'News' | 'Event';
+  date: string;
+  summary: string;
+  content: string;
+  image: string;
+  relatedProjectId?: string;
 }
 
 export interface Client {
@@ -75,4 +86,6 @@ export interface TeamMember {
   role: string;
   bio: string;
   image: string;
+  type?: 'Leadership' | 'Board' | 'Staff' | 'Consultant';
+  focusArea?: string[];
 }

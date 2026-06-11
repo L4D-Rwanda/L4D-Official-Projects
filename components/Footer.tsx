@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-24 pb-8 border-t border-gray-800">
+    <footer className="bg-gray-900 text-gray-300 pt-24 pb-8 border-t border-gray-800 print:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -151,15 +151,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                 </a>
               </li>
               <li>
-                <a href="#publications" 
+                <a href="#news-events" 
                    onClick={(e) => { 
                      e.preventDefault(); 
-                     if (onNavigateToPublicationCategory) onNavigateToPublicationCategory('News & Insights');
-                     else handleNavClick(e, 'publications');
+                     handleNavClick(e, 'news-events');
                    }} 
                    className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
-                  News & Insights
+                  News & Events
                 </a>
               </li>
             </ul>
