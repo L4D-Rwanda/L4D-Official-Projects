@@ -77,6 +77,7 @@ export interface Job {
   educationLevel?: string;
   desiredExperience?: string;
   contractType?: string;
+  postedDate?: string;
   deadline?: string;
   positions?: number;
 }

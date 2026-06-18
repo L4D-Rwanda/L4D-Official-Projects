@@ -116,6 +116,41 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
     }
   };
 
+  const getJobStatus = (job: Job) => {
+    const now = new Date();
+    
+    let isClosed = false;
+    if (job.deadline) {
+      // Parse DD-MM-YYYY
+      const parts = job.deadline.match(/(\d{2})-(\d{2})-(\d{4})/);
+      if (parts) {
+        const [_, d, m, y] = parts;
+        const deadlineDate = new Date(`${y}-${m}-${d}T23:59:59`);
+        if (now > deadlineDate) {
+          isClosed = true;
+        }
+      }
+    }
+
+    if (isClosed) return 'Closed';
+
+    let isNew = false;
+    if (job.postedDate) {
+      const parts = job.postedDate.match(/(\d{2})-(\d{2})-(\d{4})/);
+      if (parts) {
+        const [_, d, m, y] = parts;
+        const postedDate = new Date(`${y}-${m}-${d}T00:00:00`);
+        const diffTime = Math.abs(now.getTime() - postedDate.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        if (diffDays <= 7) {
+          isNew = true;
+        }
+      }
+    }
+    
+    return isNew ? 'New' : 'Open';
+  };
+
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50 relative font-sans print:pt-4 print:bg-white print:pb-0">
       
@@ -236,7 +271,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
         <div id="open-positions" className="mb-20 scroll-mt-24 print:mt-8">
           <div className="flex justify-between items-end mb-8 border-b border-gray-200 pb-4">
             <h2 className="text-2xl font-serif font-bold text-gray-900 print:text-xl">Open Positions</h2>
-            <span className="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full print:hidden">{JOBS.length} Roles Available</span>
+            <span className="text-sm font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full print:hidden">{JOBS.filter(j => getJobStatus(j) !== 'Closed').length} Roles Available</span>
           </div>
           
           <div className="grid gap-6 print:gap-4">
@@ -255,9 +290,16 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         }`}>
                           {job.department}
                         </span>
-                        <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600">
-                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New
-                        </span>
+                        {getJobStatus(job) === 'New' && (
+                          <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New
+                          </span>
+                        )}
+                        {getJobStatus(job) === 'Closed' && (
+                          <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-gray-100 text-gray-600">
+                              Closed
+                          </span>
+                        )}
                       </div>
                       
                       <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition-colors">
@@ -304,9 +346,15 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                     <div className="flex-shrink-0 print:hidden">
                        <button 
                          onClick={() => handleApplyClick(job)}
-                         className="w-full lg:w-auto text-center px-8 py-4 bg-gray-900 text-white font-bold rounded-full hover:bg-teal-700 transition-all shadow-md transform active:scale-95 duration-200 flex items-center justify-center gap-2 group/btn"
+                         disabled={getJobStatus(job) === 'Closed'}
+                         className={`w-full lg:w-auto text-center px-8 py-4 font-bold rounded-full transition-all shadow-md transform flex items-center justify-center gap-2 group/btn ${
+                           getJobStatus(job) === 'Closed' 
+                             ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                             : 'bg-gray-900 text-white hover:bg-teal-700 active:scale-95 duration-200'
+                         }`}
                        >
-                         Apply Now <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                         {getJobStatus(job) === 'Closed' ? 'Applications Closed' : 'Apply Now'} 
+                         {getJobStatus(job) !== 'Closed' && <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />}
                        </button>
                     </div>
 

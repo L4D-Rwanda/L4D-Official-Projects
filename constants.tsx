@@ -520,6 +520,7 @@ export const JOBS: Job[] = [
     educationLevel: 'Diploma',
     desiredExperience: '1 to 3 years',
     contractType: 'Temporary',
+    postedDate: '01-06-2026',
     deadline: '14-06-2026 at 11:59 PM',
     positions: 100,
     requirements: [
@@ -540,7 +541,8 @@ export const JOBS: Job[] = [
     educationLevel: 'Bachelor',
     desiredExperience: '5+ years',
     contractType: 'Temporary',
-    deadline: '14-06-2026 at 11:59 PM',
+    postedDate: '17-06-2026',
+    deadline: '30-06-2026 at 11:59 PM',
     positions: 20,
     requirements: [
       'Bachelor’s degree in Anthropology, Sociology, or related qualitative fields.',
@@ -560,7 +562,8 @@ export const JOBS: Job[] = [
     educationLevel: 'Bachelor',
     desiredExperience: '5+ years',
     contractType: 'Temporary',
-    deadline: '14-06-2026 at 11:59 PM',
+    postedDate: '17-06-2026',
+    deadline: '30-06-2026 at 11:59 PM',
     positions: 20,
     requirements: [
       'Bachelor’s or Master’s degree in Social Sciences or related disciplines.',
@@ -580,7 +583,8 @@ export const JOBS: Job[] = [
     educationLevel: 'Bachelor',
     desiredExperience: '5+ years',
     contractType: 'Temporary',
-    deadline: '14-06-2026 at 11:59 PM',
+    postedDate: '01-06-2026',
+    deadline: '30-06-2026 at 11:59 PM',
     positions: 50,
     requirements: [
       'Degree in Social Sciences, Project Management, or related fields.',
