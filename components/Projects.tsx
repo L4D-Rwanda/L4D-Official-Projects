@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { CLIENTS } from '../constants';
+import React, { useEffect, useRef } from 'react';
 import Reveal from './Reveal';
-import { ArrowRight, BarChart3, Users, Award, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, BarChart3, Users, Award, ShieldCheck } from 'lucide-react';
+import PartnerSlider from './PartnerSlider';
 
 interface ProjectsProps {
   onViewMore?: () => void;
@@ -10,64 +10,6 @@ interface ProjectsProps {
 
 const Projects: React.FC<ProjectsProps> = ({ onViewMore, onContact }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
-
-  // Carousel State
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(5);
-  const [isPaused, setIsPaused] = useState(false);
-
-  // Responsive breakpoints
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1280) {
-        setItemsPerView(6); // Large Desktop
-      } else if (window.innerWidth >= 1024) {
-        setItemsPerView(5); // Desktop
-      } else if (window.innerWidth >= 768) {
-        setItemsPerView(3); // Tablet
-      } else {
-        setItemsPerView(2); // Mobile
-      }
-    };
-
-    handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Calculate pages
-  const totalPages = Math.ceil(CLIENTS.length / itemsPerView);
-
-  // Helper to get items for a specific page with seamless wrapping
-  // This ensures the last page is always full by wrapping around to the start
-  const getPageItems = (pageIndex: number) => {
-    const startIndex = pageIndex * itemsPerView;
-    const items = [];
-    for (let i = 0; i < itemsPerView; i++) {
-        const itemIndex = (startIndex + i) % CLIENTS.length;
-        items.push(CLIENTS[itemIndex]);
-    }
-    return items;
-  };
-
-  // Autoplay logic
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalPages);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPaused, totalPages, itemsPerView]); // Added itemsPerView dependency
-
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalPages) % totalPages);
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalPages);
-  };
 
   return (
     <section id="projects" className="py-24 bg-slate-50 relative overflow-hidden scroll-mt-24" ref={sectionRef}>
@@ -161,75 +103,8 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore, onContact }) => {
                 </div>
                 
                 {/* Carousel Container */}
-                <div 
-                  className="relative w-full max-w-6xl mx-auto px-4 md:px-12 group/slider"
-                  onMouseEnter={() => setIsPaused(true)}
-                  onMouseLeave={() => setIsPaused(false)}
-                >
-                    {/* Navigation Arrows */}
-                    <button 
-                      onClick={handlePrev}
-                      className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-white rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-teal-700 hover:border-teal-100 transition-all duration-300 transform hover:scale-110 focus:outline-none hidden md:flex active:scale-95"
-                      aria-label="Previous partners"
-                    >
-                      <ChevronLeft size={24} />
-                    </button>
-                    
-                    <button 
-                      onClick={handleNext}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 bg-white rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-teal-700 hover:border-teal-100 transition-all duration-300 transform hover:scale-110 focus:outline-none hidden md:flex active:scale-95"
-                      aria-label="Next partners"
-                    >
-                      <ChevronRight size={24} />
-                    </button>
-
-                    {/* Gradient Masks for Fade Effect */}
-                    <div className="absolute left-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute right-0 top-0 bottom-0 w-8 md:w-24 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
-                    
-                    {/* Slides Window */}
-                    <div className="overflow-hidden py-8">
-                       <div 
-                         className="flex transition-transform duration-700 ease-in-out"
-                         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                       >
-                         {Array.from({ length: totalPages }).map((_, pageIndex) => (
-                           <div key={pageIndex} className="w-full flex-shrink-0 grid gap-6 px-4" style={{ gridTemplateColumns: `repeat(${itemsPerView}, minmax(0, 1fr))` }}>
-                             {getPageItems(pageIndex).map((client, idx) => (
-                               <div key={`${pageIndex}-${idx}`} className="flex justify-center h-full">
-                                 <div 
-                                   className="w-full h-32 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-teal-100 transition-all duration-300 flex items-center justify-center p-6 group relative"
-                                   title={client.name}
-                                 >
-                                     <img 
-                                        src={client.logo} 
-                                        alt={client.name} 
-                                        loading="lazy"
-                                        className="max-w-full max-h-full object-contain transition-transform duration-300 transform group-hover:scale-110" 
-                                     />
-                                 </div>
-                               </div>
-                             ))}
-                           </div>
-                         ))}
-                       </div>
-                    </div>
-
-                    {/* Pagination Dots */}
-                    <div className="flex justify-center items-center gap-3 mt-4">
-                      {Array.from({ length: totalPages }).map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentSlide(idx)}
-                          className={`h-2 rounded-full transition-all duration-500 ease-out ${
-                            currentSlide === idx 
-                              ? 'w-8 bg-teal-600' 
-                              : 'w-2 bg-gray-300 hover:bg-teal-300'
-                          }`}
-                          aria-label={`Go to slide ${idx + 1}`}
-                        />
-                      ))}
-                    </div>
+                <div className="mt-8">
+                  <PartnerSlider theme="light" />
                 </div>
             </div>
         </Reveal>

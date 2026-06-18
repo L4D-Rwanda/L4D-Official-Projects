@@ -223,11 +223,11 @@ export const CLIENTS: Client[] = [
   },
   {
     name: 'World Bank',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/The_World_Bank_logo.svg/1200px-The_World_Bank_logo.svg.png'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/87/The_World_Bank_logo.svg'
   },
   {
     name: 'USAID',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/USAID-Identity.svg/1200px-USAID-Identity.svg.png'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/USAID-Identity.svg'
   },
   {
     name: 'UNDP',
@@ -235,7 +235,7 @@ export const CLIENTS: Client[] = [
   },
   {
     name: 'European Union',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/1024px-Flag_of_Europe.svg.png'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg'
   },
   {
     name: 'GIZ',

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Reveal from './Reveal';
 import { Users, Globe2, Handshake, ArrowRight, ArrowLeft } from 'lucide-react';
-import { CLIENTS } from '../constants';
+import PartnerSlider from './PartnerSlider';
 
 interface ProgramsPageProps {
   onBack?: () => void;
@@ -93,20 +93,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
               We are proud to collaborate with organizations driving forward sustainable models of growth and equity.
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center max-w-4xl mx-auto relative z-10">
-              {CLIENTS.slice(0, 8).map((client, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/20 transition-all flex items-center justify-center group h-32">
-                   {client.logo ? (
-                     <img 
-                       src={client.logo} 
-                       alt={client.name} 
-                       className="max-h-full max-w-full object-contain filter transition-all group-hover:scale-105"
-                     />
-                   ) : (
-                     <span className="font-bold text-lg text-white/80 group-hover:text-white transition-colors text-center">{client.name}</span>
-                   )}
-                </div>
-              ))}
+            <div className="relative z-10 w-full mt-12 mb-8">
+              <PartnerSlider theme="dark" />
             </div>
             
             <div className="mt-16 text-center">
