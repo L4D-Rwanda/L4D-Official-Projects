@@ -210,8 +210,8 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                 </div>
                 
                 {/* Floating Stats/Culture Cards */}
-                <div className="md:w-2/5 relative h-64 md:h-auto w-full print:hidden">
-                    <div className="absolute top-0 right-0 z-10">
+                <div className="md:w-2/5 relative min-h-[300px] md:min-h-[400px] w-full print:hidden">
+                    <div className="absolute top-4 right-4 z-10 w-48">
                         <Reveal delay={500}>
                             <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
                                 <Heart className="text-pink-400 h-8 w-8 mb-2" />

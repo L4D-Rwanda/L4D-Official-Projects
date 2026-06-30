@@ -34,7 +34,7 @@ export const NAV_ITEMS: NavItem[] = [
   },
   { label: 'Publications', href: 'publications' },
   { label: 'News & Events', href: 'news-events' },
-  { label: 'Careers', href: 'careers' },
+  { label: 'Careers', href: 'careers' }
 ];
 
 export const SERVICES: Service[] = [
@@ -223,11 +223,11 @@ export const CLIENTS: Client[] = [
   },
   {
     name: 'World Bank',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/87/The_World_Bank_logo.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/The_World_Bank_logo.svg/512px-The_World_Bank_logo.svg.png'
   },
   {
     name: 'USAID',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/USAID-Identity.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/USAID-Identity.svg/512px-USAID-Identity.svg.png'
   },
   {
     name: 'UNDP',
@@ -235,7 +235,7 @@ export const CLIENTS: Client[] = [
   },
   {
     name: 'European Union',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Flag_of_Europe.svg'
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/512px-Flag_of_Europe.svg.png'
   },
   {
     name: 'GIZ',

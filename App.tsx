@@ -11,6 +11,10 @@ import Contact from './components/Contact';
 import SocialMediaFeed from './components/SocialMediaFeed';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
+import Testimonials from './components/Testimonials';
+import PartnerSlider from './components/PartnerSlider';
+import NewsEventsPreview from './components/NewsEventsPreview';
+import OurImpact from './components/OurImpact';
 
 // Pages
 import AboutPage from './components/AboutPage';
@@ -101,15 +105,15 @@ const App: React.FC = () => {
           </>
         );
       case 'about':
-        return <AboutPage />;
+        return <AboutPage onNavigate={handleNavigation} />;
       case 'services':
-        return <ServicesPage onNavigateToService={(id) => handleNavigation(`service/${id}`)} />;
+        return <ServicesPage onNavigate={handleNavigation} />;
       case 'impact':
         return <ImpactPage onNavigate={handleNavigation} />;
       case 'projects':
-        return <ProjectsPage initialCategory={projectCategory} initialProjectId={selectedProjectId} onNavigateToPublicationCategory={handlePublicationClick} onNavigateToNewsEvent={(id) => handleNavigation(`news-event/${id}`)} onBack={() => handleNavigation('impact')} />;
+        return <ProjectsPage onNavigate={handleNavigation} />;
       case 'programs':
-        return <ProgramsPage onBack={() => handleNavigation('impact')} onContact={() => handleNavigation('contact')} />;
+        return <ProgramsPage onNavigate={handleNavigation} />;
       case 'publications':
         return <PublicationsPage initialCategory={publicationCategory} initialPublicationTitle={selectedPublicationTitle} onNavigateToPublication={(title) => handlePublicationClick(publicationCategory || 'All', title)} />;
       case 'news-events':

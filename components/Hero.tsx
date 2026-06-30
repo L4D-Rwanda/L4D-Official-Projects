@@ -49,31 +49,31 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left mt-20">
-        <div className="max-w-3xl">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-50 text-xs font-bold uppercase tracking-wider shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center sm:block mt-16 sm:mt-24 md:mt-32">
+        <div className="max-w-3xl text-center sm:text-left">
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-50 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
             Policy Research & Advisory
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 lg:mb-8 leading-tight drop-shadow-lg animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
             Shaping Policy <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-teal-400">Practice</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-100 mb-10 leading-relaxed max-w-2xl font-light drop-shadow-md animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-10 lg:mb-12 leading-relaxed font-light drop-shadow-md animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             High Lands Centre of Leadership for Development (L4D) is a premier Kigali-based centre dedicated to informing policy practices through applied research, mentorship, and strategic advisory.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start sm:justify-start animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full sm:w-auto">
             <a 
               href="#contact" 
               onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
-              className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-[30px] text-teal-900 bg-white hover:bg-gray-100 transition-all shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-transparent text-base font-bold rounded-[30px] text-teal-900 bg-white hover:bg-gray-100 transition-all shadow-lg hover:shadow-teal-500/20 hover:-translate-y-1 group"
             >
               Work With Us
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
             </a>
             <a 
               href="#publications" 
               onClick={(e) => { e.preventDefault(); onNavigate('publications'); }}
-              className="inline-flex items-center justify-center px-8 py-4 border border-white/30 text-base font-bold rounded-[30px] text-white bg-white/10 hover:bg-white/20 transition-all backdrop-blur-sm shadow-sm"
+              className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-white/30 text-base font-bold rounded-[30px] text-white bg-white/10 hover:bg-white/20 transition-all backdrop-blur-sm shadow-sm"
             >
               Read Our Research
             </a>
