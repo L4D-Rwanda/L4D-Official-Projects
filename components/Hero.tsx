@@ -49,8 +49,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center sm:block mt-16 sm:mt-24 md:mt-32">
-        <div className="max-w-3xl text-center sm:text-left">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center mt-16 sm:mt-24 md:mt-32">
+        <div className="max-w-3xl text-center flex flex-col items-center">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-50 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-700">
             Policy Research & Advisory
           </div>
@@ -61,7 +61,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <p className="text-base sm:text-lg md:text-xl text-gray-100 mb-10 lg:mb-12 leading-relaxed font-light drop-shadow-md animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
             High Lands Centre of Leadership for Development (L4D) is a premier Kigali-based centre dedicated to informing policy practices through applied research, mentorship, and strategic advisory.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start sm:justify-start animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300 w-full sm:w-auto">
             <a 
               href="#contact" 
               onClick={(e) => { e.preventDefault(); onNavigate('contact'); }}
