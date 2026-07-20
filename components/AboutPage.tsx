@@ -67,7 +67,7 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
 
   return (
     <Reveal delay={index * 100}>
-      <div className="group relative bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+      <div className="group relative bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
         {isFounder ? (
           <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
             <img 

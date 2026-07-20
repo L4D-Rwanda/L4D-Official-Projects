@@ -277,7 +277,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
           <div className="grid gap-6 print:gap-4">
             {JOBS.map((job, index) => (
               <Reveal key={job.id} delay={index * 100}>
-                <div className="bg-white/60 backdrop-blur-md rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group print:shadow-none print:border print:border-gray-300 print:rounded-none print:p-6 print:page-break-inside-avoid">
+                <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group print:shadow-none print:border print:border-gray-300 print:rounded-none print:p-6 print:page-break-inside-avoid">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     
                     {/* Job Info */}
@@ -401,7 +401,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
           ></div>
 
           {/* Modal Content - Enhanced focus */}
-          <div className="relative bg-white/60 backdrop-blur-md rounded-[30px] w-full max-w-2xl shadow-2xl ring-1 ring-white/10 animate-in fade-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
+          <div className="relative bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] w-full max-w-2xl shadow-2xl ring-1 ring-white/10 animate-in fade-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 sm:p-8 border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm rounded-t-[30px]">

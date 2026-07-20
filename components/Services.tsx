@@ -39,7 +39,7 @@ const Services: React.FC<ServicesProps> = ({ onViewMore, onServiceClick }) => {
               <Reveal key={index} delay={index * 100}>
                 <div 
                   onClick={() => onServiceClick?.(service.id)}
-                  className={`group bg-white/60 backdrop-blur-md rounded-[24px] p-8 md:p-10 h-full border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col text-left ${onServiceClick ? 'cursor-pointer' : ''}`}
+                  className={`group bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[24px] p-8 md:p-10 h-full border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col text-left ${onServiceClick ? 'cursor-pointer' : ''}`}
                 >
                   {/* Icon Container */}
                   <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center mb-6">

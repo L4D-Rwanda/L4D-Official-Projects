@@ -46,7 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {isLoading ? (
              Array.from({ length: 3 }).map((_, idx) => (
-                <div key={idx} className="bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-gray-100 shadow-sm animate-pulse h-full flex flex-col">
+                <div key={idx} className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl overflow-hidden border border-gray-100 shadow-sm animate-pulse h-full flex flex-col">
                   <div className="h-48 bg-gray-200 flex items-center justify-center">
                      <ImageIcon className="h-10 w-10 text-gray-300" />
                   </div>

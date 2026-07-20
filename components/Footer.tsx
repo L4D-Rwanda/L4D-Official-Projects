@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-24 pb-8 border-t border-gray-800 print:hidden">
+    <footer className="bg-teal-950/80 backdrop-blur-xl text-teal-100 pt-24 pb-8 border-t border-teal-800/50 print:hidden relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -52,15 +52,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                  <Logo variant="white" className="h-14 w-auto opacity-90 hover:opacity-100 transition-opacity" />
                </a>
              </div>
-            <p className="text-sm leading-relaxed mb-8 text-gray-400">
-              High Lands Centre of Leadership for Development. Professionalism, policy research excellence, and thought leadership in East Africa.
+            <p className="text-sm leading-relaxed mb-8 text-teal-200/70">
+              High Lands Centre of Leadership for Development. Professionalism, policy research excellence, and thought leadership in Africa.
             </p>
             <div className="flex space-x-4">
               <a 
                 href="https://x.com/L4DRwanda" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                className="w-10 h-10 rounded-full bg-teal-900/50 backdrop-blur-md flex items-center justify-center text-teal-200/70 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                 aria-label="X (formerly Twitter)"
               >
                 <XIcon size={16} />
@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                 href="https://www.linkedin.com/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                className="w-10 h-10 rounded-full bg-teal-900/50 backdrop-blur-md flex items-center justify-center text-teal-200/70 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -78,7 +78,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                 href="https://www.facebook.com/L4DRwanda" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                className="w-10 h-10 rounded-full bg-teal-900/50 backdrop-blur-md flex items-center justify-center text-teal-200/70 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
@@ -177,7 +177,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
               <span className="w-8 h-0.5 bg-teal-600"></span>
               Newsletter
             </h4>
-            <p className="text-sm text-gray-400 mb-6 leading-relaxed">
+            <p className="text-sm text-teal-200/70 mb-6 leading-relaxed">
               Subscribe to receive updates on our latest policy research, policy insights, and opportunities.
             </p>
             <form onSubmit={handleSubscribe} className="flex flex-col space-y-3">
@@ -189,7 +189,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                    placeholder="Enter your email" 
                    required
                    disabled={status === 'success' || status === 'submitting'}
-                   className={`w-full bg-gray-800 border ${status === 'success' ? 'border-teal-500 text-teal-500' : 'border-gray-700 text-white'} px-4 py-3 rounded-[15px] focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm transition-all placeholder:text-gray-500`}
+                   className={`w-full bg-teal-900/50 backdrop-blur-md border ${status === 'success' ? 'border-teal-500 text-teal-500' : 'border-teal-700/50 text-white'} px-4 py-3 rounded-[15px] focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm transition-all placeholder:text-teal-200/50`}
                  />
                  {status === 'success' && (
                     <CheckCircle2 className="absolute right-3 top-3 text-teal-500 h-5 w-5 animate-in zoom-in" />
@@ -219,7 +219,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="border-t border-teal-800/50 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-teal-200/50">
           <p className="text-center md:text-left mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} High Lands Centre of Leadership for Development (L4D). All rights reserved.
           </p>

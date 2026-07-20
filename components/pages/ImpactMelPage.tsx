@@ -70,7 +70,7 @@ const ImpactMelPage: React.FC = () => {
 
         {/* Services Section */}
         <Reveal>
-          <div className="bg-gray-900 rounded-[32px] p-8 md:p-16 mb-24 relative overflow-hidden">
+          <div className="bg-teal-950 rounded-[32px] p-8 md:p-16 mb-24 relative overflow-hidden">
              <div className="absolute inset-0 bg-teal-900/20 mix-blend-multiply"></div>
              <div className="relative z-10">
                <div className="text-center mb-12">

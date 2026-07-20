@@ -43,7 +43,7 @@ const PolicyResearchPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20 relative z-10">
           {THEMES.map((theme, idx) => (
             <Reveal key={idx} delay={idx * 50}>
-               <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-teal-200 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center text-center group cursor-default">
+               <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:border-teal-200 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col items-center text-center group cursor-default">
                   <div className="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mb-4 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
                     <theme.icon size={28} />
                   </div>

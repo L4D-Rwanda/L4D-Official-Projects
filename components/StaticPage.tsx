@@ -14,7 +14,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ title }) => {
     <div className="pt-32 pb-20 min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="bg-white/60 backdrop-blur-md p-8 md:p-16 rounded-[30px] shadow-sm border border-gray-100">
+          <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 p-8 md:p-16 rounded-[30px] shadow-sm border border-gray-100">
             <h1 className="text-4xl font-serif font-bold text-gray-900 mb-8">{title}</h1>
             <div className="prose pburgundy-lg pburgundy-teal max-w-none text-gray-600">
               <p className="lead">

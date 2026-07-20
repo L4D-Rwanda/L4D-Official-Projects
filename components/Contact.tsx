@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                {/* Decorative shadow/backdrop for form */}
                <div className="absolute inset-0 bg-teal-600 rounded-[30px] rotate-2 transform translate-y-2 opacity-20 blur-sm"></div>
                
-               <div className="bg-white/90 backdrop-blur-md rounded-[30px] p-8 md:p-10 text-gray-900 shadow-2xl relative border border-white/10">
+               <div className="bg-white/90 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] p-8 md:p-10 text-gray-900 shadow-2xl relative border border-white/10">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">Send us a Message</h3>
                   <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you shortly.</p>
                   

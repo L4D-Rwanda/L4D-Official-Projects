@@ -345,7 +345,7 @@ const NationalImpactPage: React.FC<NationalImpactPageProps> = ({ onNavigate }) =
             const IconComp = policy.icon;
             return (
               <Reveal key={idx} delay={idx * 100}>
-                <div className="group bg-white/60 backdrop-blur-md rounded-[2.5rem] p-8 border border-gray-100 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col justify-between relative overflow-hidden">
+                <div className="group bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[2.5rem] p-8 border border-gray-100 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col justify-between relative overflow-hidden">
                   <div className={`absolute top-0 left-0 right-0 h-1.5 transition-all duration-500 ${policy.color === "teal" ? "bg-gradient-to-r from-teal-500 to-teal-500 group-hover:h-3" : "bg-gradient-to-r from-burgundy-700 to-burgundy-600 group-hover:h-3"}`} />
                   
                   <div className="pt-2">
@@ -365,7 +365,7 @@ const NationalImpactPage: React.FC<NationalImpactPageProps> = ({ onNavigate }) =
                     </p>
                   </div>
                   
-                  <div className="bg-white/60 backdrop-blur-md rounded-2xl p-4 border border-gray-100/50">
+                  <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-4 border border-gray-100/50">
                     <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-1">MEASURABLE IMPACT</span>
                     <p className="text-gray-900 font-medium text-xs leading-relaxed">
                       {policy.impact}
@@ -404,7 +404,7 @@ const NationalImpactPage: React.FC<NationalImpactPageProps> = ({ onNavigate }) =
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {BRIEFS.map((brief, idx) => (
             <Reveal key={idx} delay={idx * 100}>
-              <div className="bg-white/60 backdrop-blur-md rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden h-full group">
+              <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden h-full group">
                 <div className={`p-6 bg-gradient-to-br ${brief.coverGradient} text-white relative h-48 flex flex-col justify-between overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/10 opacity-30 pattern-grid-sm"></div>
                   <div className="flex justify-between items-start relative z-10">
@@ -517,7 +517,7 @@ const NationalImpactPage: React.FC<NationalImpactPageProps> = ({ onNavigate }) =
                 </div>
               </div>
 
-              <div className="lg:col-span-7 bg-teal-950/40 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-teal-800/50 space-y-4 max-h-[500px] overflow-y-auto">
+              <div className="lg:col-span-7 bg-teal-950/40 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl p-6 md:p-8 border border-teal-800/50 space-y-4 max-h-[500px] overflow-y-auto">
                 <span className="text-[10px] font-bold text-teal-400 uppercase tracking-widest block mb-2">KEY INTERVENTIONS & EVALUATIONS</span>
                 <div className="divide-y divide-teal-800/40 space-y-4">
                   {SECTORS[activeSector].highlights.map((highlight, idx) => (

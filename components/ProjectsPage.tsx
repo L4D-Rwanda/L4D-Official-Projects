@@ -126,7 +126,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full animate-pulse">
+              <div key={index} className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full animate-pulse">
                 <div className="h-64 bg-gray-200 w-full" />
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex justify-between items-center mb-4">
@@ -149,7 +149,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
           ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 100}>
-                <div className="group bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
+                <div className="group bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
                   <div className="h-64 overflow-hidden relative cursor-pointer" onClick={() => setSelectedProject(project)}>
                     <LazyImage 
                       src={project.image} 
@@ -204,7 +204,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
               </Reveal>
             ))
           ) : (
-            <div className="col-span-full text-center py-20 bg-white/60 backdrop-blur-md rounded-[30px] border border-dashed border-gray-300">
+            <div className="col-span-full text-center py-20 bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] border border-dashed border-gray-300">
               <p className="text-gray-500 text-lg">No projects found in this category yet.</p>
             </div>
           )}
@@ -219,7 +219,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
              onClick={() => setSelectedProject(null)}
            />
            
-           <div className="relative bg-white/60 backdrop-blur-md rounded-[30px] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col">
+           <div className="relative bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col">
                
                {/* Close Button */}
                <button 

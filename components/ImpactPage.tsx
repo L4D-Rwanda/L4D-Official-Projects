@@ -168,7 +168,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
           <Reveal delay={50}>
             <div 
               onClick={() => onNavigate('national-impact')}
-              className="bg-white/60 backdrop-blur-md rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
+              className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-teal-700" />
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-700 transition-colors duration-300">
@@ -188,7 +188,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
           <Reveal delay={100}>
             <div 
               onClick={() => onNavigate('projects')}
-              className="bg-white/60 backdrop-blur-md rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
+              className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-teal-600" />
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-700 transition-colors duration-300">
@@ -208,7 +208,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
           <Reveal delay={150}>
             <div 
               onClick={() => onNavigate('programs')}
-              className="bg-white/60 backdrop-blur-md rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
+              className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 cursor-pointer h-full flex flex-col group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-teal-700" />
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-700 transition-colors duration-300">
@@ -229,13 +229,13 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
       {/* NEW: L4D Interactive Socio-Economic & Job Impact Dashboard */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="bg-gray-900 text-white rounded-[32px] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+          <div className="bg-teal-950 text-white rounded-[32px] p-8 md:p-12 shadow-2xl relative overflow-hidden">
             {/* Background Accent Gradients */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-teal-700/20 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-800/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
             <div className="relative z-10">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 border-b border-gray-800 pb-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10 border-b border-teal-800/50 pb-8">
                 <div>
                   <span className="text-teal-400 font-bold uppercase tracking-wider text-xs">Interactive Dashboard</span>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold mt-1 text-gray-100">Local Impact & Job Engine</h2>
@@ -245,7 +245,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                 </div>
 
                 {/* Dashboard Tabs Toggle */}
-                <div className="flex bg-gray-950 p-1.5 rounded-2xl border border-gray-800 mt-6 md:mt-0 self-start">
+                <div className="flex bg-teal-900/40 p-1.5 rounded-2xl border border-teal-800/50 mt-6 md:mt-0 self-start">
                   <button
                     onClick={() => setActiveTab('economic')}
                     className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${
@@ -276,10 +276,10 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                   {/* Left stats summary cards */}
                   <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-                    <div className="bg-gray-950/60 backdrop-blur-md rounded-2xl border border-gray-800 hover:border-teal-700/50 transition-all group overflow-hidden">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-gray-800 relative">
+                    <div className="bg-teal-950/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl border border-teal-800/50 hover:border-teal-700/50 transition-all group overflow-hidden">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-teal-800/50 relative">
                         {/* Connection visual element */}
-                        <div className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-gray-900 border border-gray-700 rounded-full items-center justify-center z-10 text-gray-400">
+                        <div className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-teal-900/60 border border-teal-700/50 rounded-full items-center justify-center z-10 text-gray-400">
                           <Equal className="w-4 h-4 text-teal-500" />
                         </div>
 
@@ -316,7 +316,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                         </div>
                       </div>
                       
-                      <div className="bg-gray-900/80 px-6 py-4 border-t border-gray-800 flex items-center gap-4">
+                      <div className="bg-teal-950/80 px-6 py-4 border-t border-teal-800/50 flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-teal-950/80 flex flex-shrink-0 items-center justify-center border border-teal-800/50">
                            <TrendingUp className="w-5 h-5 text-teal-400" />
                         </div>
@@ -327,15 +327,15 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                     </div>
 
                     {/* Community Impact Visualization Bar */}
-                    <div className="bg-gray-950/40 backdrop-blur-md p-6 rounded-2xl border border-gray-800">
+                    <div className="bg-teal-950/40 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 p-6 rounded-2xl border border-teal-800/50">
                       <div className="flex justify-between text-xs text-gray-400 font-medium mb-2">
                         <span>Local Opportunities Created</span>
                         <span>Multi-Level Empowerment</span>
                       </div>
-                      <div className="w-full bg-gray-900 rounded-full h-4 overflow-hidden p-0.5 border border-gray-800">
+                      <div className="w-full bg-teal-900/60 rounded-full h-4 overflow-hidden p-0.5 border border-teal-800/50">
                         <div className="bg-gradient-to-r from-teal-600 to-teal-400 h-full rounded-full transition-all duration-1000" style={{ width: '100%' }}>
-                          <div className="w-[40%] h-full bg-teal-900/50 rounded-l-full border-r border-gray-950/50 inline-block" />
-                          <div className="w-[30%] h-full bg-teal-700/50 border-r border-gray-950/50 inline-block" />
+                          <div className="w-[40%] h-full bg-teal-900/50 rounded-l-full border-r border-teal-950/50 inline-block" />
+                          <div className="w-[30%] h-full bg-teal-700/50 border-r border-teal-950/50 inline-block" />
                         </div>
                       </div>
                       <div className="flex justify-between items-center mt-3 text-[11px] text-gray-500">
@@ -347,7 +347,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                   </div>
 
                   {/* Right societal impact card */}
-                  <div className="lg:col-span-5 bg-gradient-to-br from-gray-950 to-gray-900 p-8 rounded-2xl border border-gray-800 flex flex-col justify-between relative group overflow-hidden">
+                  <div className="lg:col-span-5 bg-gradient-to-br from-teal-950 to-teal-900/80 p-8 rounded-2xl border border-teal-800/50 flex flex-col justify-between relative group overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-teal-600/5 rounded-full blur-2xl" />
                     
                     <div>
@@ -375,7 +375,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                           </p>
                         </div>
 
-                        <div className="border-t border-gray-800 pt-6">
+                        <div className="border-t border-teal-800/50 pt-6">
                           <div className="flex justify-between text-xs text-gray-400 mb-1 font-semibold">
                             <span>Local Governance</span>
                             <span className="text-teal-400">Capacity Building</span>
@@ -399,7 +399,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                   {/* Left: Mentorship and Gender */}
                   <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-teal-700/50 transition-all group">
+                      <div className="bg-teal-950/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 p-6 rounded-2xl border border-teal-800/50 hover:border-teal-700/50 transition-all group">
                         <div className="flex justify-between items-start mb-4">
                           <div className="w-10 h-10 bg-teal-900/50 rounded-xl flex items-center justify-center">
                             <GraduationCap className="h-5 w-5 text-teal-400" />
@@ -415,7 +415,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                         </p>
                       </div>
 
-                      <div className="bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl border border-gray-800 hover:border-teal-700/50 transition-all group">
+                      <div className="bg-teal-950/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 p-6 rounded-2xl border border-teal-800/50 hover:border-teal-700/50 transition-all group">
                         <div className="flex justify-between items-start mb-4">
                           <div className="w-10 h-10 bg-teal-900/50 rounded-xl flex items-center justify-center">
                             <Percent className="h-5 w-5 text-teal-400" />
@@ -433,12 +433,12 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                     </div>
 
                     {/* Female Participation progress visualizer */}
-                    <div className="bg-gray-950/40 backdrop-blur-md p-6 rounded-2xl border border-gray-800">
+                    <div className="bg-teal-950/40 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] transition-all duration-300 p-6 rounded-2xl border border-teal-800/50">
                       <div className="flex justify-between text-xs text-gray-400 font-medium mb-2">
                         <span>Gender Inclusivity in Field Teams: 40% Women Representation</span>
                         <span className="text-teal-400">Industry Leader</span>
                       </div>
-                      <div className="w-full bg-gray-900 rounded-full h-3 overflow-hidden p-0.5">
+                      <div className="w-full bg-teal-900/60 rounded-full h-3 overflow-hidden p-0.5">
                         <div className="bg-gradient-to-r from-teal-500 to-teal-400 h-full rounded-full" style={{ width: '40%' }} />
                       </div>
                       <p className="text-xs text-gray-500 mt-3 leading-relaxed">
@@ -448,7 +448,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                   </div>
 
                   {/* Right: Technological Innovation (SurveyCTO) */}
-                  <div className="lg:col-span-5 bg-gradient-to-br from-gray-950 to-gray-900 p-8 rounded-2xl border border-gray-800 flex flex-col justify-between relative group overflow-hidden">
+                  <div className="lg:col-span-5 bg-gradient-to-br from-teal-950 to-teal-900/80 p-8 rounded-2xl border border-teal-800/50 flex flex-col justify-between relative group overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-teal-600/5 rounded-full blur-2xl" />
                     
                     <div>
@@ -477,13 +477,13 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                           </p>
                         </div>
 
-                        <div className="border-t border-gray-800 pt-6">
+                        <div className="border-t border-teal-800/50 pt-6">
                           <h6 className="text-xs font-semibold text-gray-400 mb-2">Technological Standards Used</h6>
                           <div className="flex flex-wrap gap-2">
-                            <span className="text-[11px] bg-gray-900 text-gray-300 px-2.5 py-1 rounded-md border border-gray-800">SurveyCTO API</span>
-                            <span className="text-[11px] bg-gray-900 text-gray-300 px-2.5 py-1 rounded-md border border-gray-800">Cloud Data Sync</span>
-                            <span className="text-[11px] bg-gray-900 text-gray-300 px-2.5 py-1 rounded-md border border-gray-800">Advanced QA Filters</span>
-                            <span className="text-[11px] bg-gray-900 text-gray-300 px-2.5 py-1 rounded-md border border-gray-800">Econometrics</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">SurveyCTO API</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Cloud Data Sync</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Advanced QA Filters</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Econometrics</span>
                           </div>
                         </div>
                       </div>
@@ -512,7 +512,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
           {/* Left Column: Interactive Level/Tier Selector */}
           <div className="lg:col-span-5 space-y-6">
             <Reveal>
-              <div className="bg-white/60 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm">
+              <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm">
                 <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">Our 3-Tier Job Architecture</h3>
                 <p className="text-sm text-gray-500 mb-6">
                   Select a tier below to explore how L4D structures responsibilities, technical training, and professional growth.
@@ -607,7 +607,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
           {/* Right Column: Displaying Active Level details in a highly styled container */}
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="bg-white/60 backdrop-blur-md rounded-3xl border border-gray-100 p-8 shadow-sm min-h-[460px] flex flex-col justify-between relative overflow-hidden">
+              <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl border border-gray-100 p-8 shadow-sm min-h-[460px] flex flex-col justify-between relative overflow-hidden">
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-4">
                     <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 leading-tight">
@@ -696,7 +696,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                 </div>
 
                 {/* Level Outcomes */}
-                <div className="bg-white/60 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-gray-100 mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-4 sm:p-5 border border-gray-100 mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
                   <div>
                     <h5 className="text-[11px] uppercase tracking-wider font-bold text-gray-500">Employment Legacy & Trajectory</h5>
                     <p className="text-xs text-gray-800 font-semibold mt-0.5">
@@ -857,7 +857,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Agri & Food Security Card */}
           <Reveal delay={50}>
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
                 <Globe2 className="h-6 w-6 text-teal-700" />
               </div>
@@ -870,7 +870,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
 
           {/* Cross Border Trade Card */}
           <Reveal delay={100}>
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
                 <UserCheck className="h-6 w-6 text-teal-700" />
               </div>
@@ -883,7 +883,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
 
           {/* Post Pandemic Recovery */}
           <Reveal delay={150}>
-            <div className="bg-white/60 backdrop-blur-md rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+            <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-6">
                 <LineChart className="h-6 w-6 text-teal-700" />
               </div>

@@ -55,7 +55,7 @@ const NewsEventsPage: React.FC<NewsEventsPageProps> = ({ onNavigateToNewsEvent }
           {filteredItems.map((item, index) => (
             <Reveal key={item.id} delay={index * 100}>
               <div 
-                className="group bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col h-full"
+                className="group bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-3xl overflow-hidden border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col h-full"
                 onClick={() => onNavigateToNewsEvent(item.id)}
               >
                 <div className="h-60 overflow-hidden relative">

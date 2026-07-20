@@ -14,7 +14,6 @@ import BackToTop from './components/BackToTop';
 import Testimonials from './components/Testimonials';
 import PartnerSlider from './components/PartnerSlider';
 import NewsEventsPreview from './components/NewsEventsPreview';
-import OurImpact from './components/OurImpact';
 import Reveal from './components/Reveal';
 import { ArrowLeft } from 'lucide-react';
 
@@ -163,7 +162,6 @@ const App: React.FC = () => {
             </section>
             <FocusAreas onNavigateToCategory={handleFocusAreaClick} />
             <Projects onViewMore={() => handleNavigation('national-impact')} onContact={() => handleNavigation('contact')} />
-            <OurImpact />
             <Publications onViewMore={() => handleNavigation('publications')} onNavigateToCategory={handlePublicationClick} />
             <Careers onViewAll={() => handleNavigation('careers')} />
             <SocialMediaFeed />
