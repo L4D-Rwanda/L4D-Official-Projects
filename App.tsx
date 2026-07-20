@@ -154,8 +154,6 @@ const App: React.FC = () => {
             <Projects onViewMore={() => handleNavigation('national-impact')} onContact={() => handleNavigation('contact')} />
             <Publications onViewMore={() => handleNavigation('publications')} onNavigateToCategory={handlePublicationClick} />
             <Careers onViewAll={() => handleNavigation('careers')} />
-            <SocialMediaFeed />
-            <Contact />
             <section className="py-16 bg-teal-950 border-t border-teal-900/50">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <Reveal>
@@ -166,6 +164,8 @@ const App: React.FC = () => {
                 </Reveal>
               </div>
             </section>
+            <SocialMediaFeed />
+            <Contact />
           </>
         );
       case 'about':
