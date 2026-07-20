@@ -31,8 +31,8 @@ const ImpactMelPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50">
-      <div className="bg-white py-16 md:py-24 mb-16 border-b border-gray-100">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <div className="bg-gray-50 py-16 md:py-24 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Impact Monitoring, Evaluation & Learning</h1>
@@ -59,7 +59,7 @@ const ImpactMelPage: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-4">
             {APPROACHES.map((approach, idx) => (
               <Reveal key={idx} delay={idx * 50}>
-                 <div className="bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 flex items-center gap-3 hover:border-teal-400 hover:bg-teal-50 transition-colors">
+                 <div className="bg-white/60 backdrop-blur-md rounded-full px-6 py-3 shadow-sm border border-gray-200 flex items-center gap-3 hover:border-teal-400 hover:bg-teal-50 transition-colors">
                     <approach.icon className="text-teal-600 w-5 h-5" />
                     <span className="font-medium text-gray-800">{approach.name}</span>
                  </div>

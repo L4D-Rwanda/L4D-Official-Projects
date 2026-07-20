@@ -160,7 +160,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
             onClick={onBack}
             className="inline-flex items-center text-teal-700 font-bold hover:text-teal-900 group transition-colors py-2"
           >
-            <div className="w-8 h-8 rounded-full bg-white border border-teal-100 flex items-center justify-center mr-3 group-hover:bg-teal-50 transition-colors shadow-sm">
+            <div className="w-8 h-8 rounded-full bg-white/60 backdrop-blur-md border border-teal-100 flex items-center justify-center mr-3 group-hover:bg-teal-50 transition-colors shadow-sm">
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             </div>
             Back to Home
@@ -185,7 +185,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                 <div className="md:w-3/5 print:w-full">
                     <Reveal delay={100}>
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-800/50 border border-teal-700 text-teal-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm print:text-teal-800 print:bg-teal-50 print:border-teal-200">
-                            <Sparkles size={12} className="text-yellow-400" />
+                            <Sparkles size={12} className="text-teal-400" />
                             We Are Hiring
                         </span>
                     </Reveal>
@@ -197,12 +197,12 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                     </Reveal>
                     <Reveal delay={300}>
                         <p className="text-lg md:text-xl text-teal-100/90 max-w-xl leading-relaxed mb-8 print:text-gray-800">
-                            Join a team of dedicated professionals committed to shaping policy and fostering development. We offer a dynamic work environment where research meets real-world application.
+                            Join a team of dedicated professionals committed to shaping policy and fostering development. We offer a dynamic work environment where policy research meets real-world application.
                         </p>
                     </Reveal>
                     <Reveal delay={400}>
                         <div className="flex flex-wrap gap-4 print:hidden">
-                            <a href="#open-positions" className="px-8 py-3.5 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-block">
+                            <a href="#open-positions" className="px-8 py-3.5 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-block">
                                 View Positions
                             </a>
                         </div>
@@ -214,7 +214,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                     <div className="absolute top-4 right-4 z-10 w-48">
                         <Reveal delay={500}>
                             <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
-                                <Heart className="text-pink-400 h-8 w-8 mb-2" />
+                                <Heart className="text-burgundy-400 h-8 w-8 mb-2" />
                                 <p className="text-white font-bold text-lg">Work-Life Balance</p>
                                 <p className="text-teal-200 text-sm">Flexible hours & remote options</p>
                             </div>
@@ -223,7 +223,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                     <div className="absolute bottom-4 left-4 z-10 w-48">
                         <Reveal delay={600}>
                             <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
-                                <Zap className="text-yellow-400 h-8 w-8 mb-2" />
+                                <Zap className="text-teal-400 h-8 w-8 mb-2" />
                                 <p className="text-white font-bold text-lg">Fast Growth</p>
                                 <p className="text-teal-200 text-sm">Mentorship & Career paths</p>
                             </div>
@@ -231,7 +231,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                     </div>
                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-48">
                         <Reveal delay={700}>
-                            <div className="p-5 bg-white text-teal-900 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
+                            <div className="p-5 bg-white/60 backdrop-blur-md text-teal-900 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
                                 <Users className="text-teal-600 h-8 w-8 mb-2" />
                                 <p className="font-bold text-lg">Great Culture</p>
                                 <p className="text-gray-500 text-sm">Inclusive & Collaborative</p>
@@ -249,13 +249,13 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
             </Reveal>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                    { icon: Globe, title: "Remote-First", desc: "Work from where you are most productive.", color: "bg-blue-50 text-blue-600" },
-                    { icon: Coffee, title: "Team Retreats", desc: "Regular meetups to bond and brainstorm.", color: "bg-amber-50 text-amber-600" },
-                    { icon: Star, title: "Development", desc: "Budget for courses and conferences.", color: "bg-purple-50 text-purple-600" },
-                    { icon: Heart, title: "Health & Wellness", desc: "Comprehensive insurance for you and family.", color: "bg-pink-50 text-pink-600" }
+                    { icon: Globe, title: "Remote-First", desc: "Work from where you are most productive.", color: "bg-teal-50 text-teal-600" },
+                    { icon: Coffee, title: "Team Retreats", desc: "Regular meetups to bond and brainstorm.", color: "bg-gray-50 text-gray-600" },
+                    { icon: Star, title: "Development", desc: "Budget for courses and conferences.", color: "bg-burgundy-50 text-burgundy-600" },
+                    { icon: Heart, title: "Health & Wellness", desc: "Comprehensive insurance for you and family.", color: "bg-burgundy-50 text-burgundy-600" }
                 ].map((item, idx) => (
                     <Reveal key={idx} delay={idx * 100}>
-                        <div className="bg-white p-8 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
+                        <div className="bg-white/60 backdrop-blur-md p-8 rounded-[24px] border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
                             <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mb-6`}>
                                 <item.icon size={28} />
                             </div>
@@ -277,22 +277,22 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
           <div className="grid gap-6 print:gap-4">
             {JOBS.map((job, index) => (
               <Reveal key={job.id} delay={index * 100}>
-                <div className="bg-white rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group print:shadow-none print:border print:border-gray-300 print:rounded-none print:p-6 print:page-break-inside-avoid">
+                <div className="bg-white/60 backdrop-blur-md rounded-[30px] p-8 border border-gray-200 shadow-sm hover:shadow-xl hover:border-teal-200 transition-all duration-300 group print:shadow-none print:border print:border-gray-300 print:rounded-none print:p-6 print:page-break-inside-avoid">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                     
                     {/* Job Info */}
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-4">
                          <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
-                          job.department === 'Research & Mentorship' ? 'bg-purple-50 text-purple-700' : 
-                          job.department === 'Operations' ? 'bg-orange-50 text-orange-700' :
+                          job.department === 'Research & Mentorship' ? 'bg-burgundy-50 text-burgundy-700' : 
+                          job.department === 'Operations' ? 'bg-burgundy-50 text-burgundy-700' :
                           'bg-teal-50 text-teal-700'
                         }`}>
                           {job.department}
                         </span>
                         {getJobStatus(job) === 'New' && (
-                          <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-600">
-                              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New
+                          <span className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-burgundy-100 text-burgundy-600">
+                              <span className="w-1.5 h-1.5 rounded-full bg-burgundy-500 animate-pulse"></span> New
                           </span>
                         )}
                         {getJobStatus(job) === 'Closed' && (
@@ -381,7 +381,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                </p>
                <a 
                   href="mailto:info@hlcl4d.rw" 
-                  className="inline-flex items-center px-8 py-4 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+                  className="inline-flex items-center px-8 py-4 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 group"
                 >
                   Send Spontaneous Application <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                </a>
@@ -401,7 +401,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
           ></div>
 
           {/* Modal Content - Enhanced focus */}
-          <div className="relative bg-white rounded-[30px] w-full max-w-2xl shadow-2xl ring-1 ring-white/10 animate-in fade-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
+          <div className="relative bg-white/60 backdrop-blur-md rounded-[30px] w-full max-w-2xl shadow-2xl ring-1 ring-white/10 animate-in fade-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 sm:p-8 border-b border-gray-100 bg-gray-50/80 backdrop-blur-sm rounded-t-[30px]">
@@ -415,7 +415,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
               </div>
               <button 
                 onClick={closeForm}
-                className="p-2.5 bg-white rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors shadow-sm"
+                className="p-2.5 bg-white/60 backdrop-blur-md rounded-full text-gray-500 hover:text-gray-900 hover:bg-gray-200 transition-colors shadow-sm"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -425,30 +425,30 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
             <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar">
               {submitStatus === 'success' ? (
                 <div className="text-center py-8">
-                  <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 animate-in zoom-in duration-500">
-                    <CheckCircle className="h-12 w-12 text-green-600" />
+                  <div className="w-24 h-24 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-8 animate-in zoom-in duration-500">
+                    <CheckCircle className="h-12 w-12 text-teal-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Email Draft Prepared!</h3>
                   <p className="text-gray-600 mb-8 max-w-md mx-auto text-lg">
                     We've opened your email client. Please attach your documents to complete the application.
                   </p>
                   
-                  <div className="bg-amber-50 border border-amber-100 rounded-2xl p-6 text-left max-w-lg mx-auto mb-8 shadow-sm">
-                      <h4 className="font-bold text-amber-900 mb-4 flex items-center gap-2">
-                        <Info className="h-5 w-5 text-amber-600" />
+                  <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 text-left max-w-lg mx-auto mb-8 shadow-sm">
+                      <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <Info className="h-5 w-5 text-gray-600" />
                         Checklist:
                       </h4>
-                      <ul className="space-y-3 text-sm text-amber-900 font-medium">
+                      <ul className="space-y-3 text-sm text-gray-900 font-medium">
                         <li className="flex items-center gap-3">
-                           <div className="w-5 h-5 rounded-full border border-amber-300 bg-white flex items-center justify-center text-[10px]">1</div>
+                           <div className="w-5 h-5 rounded-full border border-gray-300 bg-white/60 backdrop-blur-md flex items-center justify-center text-[10px]">1</div>
                            CV/Resume attached
                         </li>
                         <li className="flex items-center gap-3">
-                           <div className="w-5 h-5 rounded-full border border-amber-300 bg-white flex items-center justify-center text-[10px]">2</div>
+                           <div className="w-5 h-5 rounded-full border border-gray-300 bg-white/60 backdrop-blur-md flex items-center justify-center text-[10px]">2</div>
                            Academic Degrees attached
                         </li>
                         <li className="flex items-center gap-3">
-                           <div className="w-5 h-5 rounded-full border border-amber-300 bg-white flex items-center justify-center text-[10px]">3</div>
+                           <div className="w-5 h-5 rounded-full border border-gray-300 bg-white/60 backdrop-blur-md flex items-center justify-center text-[10px]">3</div>
                            Sent
                         </li>
                       </ul>
@@ -477,7 +477,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="e.g. Jean Bosco"
-                        className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white shadow-sm focus:shadow-md"
+                        className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white/60 backdrop-blur-md shadow-sm focus:shadow-md"
                       />
                     </div>
                     
@@ -493,7 +493,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="e.g. +250 788 123 456"
-                        className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white shadow-sm focus:shadow-md"
+                        className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white/60 backdrop-blur-md shadow-sm focus:shadow-md"
                       />
                     </div>
                   </div>
@@ -510,7 +510,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="e.g. yourname@email.com"
-                      className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white shadow-sm focus:shadow-md"
+                      className="w-full px-5 py-3.5 rounded-xl border border-gray-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all bg-white/60 backdrop-blur-md shadow-sm focus:shadow-md"
                     />
                   </div>
 
@@ -528,7 +528,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                         />
                         <div className="flex flex-col items-center pointer-events-none">
-                          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-teal-600 mb-3 shadow-md border border-gray-100 group-hover:scale-110 transition-transform">
+                          <div className="w-14 h-14 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center text-teal-600 mb-3 shadow-md border border-gray-100 group-hover:scale-110 transition-transform">
                             <Upload className="h-6 w-6" />
                           </div>
                           {fileName ? (
@@ -562,7 +562,7 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                       />
                       <div className="flex flex-col items-center pointer-events-none">
-                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-teal-600 mb-2 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                        <div className="w-10 h-10 bg-white/60 backdrop-blur-md rounded-full flex items-center justify-center text-teal-600 mb-2 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                           <Upload className="h-4 w-4" />
                         </div>
                         {coverLetterFileName ? (

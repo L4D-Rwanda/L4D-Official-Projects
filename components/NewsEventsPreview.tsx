@@ -12,7 +12,7 @@ const NewsEventsPreview: React.FC<NewsEventsPreviewProps> = ({ onViewMore, onNav
   const latestEvents = NEWS_EVENTS.slice(0, 3); // Get latest 3
 
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
@@ -37,13 +37,13 @@ const NewsEventsPreview: React.FC<NewsEventsPreviewProps> = ({ onViewMore, onNav
           {latestEvents.map((item, index) => (
             <Reveal key={item.id} delay={index * 100}>
               <div 
-                className="bg-white rounded-[24px] border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-teal-100 transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                className="bg-white/60 backdrop-blur-md rounded-[24px] border border-white/60 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 hover:border-teal-100 transition-all duration-300 group cursor-pointer h-full flex flex-col"
                 onClick={() => onNavigateToNewsEvent && onNavigateToNewsEvent(item.id)}
               >
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                    <div className="absolute top-4 left-4 z-10">
                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md ${
-                       item.type === 'Event' ? 'bg-orange-500/90 text-white' : 'bg-teal-600/90 text-white'
+                       item.type === 'Event' ? 'bg-burgundy-500/90 text-white' : 'bg-teal-600/90 text-white'
                      }`}>
                        {item.type}
                      </span>
@@ -55,8 +55,8 @@ const NewsEventsPreview: React.FC<NewsEventsPreviewProps> = ({ onViewMore, onNav
                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                      />
                    ) : (
-                     <div className="w-full h-full bg-slate-100 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                        <Calendar className="h-12 w-12 text-slate-300" />
+                     <div className="w-full h-full bg-gray-100 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
+                        <Calendar className="h-12 w-12 text-gray-300" />
                      </div>
                    )}
                 </div>

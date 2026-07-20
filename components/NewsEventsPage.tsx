@@ -20,8 +20,8 @@ const NewsEventsPage: React.FC<NewsEventsPageProps> = ({ onNavigateToNewsEvent }
     : NEWS_EVENTS.filter(item => item.type === filter);
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50">
-      <div className="bg-white py-16 mb-16 border-b border-gray-100">
+    <div className="pt-24 pb-16 min-h-screen bg-gray-50">
+      <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">News & Events</h1>
@@ -42,7 +42,7 @@ const NewsEventsPage: React.FC<NewsEventsPageProps> = ({ onNavigateToNewsEvent }
                 className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
                   filter === type 
                     ? 'bg-burgundy-700 text-white shadow-md' 
-                    : 'bg-white text-gray-600 border border-gray-200 hover:border-burgundy-300 hover:text-burgundy-700'
+                    : 'bg-white/60 backdrop-blur-md text-gray-600 border border-gray-200 hover:border-burgundy-300 hover:text-burgundy-700'
                 }`}
               >
                 {type === 'Event' ? 'Events' : type}
@@ -55,7 +55,7 @@ const NewsEventsPage: React.FC<NewsEventsPageProps> = ({ onNavigateToNewsEvent }
           {filteredItems.map((item, index) => (
             <Reveal key={item.id} delay={index * 100}>
               <div 
-                className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col h-full"
+                className="group bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-gray-100 hover:border-teal-200 hover:shadow-xl transition-all duration-500 cursor-pointer flex flex-col h-full"
                 onClick={() => onNavigateToNewsEvent(item.id)}
               >
                 <div className="h-60 overflow-hidden relative">

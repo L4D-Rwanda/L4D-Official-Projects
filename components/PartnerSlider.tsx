@@ -91,8 +91,8 @@ const PartnerSlider: React.FC<PartnerSliderProps> = ({ theme = 'light' }) => {
             </button>
 
             {/* Gradient Masks for Fade Effect */}
-            <div className={`absolute left-0 top-0 bottom-0 w-8 md:w-24 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-r from-teal-900 to-transparent' : 'bg-gradient-to-r from-slate-50 to-transparent'}`}></div>
-            <div className={`absolute right-0 top-0 bottom-0 w-8 md:w-24 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-l from-teal-900 to-transparent' : 'bg-gradient-to-l from-slate-50 to-transparent'}`}></div>
+            <div className={`absolute left-0 top-0 bottom-0 w-8 md:w-24 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-r from-teal-900 to-transparent' : 'bg-gradient-to-r from-gray-50 to-transparent'}`}></div>
+            <div className={`absolute right-0 top-0 bottom-0 w-8 md:w-24 z-10 pointer-events-none ${isDark ? 'bg-gradient-to-l from-teal-900 to-transparent' : 'bg-gradient-to-l from-gray-50 to-transparent'}`}></div>
             
             {/* Slides Window */}
             <div className="overflow-hidden py-8">
@@ -105,14 +105,14 @@ const PartnerSlider: React.FC<PartnerSliderProps> = ({ theme = 'light' }) => {
                      {getPageItems(pageIndex).map((client, idx) => (
                        <div key={`${pageIndex}-${idx}`} className="flex justify-center h-full">
                          <div 
-                           className={`w-full h-32 rounded-xl flex items-center justify-center p-6 group relative transition-all duration-300 ${isDark ? 'bg-white shadow-lg border border-white/10 hover:scale-105' : 'bg-white border border-gray-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-teal-100'}`}
+                           className={`w-full h-32 rounded-xl flex items-center justify-center p-6 group relative transition-all duration-300 ${isDark ? 'bg-white shadow-lg border border-white/10 hover:scale-105' : 'bg-white/60 backdrop-blur-md border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-teal-100'}`}
                            title={client.name}
                          >
                              {client.logo ? (
                                <img 
                                   src={client.logo} 
                                   alt={client.name} 
-                                  loading="lazy"
+                                  loading="lazy" referrerPolicy="no-referrer"
                                   className={`max-w-full max-h-full object-contain transition-transform duration-300 transform group-hover:scale-110 ${isDark ? 'opacity-95 group-hover:opacity-100' : ''}`} 
                                />
                              ) : (

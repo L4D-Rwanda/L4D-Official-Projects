@@ -13,7 +13,7 @@ const AREAS = [
 const GROUPS = [
   { name: 'Young Professionals', icon: Users },
   { name: 'Entrepreneurs', icon: Lightbulb },
-  { name: 'Researchers', icon: BookOpen },
+  { name: 'Policy Researchers', icon: BookOpen },
   { name: 'Public Institutions', icon: Building },
   { name: 'Civil Society Organisations', icon: Users },
 ];
@@ -27,8 +27,8 @@ const LeadershipCoachingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50">
-      <div className="bg-white py-16 md:py-24 mb-16 border-b border-gray-100">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <div className="bg-gray-50 py-16 md:py-24 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Leadership, Mentorship & Coaching</h1>
@@ -47,7 +47,7 @@ const LeadershipCoachingPage: React.FC = () => {
                <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8 border-b-2 border-teal-100 pb-4 inline-block">Areas of Support</h2>
                <div className="space-y-6">
                  {AREAS.map((area, idx) => (
-                   <div key={idx} className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                   <div key={idx} className="flex items-center gap-4 bg-white/60 backdrop-blur-md p-4 rounded-xl shadow-sm border border-gray-100">
                      <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
                        <area.icon size={24} />
                      </div>
@@ -63,7 +63,7 @@ const LeadershipCoachingPage: React.FC = () => {
                <h2 className="text-3xl font-serif font-bold text-gray-900 mb-8 border-b-2 border-teal-100 pb-4 inline-block">Target Groups</h2>
                <div className="space-y-6">
                  {GROUPS.map((group, idx) => (
-                   <div key={idx} className="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                   <div key={idx} className="flex items-center gap-4 bg-white/60 backdrop-blur-md p-4 rounded-xl shadow-sm border border-gray-100">
                      <div className="w-12 h-12 bg-gray-50 text-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
                        <group.icon size={24} />
                      </div>
@@ -83,7 +83,7 @@ const LeadershipCoachingPage: React.FC = () => {
              <p className="text-teal-100 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
                Read testimonials and case studies from professionals and organizations that have elevated their impact through our mentorship and coaching.
              </p>
-             <button onClick={() => window.location.href='/#contact'} className="px-8 py-4 bg-white text-teal-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+             <button onClick={() => window.location.href='/#contact'} className="px-8 py-4 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg">
                Get in Touch
              </button>
           </div>

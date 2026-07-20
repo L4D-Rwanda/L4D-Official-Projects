@@ -98,8 +98,8 @@ Published by High Lands Centre of Leadership for Development (L4D).
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50 font-sans print:bg-white print:pt-0">
-      <div className="bg-white py-16 mb-16 border-b border-gray-100 print:hidden">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50 font-sans print:bg-white print:pt-0">
+      <div className="bg-white/60 backdrop-blur-md py-16 mb-16 border-b border-gray-100 print:hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <button 
             onClick={onBack}
@@ -111,10 +111,10 @@ Published by High Lands Centre of Leadership for Development (L4D).
           <Reveal>
             <div className="flex items-center gap-3 mb-6">
               <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide ${
-                  publication.type === 'Report' ? 'bg-blue-50 text-blue-700' :
-                  publication.type === 'Policy Brief' ? 'bg-emerald-50 text-emerald-700' :
-                  publication.type === 'News & Insights' ? 'bg-purple-50 text-purple-700' :
-                  'bg-amber-50 text-amber-700'
+                  publication.type === 'Report' ? 'bg-teal-50 text-teal-700' :
+                  publication.type === 'Policy Brief' ? 'bg-teal-50 text-teal-700' :
+                  publication.type === 'News & Insights' ? 'bg-burgundy-50 text-burgundy-700' :
+                  'bg-gray-50 text-gray-700'
               }`}>
                 {publication.type}
               </span>
@@ -139,7 +139,7 @@ Published by High Lands Centre of Leadership for Development (L4D).
               
               <button 
                 onClick={handleDownloadFile}
-                className="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all flex items-center gap-2 print:hidden"
+                className="px-6 py-3 bg-white/60 backdrop-blur-md border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all flex items-center gap-2 print:hidden"
               >
                 <Download size={18} />
                 Download File
@@ -158,8 +158,8 @@ Published by High Lands Centre of Leadership for Development (L4D).
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 print:p-0">
          <Reveal delay={100}>
-            <div className="bg-white p-8 md:p-12 rounded-[30px] shadow-sm mb-12 print:shadow-none print:p-0">
-               <div className="prose prose-lg prose-teal max-w-none text-gray-700">
+            <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-[30px] shadow-sm mb-12 print:shadow-none print:p-0">
+               <div className="prose pburgundy-lg pburgundy-teal max-w-none text-gray-700">
                   <h2 className="text-2xl font-bold font-serif text-gray-900 mb-4 print:mt-12">Abstract & Key Findings</h2>
                   <p className="lead text-xl text-gray-600 mb-8">
                      Detailed analysis and findings regarding {publication.title.toLowerCase()}. This resource offers key data, methodological insights, and strategic recommendations for policymakers.
@@ -202,7 +202,7 @@ Published by High Lands Centre of Leadership for Development (L4D).
                               <div 
                                 key={idx} 
                                 onClick={() => onNavigateToProject && onNavigateToProject(project.id)}
-                                className="flex flex-col bg-slate-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-teal-200 hover:shadow-md transition-all group/project cursor-pointer"
+                                className="flex flex-col bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-teal-200 hover:shadow-md transition-all group/project cursor-pointer"
                               >
                                  <div className="h-32 w-full overflow-hidden relative">
                                     <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/project:scale-105" />

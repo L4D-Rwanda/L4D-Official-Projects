@@ -54,40 +54,47 @@ const CountUp = ({ end, duration = 2000, suffix = '' }: { end: number, duration?
   return <span ref={elementRef}>{count}{suffix}</span>;
 };
 
+const getInitials = (name: string) => {
+  if (!name) return '';
+  const parts = name.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+};
+
 const TeamCard = ({ member, index }: { member: any, index: number }) => {
+  const isFounder = member.role.toLowerCase().includes('founder') || member.name.toLowerCase().includes('bizoza');
+  const initials = getInitials(member.name);
+
   return (
     <Reveal delay={index * 100}>
-      <div className="group relative bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
-        <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
-          <img 
-            src={member.image} 
-            alt={member.name} 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
-            loading="lazy"
-          />
-          <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-        </div>
+      <div className="group relative bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
+        {isFounder ? (
+          <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
+            <img 
+              src={member.image} 
+              alt={member.name} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
+              loading="lazy"
+            />
+            <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+          </div>
+        ) : (
+          <div className="h-80 overflow-hidden relative bg-gradient-to-br from-teal-50 to-teal-100/50 flex items-center justify-center p-6">
+            <div className="w-24 h-24 rounded-full bg-teal-800 text-white flex items-center justify-center text-3xl font-bold font-serif shadow-inner group-hover:scale-110 transition-transform duration-500">
+              {initials}
+            </div>
+            <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+          </div>
+        )}
         <div className="p-8 relative flex-1 flex flex-col">
           <div className="absolute -top-10 right-8 w-16 h-16 bg-burgundy-700 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
              <Users size={24} />
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-teal-700 transition-colors">{member.name}</h3>
           <p className="text-teal-600 font-medium text-sm mb-4 uppercase tracking-wide">{member.role}</p>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-gray-600 leading-relaxed">
             {member.bio}
           </p>
-          {member.focusArea && member.focusArea.length > 0 && (
-            <div className="mt-auto pt-4 border-t border-gray-100">
-              <p className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Focus Area</p>
-              <div className="flex flex-wrap gap-2">
-                {member.focusArea.map((focus: string, idx: number) => (
-                  <span key={idx} className="bg-teal-50 text-teal-700 text-xs font-medium px-2.5 py-1 rounded-full border border-teal-100">
-                    {focus}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </Reveal>
@@ -102,7 +109,7 @@ const AboutPage: React.FC = () => {
   const yearsActive = new Date().getFullYear() - 2012;
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-white">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="bg-teal-900 py-24 text-white mb-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-teal-800/30 transform skew-x-12 translate-x-1/4"></div>
@@ -114,10 +121,10 @@ const AboutPage: React.FC = () => {
               Since 2012
             </span>
             <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
-              Bridging Research <br/> & Policy Action
+              Bridging Policy Research <br/> & Policy Action
             </h1>
             <p className="text-xl text-teal-100 max-w-2xl leading-relaxed font-light">
-              Leading the way in evidence-based policy research and development advisory in East Africa. We turn complex data into actionable insights.
+              Leading the way in evidence-based policy research and strategic advisory in Africa. We turn complex data into actionable insights.
             </p>
           </Reveal>
         </div>
@@ -130,13 +137,13 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-24">
             <div>
               <h2 className="text-burgundy-700 font-bold uppercase tracking-wider text-sm mb-3">Our Story</h2>
-              <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">A Decade of Impact</h3>
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-6">Our Establishment & Mission</h3>
               <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
                 <p>
-                  The High Lands Centre of Leadership for Development (L4D) was established in October 2012 with a clear mandate: to bridge the gap between academic research and practical policy implementation.
+                  The High Lands Centre of Leadership for Development (L4D) was established in 2012 with a clear mandate: to bridge the gap between academic research and practical policy implementation.
                 </p>
                 <p>
-                   We believe that effective policy must be grounded in reality. That's why we spend as much time in the field—listening to farmers, teachers, and community leaders—as we do analyzing data.
+                  With expertise spanning agriculture, economic development, natural resource management, climate resilience, gender, youth empowerment, and social protection, we have delivered evidence-based solutions that advance sustainable development across these sectors. Our interdisciplinary team combines local expertise with international best practices to produce objective, reliable, and impactful policy research.
                 </p>
               </div>
               
@@ -145,7 +152,7 @@ const AboutPage: React.FC = () => {
                     <h4 className="text-4xl font-bold text-teal-700 mb-1">
                       <CountUp end={60} suffix="+" />
                     </h4>
-                    <p className="text-sm text-gray-600 font-medium">Research Projects</p>
+                    <p className="text-sm text-gray-600 font-medium">Major Research Assignments</p>
                  </div>
                  <div className="p-4 bg-teal-50 rounded-2xl border border-teal-100 hover:shadow-lg transition-shadow duration-300">
                     <h4 className="text-4xl font-bold text-teal-700 mb-1">
@@ -219,9 +226,9 @@ const AboutPage: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* Leadership & Board */}
+          {/* Advisory Board */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Leadership & Board</h3>
+            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Advisory Board</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {TEAM.filter(m => m.type === 'Board' || m.type === 'Leadership').map((member, index) => (
                  <TeamCard key={index} member={member} index={index} />
@@ -239,10 +246,10 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Consultants */}
+          {/* Associate Researchers */}
           {TEAM.filter(m => m.type === 'Consultant').length > 0 && (
             <div className="mb-16">
-              <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Consultants</h3>
+              <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Associate Researchers</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {TEAM.filter(m => m.type === 'Consultant').map((member, index) => (
                    <TeamCard key={index} member={member} index={index} />
@@ -259,12 +266,9 @@ const AboutPage: React.FC = () => {
             
             <BookOpen className="w-12 h-12 mx-auto mb-6 text-teal-300" />
             <h3 className="text-3xl font-serif font-bold mb-4">Officially Registered & Compliant</h3>
-            <p className="text-teal-100 leading-relaxed max-w-2xl mx-auto mb-8 text-lg">
+            <p className="text-teal-100 leading-relaxed max-w-2xl mx-auto text-lg">
               L4D is legally registered with the Rwanda Development Board (RDB) under Company Code 102803581. We operate in full compliance with national regulations and adhere to international standards.
             </p>
-            <button className="px-8 py-3 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-               Download Annual Report
-            </button>
           </div>
         </Reveal>
 

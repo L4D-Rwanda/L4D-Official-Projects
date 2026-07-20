@@ -11,12 +11,12 @@ const StaticPage: React.FC<StaticPageProps> = ({ title }) => {
   }, [title]);
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-slate-50">
+    <div className="pt-32 pb-20 min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <div className="bg-white p-8 md:p-16 rounded-[30px] shadow-sm border border-gray-100">
+          <div className="bg-white/60 backdrop-blur-md p-8 md:p-16 rounded-[30px] shadow-sm border border-gray-100">
             <h1 className="text-4xl font-serif font-bold text-gray-900 mb-8">{title}</h1>
-            <div className="prose prose-lg prose-teal max-w-none text-gray-600">
+            <div className="prose pburgundy-lg pburgundy-teal max-w-none text-gray-600">
               <p className="lead">
                 This page is currently under review and its content will be available soon. 
                 Please check back later for updates regarding our {title.toLowerCase()}.

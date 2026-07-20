@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import { ArrowRight, Info, ImageIcon } from 'lucide-react';
 import { PROJECTS } from '../constants';
-import PartnerSlider from './PartnerSlider';
 
 interface ProjectsProps {
   onViewMore?: () => void;
@@ -22,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
   }, []);
 
   return (
-    <section id="projects" className="py-24 bg-white relative overflow-hidden scroll-mt-24" ref={sectionRef}>
+    <section id="projects" className="py-24 bg-gray-50 relative overflow-hidden scroll-mt-24" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
@@ -47,7 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {isLoading ? (
              Array.from({ length: 3 }).map((_, idx) => (
-                <div key={idx} className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm animate-pulse h-full flex flex-col">
+                <div key={idx} className="bg-white/60 backdrop-blur-md rounded-3xl overflow-hidden border border-gray-100 shadow-sm animate-pulse h-full flex flex-col">
                   <div className="h-48 bg-gray-200 flex items-center justify-center">
                      <ImageIcon className="h-10 w-10 text-gray-300" />
                   </div>
@@ -63,7 +62,7 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
           ) : (
             featuredProjects.map((project, idx) => (
               <Reveal key={project.id} delay={idx * 100}>
-              <div className="bg-slate-50 border border-gray-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+              <div className="bg-white/60 backdrop-blur-md border border-white/60 rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 transition-all duration-300 group h-full flex flex-col">
                 <div className="relative h-48 overflow-hidden">
                   <div className="absolute inset-0 bg-teal-900/10 mix-blend-multiply z-10"></div>
                   {project.image ? (
@@ -74,8 +73,8 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
                      />
                   ) : (
-                     <div className="w-full h-full bg-slate-200 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                        <Info className="h-10 w-10 text-slate-400" />
+                     <div className="w-full h-full bg-gray-200 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
+                        <Info className="h-10 w-10 text-gray-400" />
                      </div>
                   )}
                   <div className="absolute top-4 left-4 z-20">
@@ -115,14 +114,7 @@ const Projects: React.FC<ProjectsProps> = ({ onViewMore }) => {
            </div>
         )}
 
-        <Reveal delay={200}>
-          <div className="mt-24 mb-16">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-serif font-bold text-gray-900">Our Partners</h2>
-            </div>
-            <PartnerSlider theme="light" />
-          </div>
-        </Reveal>
+
 
       </div>
     </section>

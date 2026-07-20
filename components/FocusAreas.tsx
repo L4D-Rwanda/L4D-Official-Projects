@@ -9,7 +9,9 @@ interface FocusAreasProps {
 
 const FocusAreas: React.FC<FocusAreasProps> = ({ onNavigateToCategory }) => {
   return (
-    <section id="focus-areas" className="py-24 bg-white scroll-mt-24">
+    <section id="focus-areas" className="py-24 bg-gray-50 relative overflow-hidden scroll-mt-24">
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-teal-800/5 blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-burgundy-800/5 blur-[100px] pointer-events-none"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">

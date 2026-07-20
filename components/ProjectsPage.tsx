@@ -126,7 +126,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {isLoading ? (
             Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="bg-white rounded-[30px] overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full animate-pulse">
+              <div key={index} className="bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full animate-pulse">
                 <div className="h-64 bg-gray-200 w-full" />
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex justify-between items-center mb-4">
@@ -149,7 +149,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
           ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project, index) => (
               <Reveal key={project.id} delay={index * 100}>
-                <div className="group bg-white rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
+                <div className="group bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full">
                   <div className="h-64 overflow-hidden relative cursor-pointer" onClick={() => setSelectedProject(project)}>
                     <LazyImage 
                       src={project.image} 
@@ -204,7 +204,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
               </Reveal>
             ))
           ) : (
-            <div className="col-span-full text-center py-20 bg-white rounded-[30px] border border-dashed border-gray-300">
+            <div className="col-span-full text-center py-20 bg-white/60 backdrop-blur-md rounded-[30px] border border-dashed border-gray-300">
               <p className="text-gray-500 text-lg">No projects found in this category yet.</p>
             </div>
           )}
@@ -219,7 +219,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
              onClick={() => setSelectedProject(null)}
            />
            
-           <div className="relative bg-white rounded-[30px] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col">
+           <div className="relative bg-white/60 backdrop-blur-md rounded-[30px] w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 duration-300 flex flex-col">
                
                {/* Close Button */}
                <button 
@@ -243,7 +243,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                         <span className="bg-teal-500/90 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-teal-400/30">
                           {selectedProject.category}
                         </span>
-                        <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border ${selectedProject.status === 'Completed' ? 'bg-green-500/90 border-green-400/30 text-white' : 'bg-blue-500/90 border-blue-400/30 text-white'} backdrop-blur-md`}>
+                        <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border ${selectedProject.status === 'Completed' ? 'bg-teal-500/90 border-teal-400/30 text-white' : 'bg-teal-500/90 border-teal-400/30 text-white'} backdrop-blur-md`}>
                           {selectedProject.status}
                         </span>
                       </div>
@@ -302,7 +302,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                                    <div 
                                      key={idx} 
                                      onClick={() => onNavigateToPublicationCategory && onNavigateToPublicationCategory(pub.type, pub.title)}
-                                     className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all group/pub cursor-pointer"
+                                     className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all group/pub cursor-pointer"
                                    >
                                       <div className="p-3 bg-teal-50 rounded-xl text-teal-700">
                                          <FileText size={20} />
@@ -313,8 +313,8 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                                          </h4>
                                          <div className="flex items-center gap-3 text-xs text-gray-500 mt-2">
                                             <span className={`px-2 py-0.5 rounded-full ${
-                                                pub.type === 'Report' ? 'bg-blue-50 text-blue-700' :
-                                                pub.type === 'Policy Brief' ? 'bg-emerald-50 text-emerald-700' :
+                                                pub.type === 'Report' ? 'bg-teal-50 text-teal-700' :
+                                                pub.type === 'Policy Brief' ? 'bg-teal-50 text-teal-700' :
                                                 'bg-gray-100 text-gray-700'
                                             } font-bold uppercase tracking-wide`}>
                                                 {pub.type}
@@ -342,7 +342,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                                    <div 
                                      key={idx} 
                                      onClick={() => onNavigateToNewsEvent && onNavigateToNewsEvent(item.id)}
-                                     className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all group/pub cursor-pointer"
+                                     className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-gray-100 hover:border-teal-200 hover:shadow-md transition-all group/pub cursor-pointer"
                                    >
                                       <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden relative">
                                         <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover/pub:scale-105 transition-transform" />
@@ -353,8 +353,8 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                                          </h4>
                                          <div className="flex items-center gap-3 text-xs text-gray-500 mt-2">
                                             <span className={`px-2 py-0.5 rounded-full ${
-                                                item.type === 'News' ? 'bg-indigo-50 text-indigo-700' :
-                                                'bg-orange-50 text-orange-700'
+                                                item.type === 'News' ? 'bg-teal-50 text-teal-700' :
+                                                'bg-burgundy-50 text-burgundy-700'
                                             } font-bold uppercase tracking-wide`}>
                                                 {item.type}
                                             </span>

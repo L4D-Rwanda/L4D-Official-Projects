@@ -10,17 +10,24 @@ interface PublicationsProps {
 
 const Publications: React.FC<PublicationsProps> = ({ onViewMore, onNavigateToCategory }) => {
   const [activeTab, setActiveTab] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const categories = ['All', 'Report', 'Policy Brief', 'Working Paper'];
 
   // Only show first 3 items on homepage/section view
   const displayLimit = 3;
   
-  const filteredPublications = (activeTab === 'All' 
-    ? PUBLICATIONS 
-    : PUBLICATIONS.filter(pub => pub.type === activeTab)).slice(0, displayLimit);
+  const filteredPublications = PUBLICATIONS.filter(pub => {
+    const matchesTab = activeTab === 'All' || pub.type === activeTab;
+    const matchesSearch = pub.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTab && matchesSearch;
+  }).slice(0, displayLimit);
 
   return (
-    <section id="publications" className="py-24 bg-white scroll-mt-24">
+    <section id="publications" className="py-24 bg-gray-50 relative overflow-hidden scroll-mt-24">
+      {/* Background Decorative Blobs */}
+      <div className="absolute top-[-5%] left-[-5%] w-[400px] h-[400px] rounded-full bg-teal-500/5 blur-[80px] pointer-events-none"></div>
+      <div className="absolute bottom-[-5%] right-[-5%] w-[300px] h-[300px] rounded-full bg-burgundy-500/5 blur-[80px] pointer-events-none"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
@@ -34,8 +41,10 @@ const Publications: React.FC<PublicationsProps> = ({ onViewMore, onNavigateToCat
                <div className="relative">
                   <input 
                       type="text" 
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search resources..." 
-                      className="pl-12 pr-6 py-4 border-2 border-gray-100 bg-white rounded-full text-base text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 w-full md:w-96 transition-all shadow-lg group-hover:shadow-xl"
+                      className="pl-12 pr-6 py-4 border-2 border-gray-100 bg-white/60 backdrop-blur-md rounded-full text-base text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 w-full md:w-96 transition-all shadow-lg group-hover:shadow-xl"
                   />
                   <div className="absolute left-4 top-1/2 -translate-y-1/2 p-1 bg-teal-50 rounded-full text-teal-600 group-hover:text-teal-800 transition-colors">
                     <Search className="h-4 w-4" />
@@ -71,17 +80,17 @@ const Publications: React.FC<PublicationsProps> = ({ onViewMore, onNavigateToCat
                   <div 
                     key={index} 
                     onClick={() => onNavigateToCategory && onNavigateToCategory(pub.type, pub.title)}
-                    className="flex flex-col md:flex-row md:items-center justify-between bg-white border border-gray-200 p-6 rounded-2xl hover:border-teal-500 transition-all duration-300 group shadow-sm hover:shadow-xl hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 cursor-pointer relative overflow-hidden"
+                    className="flex flex-col md:flex-row md:items-center justify-between bg-white/60 backdrop-blur-xl border border-white p-6 rounded-3xl hover:border-teal-500 transition-all duration-300 group shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 cursor-pointer relative overflow-hidden"
                   >
                     {/* Hover Effect Background */}
                     <div className="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     
                     <div className="flex items-start gap-5 relative z-10 w-full">
                       <div className={`p-4 rounded-xl transition-all duration-300 shadow-sm group-hover:shadow-md ${
-                          pub.type === 'Report' ? 'bg-blue-50 text-blue-700 group-hover:bg-blue-600 group-hover:text-white' :
-                          pub.type === 'Policy Brief' ? 'bg-emerald-50 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white' :
-                          pub.type === 'News & Insights' ? 'bg-purple-50 text-purple-700 group-hover:bg-purple-600 group-hover:text-white' :
-                          'bg-amber-50 text-amber-700 group-hover:bg-amber-600 group-hover:text-white'
+                          pub.type === 'Report' ? 'bg-teal-50 text-teal-700 group-hover:bg-teal-600 group-hover:text-white' :
+                          pub.type === 'Policy Brief' ? 'bg-teal-50 text-teal-700 group-hover:bg-teal-600 group-hover:text-white' :
+                          pub.type === 'News & Insights' ? 'bg-burgundy-50 text-burgundy-700 group-hover:bg-burgundy-600 group-hover:text-white' :
+                          'bg-gray-50 text-gray-700 group-hover:bg-gray-600 group-hover:text-white'
                         }`}>
                         {pub.type === 'News & Insights' ? <Newspaper className="h-6 w-6" /> : <FileText className="h-6 w-6" />}
                       </div>
@@ -89,10 +98,10 @@ const Publications: React.FC<PublicationsProps> = ({ onViewMore, onNavigateToCat
                         <h4 className="text-xl font-bold text-gray-900 group-hover:text-teal-900 transition-colors mb-2">{pub.title}</h4>
                         <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 group-hover:text-gray-600">
                           <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide border ${
-                             pub.type === 'Report' ? 'bg-blue-50 text-blue-700 border-blue-100' :
-                             pub.type === 'Policy Brief' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' :
-                             pub.type === 'News & Insights' ? 'bg-purple-50 text-purple-700 border-purple-100' :
-                             'bg-amber-50 text-amber-700 border-amber-100'
+                             pub.type === 'Report' ? 'bg-teal-50 text-teal-700 border-teal-100' :
+                             pub.type === 'Policy Brief' ? 'bg-teal-50 text-teal-700 border-teal-100' :
+                             pub.type === 'News & Insights' ? 'bg-burgundy-50 text-burgundy-700 border-burgundy-100' :
+                             'bg-gray-50 text-gray-700 border-gray-100'
                           }`}>
                             {pub.type}
                           </span>

@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
               </span>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Let's Start a Conversation</h2>
               <p className="text-teal-100 mb-10 text-lg leading-relaxed">
-                Whether you are interested in our research, looking for advisory services, or want to partner with us, we are here to help.
+                Whether you are interested in our policy research, looking for advisory services, or want to partner with us, we are here to help.
               </p>
 
               <div className="space-y-8">
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                {/* Decorative shadow/backdrop for form */}
                <div className="absolute inset-0 bg-teal-600 rounded-[30px] rotate-2 transform translate-y-2 opacity-20 blur-sm"></div>
                
-               <div className="bg-white rounded-[30px] p-8 md:p-10 text-gray-900 shadow-2xl relative border border-white/10">
+               <div className="bg-white/90 backdrop-blur-md rounded-[30px] p-8 md:p-10 text-gray-900 shadow-2xl relative border border-white/10">
                   <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">Send us a Message</h3>
                   <p className="text-gray-500 mb-8">Fill out the form below and we'll get back to you shortly.</p>
                   
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                           id="firstName" 
                           required
                           disabled={status !== 'idle'}
-                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
+                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white/60 backdrop-blur-md focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                           placeholder="John" 
                         />
                       </div>
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                           id="lastName" 
                           required
                           disabled={status !== 'idle'}
-                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
+                          className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white/60 backdrop-blur-md focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                           placeholder="Doe" 
                         />
                       </div>
@@ -110,7 +110,7 @@ const Contact: React.FC = () => {
                         id="email" 
                         required
                         disabled={status !== 'idle'}
-                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
+                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white/60 backdrop-blur-md focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 disabled:opacity-50" 
                         placeholder="john@example.com" 
                       />
                     </div>
@@ -118,10 +118,10 @@ const Contact: React.FC = () => {
                     <div className="space-y-2">
                       <label htmlFor="subject" className="text-sm font-semibold text-gray-700 ml-1">Subject</label>
                       <div className="relative">
-                        <select id="subject" disabled={status !== 'idle'} className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all appearance-none text-gray-700 cursor-pointer disabled:opacity-50">
+                        <select id="subject" disabled={status !== 'idle'} className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white/60 backdrop-blur-md focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all appearance-none text-gray-700 cursor-pointer disabled:opacity-50">
                             <option>General Inquiry</option>
                             <option>Partnership Proposal</option>
-                            <option>Research Request</option>
+                            <option>Policy Research Request</option>
                             <option>Media</option>
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                         rows={4} 
                         required
                         disabled={status !== 'idle'}
-                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none disabled:opacity-50" 
+                        className="w-full px-5 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white/60 backdrop-blur-md focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition-all placeholder:text-gray-400 text-gray-900 resize-none disabled:opacity-50" 
                         placeholder="How can we help you?"
                       ></textarea>
                     </div>
@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                       type="submit" 
                       disabled={status !== 'idle'}
                       className={`w-full font-bold py-4 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2 group mt-2 ${
-                        status === 'success' ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-900/20' : 'bg-burgundy-700 hover:bg-burgundy-800 text-white hover:shadow-xl'
+                        status === 'success' ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-teal-900/20' : 'bg-burgundy-700 hover:bg-burgundy-800 text-white hover:shadow-xl'
                       }`}
                     >
                       {status === 'submitting' ? (

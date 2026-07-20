@@ -14,8 +14,8 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
   }, []);
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50">
-      <div className="bg-white py-16 mb-16 border-b border-gray-100">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {onBack && (
             <button 
@@ -45,7 +45,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Reveal delay={100}>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
+            <div className="bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
                 <Globe2 className="h-7 w-7 text-teal-700" />
               </div>
@@ -57,7 +57,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
+            <div className="bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
                 <Handshake className="h-7 w-7 text-teal-700" />
               </div>
@@ -69,13 +69,13 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
           </Reveal>
 
           <Reveal delay={300}>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
+            <div className="bg-white/60 backdrop-blur-md p-8 rounded-3xl border border-gray-100 shadow-sm h-full">
               <div className="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center mb-6">
                 <Users className="h-7 w-7 text-teal-700" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Ecosystem Collaboration</h3>
               <p className="text-gray-600 leading-relaxed">
-                We bridge the gap between academic research, government policy making, and grassroots implementation through continuous cross-sector dialogues.
+                We bridge the gap between academic policy research, government policy making, and grassroots implementation through continuous cross-sector dialogues.
               </p>
             </div>
           </Reveal>
@@ -98,7 +98,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
             </div>
             
             <div className="mt-16 text-center">
-                <a href="#contact" onClick={(e) => { e.preventDefault(); onContact?.(); }} className="inline-flex items-center px-8 py-4 bg-white text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg group">
+                <a href="#contact" onClick={(e) => { e.preventDefault(); onContact?.(); }} className="inline-flex items-center px-8 py-4 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg group">
                    Become a Partner <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
             </div>

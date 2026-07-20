@@ -24,8 +24,9 @@ const Testimonials = () => {
   if (!TESTIMONIALS || TESTIMONIALS.length === 0) return null;
 
   return (
-    <section className="py-24 bg-teal-50 relative overflow-hidden">
-      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-teal-100 rounded-full blur-3xl opacity-50"></div>
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-teal-700/5 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-burgundy-700/5 rounded-full blur-[100px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -36,7 +37,7 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="bg-white rounded-[32px] p-8 md:p-16 shadow-xl relative">
+          <div className="bg-white/60 backdrop-blur-xl rounded-[32px] p-8 md:p-16 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/60 relative">
             <Quote className="absolute top-8 left-8 text-teal-100 rotate-180 w-16 h-16 md:w-24 md:h-24" />
             
             <div className="relative z-10 text-center">

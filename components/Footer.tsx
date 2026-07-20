@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { Twitter, Linkedin, Facebook, Send, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Linkedin, Facebook, Send, CheckCircle2, ArrowRight } from 'lucide-react';
 import Logo from './Logo';
 import { Page } from './Navbar';
+
+// SVG for X (Twitter)
+const XIcon = ({ className, size = 18 }: { className?: string; size?: number }) => (
+  <svg className={className} width={size} height={size} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 interface FooterProps {
   onNavigate: (page: Page) => void;
@@ -46,20 +53,20 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                </a>
              </div>
             <p className="text-sm leading-relaxed mb-8 text-gray-400">
-              High Lands Centre of Leadership for Development. Professionalism, research excellence, and thought leadership in East Africa.
+              High Lands Centre of Leadership for Development. Professionalism, policy research excellence, and thought leadership in East Africa.
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://twitter.com/L4D_Rwanda" 
+                href="https://x.com/L4DRwanda" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
-                aria-label="Twitter"
+                aria-label="X (formerly Twitter)"
               >
-                <Twitter size={18} />
+                <XIcon size={16} />
               </a>
               <a 
-                href="https://www.linkedin.com/company/high-lands-centre-of-leadership-for-development" 
+                href="https://www.linkedin.com/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-teal-700 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
@@ -135,7 +142,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                    }} 
                    className="hover:text-teal-400 transition-colors flex items-center gap-2 group">
                   <ArrowRight size={14} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-500" />
-                  Research Reports
+                  Policy Research Reports
                 </a>
               </li>
               <li>
@@ -171,7 +178,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
               Newsletter
             </h4>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              Subscribe to receive updates on our latest research, policy insights, and opportunities.
+              Subscribe to receive updates on our latest policy research, policy insights, and opportunities.
             </p>
             <form onSubmit={handleSubscribe} className="flex flex-col space-y-3">
               <div className="relative">
@@ -182,10 +189,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                    placeholder="Enter your email" 
                    required
                    disabled={status === 'success' || status === 'submitting'}
-                   className={`w-full bg-gray-800 border ${status === 'success' ? 'border-green-500 text-green-500' : 'border-gray-700 text-white'} px-4 py-3 rounded-[15px] focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm transition-all placeholder:text-gray-500`}
+                   className={`w-full bg-gray-800 border ${status === 'success' ? 'border-teal-500 text-teal-500' : 'border-gray-700 text-white'} px-4 py-3 rounded-[15px] focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm transition-all placeholder:text-gray-500`}
                  />
                  {status === 'success' && (
-                    <CheckCircle2 className="absolute right-3 top-3 text-green-500 h-5 w-5 animate-in zoom-in" />
+                    <CheckCircle2 className="absolute right-3 top-3 text-teal-500 h-5 w-5 animate-in zoom-in" />
                  )}
               </div>
               <button 
@@ -193,7 +200,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateToPublicationCate
                 disabled={status === 'success' || status === 'submitting'}
                 className={`w-full px-4 py-3 rounded-[15px] text-sm font-bold transition-all flex items-center justify-center gap-2 ${
                   status === 'success' 
-                    ? 'bg-green-600 text-white hover:bg-green-700' 
+                    ? 'bg-teal-600 text-white hover:bg-teal-700' 
                     : 'bg-teal-700 text-white hover:bg-teal-600 hover:shadow-lg hover:shadow-teal-900/50'
                 }`}
               >

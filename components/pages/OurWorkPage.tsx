@@ -19,8 +19,8 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-slate-50">
-      <div className="bg-white py-16 md:py-24 mb-16 border-b border-gray-100">
+    <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      <div className="bg-gray-50 py-16 md:py-24 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Reveal>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-gray-900 mb-6">Our Work</h1>
@@ -35,14 +35,14 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
         
         {/* Policy Research */}
         <Reveal>
-          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <BookOpen size={48} />
              </div>
              <div className="flex-grow text-center lg:text-left">
                <h2 className="text-3xl font-serif font-bold text-gray-900 mb-4 group-hover:text-teal-700 transition-colors">Policy Research</h2>
                <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                 We produce policy-oriented research and evidence to inform decision-making and contribute to inclusive and sustainable development.
+                 We produce policy-oriented policy research and evidence to inform decision-making and contribute to inclusive and sustainable development.
                </p>
                <button 
                  onClick={() => navigate('policy-research')}
@@ -56,7 +56,7 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
 
         {/* Impact MEL */}
         <Reveal delay={100}>
-          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <BarChart3 size={48} />
              </div>
@@ -77,7 +77,7 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
 
         {/* Leadership Mentorship Coaching */}
         <Reveal delay={200}>
-          <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <Users size={48} />
              </div>

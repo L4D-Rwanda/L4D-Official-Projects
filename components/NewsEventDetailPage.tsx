@@ -57,7 +57,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
   };
 
   return (
-    <div className="pt-24 pb-24 min-h-screen bg-slate-50">
+    <div className="pt-24 pb-24 min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <button 
@@ -69,7 +69,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
           </button>
 
           {/* Hero Section */}
-          <div className="bg-white rounded-t-[40px] overflow-hidden shadow-sm border border-gray-100 border-b-0">
+          <div className="bg-white/60 backdrop-blur-md rounded-t-[40px] overflow-hidden shadow-sm border border-gray-100 border-b-0">
              <div className="h-[400px] w-full relative">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -90,7 +90,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
              </div>
           </div>
 
-          <div className="bg-white p-8 md:p-12 rounded-b-[40px] shadow-sm border border-gray-100 border-t-0 flex flex-col md:flex-row gap-12 relative animate-in slide-in-from-bottom-8 duration-700">
+          <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-b-[40px] shadow-sm border border-gray-100 border-t-0 flex flex-col md:flex-row gap-12 relative animate-in slide-in-from-bottom-8 duration-700">
              
              {/* Toolbar */}
              <div className="md:w-16 flex md:flex-col gap-4 sticky top-32 h-fit print:hidden shrink-0">
@@ -112,7 +112,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
 
              {/* Main Content */}
              <div className="flex-1">
-                <div className="prose prose-lg prose-teal max-w-none text-gray-700 leading-relaxed">
+                <div className="prose pburgundy-lg pburgundy-teal max-w-none text-gray-700 leading-relaxed">
                   <p className="text-xl font-medium text-gray-900 mb-8 leading-snug">
                     {item.summary}
                   </p>
@@ -138,7 +138,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
                               <div 
                                 key={idx} 
                                 onClick={() => onNavigateToProject && onNavigateToProject(project.id)}
-                                className="flex flex-col bg-slate-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-teal-200 hover:shadow-lg transition-all group/project cursor-pointer"
+                                className="flex flex-col bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:border-teal-200 hover:shadow-lg transition-all group/project cursor-pointer"
                               >
                                  <div className="h-40 w-full overflow-hidden relative">
                                     <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/project:scale-105" />

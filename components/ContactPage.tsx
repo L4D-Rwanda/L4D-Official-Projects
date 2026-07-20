@@ -9,7 +9,7 @@ const ContactPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-24 min-h-screen bg-white">
+    <div className="pt-24 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <Reveal>
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6 text-center">Contact Us</h1>
