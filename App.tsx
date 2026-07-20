@@ -48,8 +48,8 @@ const GlobalBackButton: React.FC<{ onBack: () => void, isVisible: boolean }> = (
   return (
     <button
       onClick={onBack}
-      className={`fixed bottom-8 left-8 z-50 p-3 px-5 rounded-full bg-white text-teal-800 shadow-lg border border-teal-100 transition-all duration-500 transform hover:bg-teal-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 flex items-center font-semibold text-sm print:hidden ${
-        show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+      className={`fixed top-28 left-8 z-50 p-3 px-5 rounded-full bg-white text-teal-800 shadow-lg border border-teal-100 transition-all duration-500 transform hover:bg-teal-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 flex items-center font-semibold text-sm print:hidden ${
+        show ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10 pointer-events-none'
       }`}
       aria-label="Go back"
     >
@@ -150,22 +150,22 @@ const App: React.FC = () => {
             <Hero onNavigate={handleNavigation} />
             <About onViewMore={() => handleNavigation('about')} />
             <Services onViewMore={() => handleNavigation('services')} onServiceClick={(id) => handleNavigation(`service/${id}`)} />
-            <section className="py-16 bg-gray-50 border-b border-gray-200/50">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Reveal>
-                  <div className="text-center mb-10">
-                    <h2 className="text-3xl font-serif font-bold text-gray-900">Our Partners</h2>
-                  </div>
-                  <PartnerSlider theme="light" />
-                </Reveal>
-              </div>
-            </section>
             <FocusAreas onNavigateToCategory={handleFocusAreaClick} />
             <Projects onViewMore={() => handleNavigation('national-impact')} onContact={() => handleNavigation('contact')} />
             <Publications onViewMore={() => handleNavigation('publications')} onNavigateToCategory={handlePublicationClick} />
             <Careers onViewAll={() => handleNavigation('careers')} />
             <SocialMediaFeed />
             <Contact />
+            <section className="py-16 bg-teal-950 border-t border-teal-900/50">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Reveal>
+                  <div className="text-center mb-10">
+                    <h2 className="text-3xl font-serif font-bold text-white">Our Partners</h2>
+                  </div>
+                  <PartnerSlider theme="dark" />
+                </Reveal>
+              </div>
+            </section>
           </>
         );
       case 'about':

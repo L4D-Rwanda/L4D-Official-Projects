@@ -78,7 +78,7 @@ export const FOCUS_AREAS: FocusArea[] = [
     image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
   },
   {
-    title: 'Socioeconomic Dev',
+    title: 'Socioeconomic Development',
     description: 'Poverty reduction, economic policy, and community livelihoods.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800',
   },
@@ -113,7 +113,7 @@ export const PROJECTS: Project[] = [
   {
     id: '3',
     title: 'Impact Monitoring and Evaluation of Development Initiatives',
-    category: 'Socioeconomic Dev',
+    category: 'Socioeconomic Development',
     client: 'Mastercard Foundation',
     description: 'Ongoing longitudinal impact monitoring and strategic evaluations of regional youth empowerment and job creation interventions, assessing systemic livelihood shifts and program attribution.',
     status: 'Ongoing',
@@ -193,7 +193,7 @@ export const PROJECTS: Project[] = [
   {
     id: '11',
     title: 'Development of Rwanda\'s National Unit and Civic Engagement Policy',
-    category: 'Socioeconomic Dev',
+    category: 'Socioeconomic Development',
     client: 'MINUBUMWE',
     description: 'Facilitating research, national consultations, and draft policy framing to deliver a comprehensive policy guiding national unity, social cohesion, and active citizenship.',
     status: 'Completed',
@@ -203,7 +203,7 @@ export const PROJECTS: Project[] = [
   {
     id: '12',
     title: 'Rapid Appraisals on the Impacts of COVID-19 on MSMEs in the Agro-Food Sector',
-    category: 'Socioeconomic Dev',
+    category: 'Socioeconomic Development',
     client: 'FAO Representation in Ethiopia',
     description: 'Multicountry assessment analyzing COVID-19 related market shocks and supply chain disruptions for micro, small, and medium enterprises (MSMEs) in Burundi, Kenya, Rwanda, South Sudan, and Uganda.',
     status: 'Completed',

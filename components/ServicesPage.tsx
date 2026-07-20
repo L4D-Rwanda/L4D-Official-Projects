@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SERVICES } from '../constants';
+import { SERVICES, FOCUS_AREAS } from '../constants';
 import Reveal from './Reveal';
 import { ArrowRight } from 'lucide-react';
 
@@ -36,30 +36,14 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     L4D specializes in critical sectors that drive sustainable development and poverty reduction in East Africa. Our core focus areas include:
                   </p>
                   <ul className="space-y-6">
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center mt-0.5 mr-4 border border-teal-100">
-                        <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed"><span className="font-bold text-gray-900 block mb-1">Agri-food System</span> Analyzing value chains, market dynamics, and sustainable farming practices from a food systems perspective.</p>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center mt-0.5 mr-4 border border-teal-100">
-                        <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed"><span className="font-bold text-gray-900 block mb-1">Rural Transformation</span> Assessing interventions that improve socio-economic conditions in rural communities.</p>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center mt-0.5 mr-4 border border-teal-100">
-                        <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed"><span className="font-bold text-gray-900 block mb-1">Environment & Climate Change</span> Researching resilient strategies for vulnerable populations facing environmental shifts.</p>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center mt-0.5 mr-4 border border-teal-100">
-                        <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed"><span className="font-bold text-gray-900 block mb-1">Gender & Social Inclusion</span> Ensuring equitable policy outcomes through gender-disaggregated analysis and inclusive methodologies.</p>
-                    </li>
+                    {FOCUS_AREAS.map((area, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center mt-0.5 mr-4 border border-teal-100">
+                          <div className="w-2.5 h-2.5 rounded-full bg-teal-600"></div>
+                        </div>
+                        <p className="text-gray-700 leading-relaxed"><span className="font-bold text-gray-900 block mb-1">{area.title}</span> {area.description}</p>
+                      </li>
+                    ))}
                   </ul>
                </div>
             </Reveal>

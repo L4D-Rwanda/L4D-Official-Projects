@@ -154,19 +154,6 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50 relative font-sans print:pt-4 print:bg-white print:pb-0">
       
-      {/* Top Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 print:hidden">
-         <button 
-            onClick={onBack}
-            className="inline-flex items-center text-teal-700 font-bold hover:text-teal-900 group transition-colors py-2"
-          >
-            <div className="w-8 h-8 rounded-full bg-white/60 backdrop-blur-md border border-teal-100 flex items-center justify-center mr-3 group-hover:bg-teal-50 transition-colors shadow-sm">
-                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            </div>
-            Back to Home
-          </button>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Modern Hero Section */}
@@ -210,34 +197,30 @@ const CareersPage: React.FC<CareersPageProps> = ({ onBack }) => {
                 </div>
                 
                 {/* Floating Stats/Culture Cards */}
-                <div className="md:w-2/5 relative min-h-[300px] md:min-h-[400px] w-full print:hidden">
-                    <div className="absolute top-4 right-4 z-10 w-48">
-                        <Reveal delay={500}>
-                            <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
-                                <Heart className="text-burgundy-400 h-8 w-8 mb-2" />
-                                <p className="text-white font-bold text-lg">Work-Life Balance</p>
-                                <p className="text-teal-200 text-sm">Flexible hours & remote options</p>
-                            </div>
-                        </Reveal>
-                    </div>
-                    <div className="absolute bottom-4 left-4 z-10 w-48">
-                        <Reveal delay={600}>
-                            <div className="p-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 hover:shadow-xl">
-                                <Zap className="text-teal-400 h-8 w-8 mb-2" />
-                                <p className="text-white font-bold text-lg">Fast Growth</p>
-                                <p className="text-teal-200 text-sm">Mentorship & Career paths</p>
-                            </div>
-                        </Reveal>
-                    </div>
-                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-48">
-                        <Reveal delay={700}>
-                            <div className="p-5 bg-white/60 backdrop-blur-md text-teal-900 rounded-2xl shadow-xl transform hover:scale-105 transition-transform duration-500">
-                                <Users className="text-teal-600 h-8 w-8 mb-2" />
-                                <p className="font-bold text-lg">Great Culture</p>
-                                <p className="text-gray-500 text-sm">Inclusive & Collaborative</p>
-                            </div>
-                        </Reveal>
-                    </div>
+                <div className="md:w-2/5 w-full flex flex-col sm:flex-row md:flex-col gap-6 justify-center items-center py-10 print:hidden">
+                    <Reveal delay={500} className="w-full max-w-[260px] md:-ml-12">
+                        <div className="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl transform hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:bg-white/20 w-full">
+                            <Heart className="text-burgundy-400 h-10 w-10 mb-3" />
+                            <p className="text-white font-bold text-xl mb-1">Work-Life Balance</p>
+                            <p className="text-teal-100 text-sm">Flexible hours & remote options</p>
+                        </div>
+                    </Reveal>
+                    
+                    <Reveal delay={600} className="w-full max-w-[260px] md:ml-12 z-10">
+                        <div className="p-6 bg-white/90 backdrop-blur-md border border-white/20 text-teal-950 rounded-3xl shadow-xl transform hover:scale-105 transition-all duration-500 hover:shadow-2xl w-full">
+                            <Users className="text-teal-600 h-10 w-10 mb-3" />
+                            <p className="font-bold text-xl mb-1">Great Culture</p>
+                            <p className="text-teal-800 text-sm">Inclusive & Collaborative</p>
+                        </div>
+                    </Reveal>
+                    
+                    <Reveal delay={700} className="w-full max-w-[260px] md:-ml-4">
+                        <div className="p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl transform hover:scale-105 transition-all duration-500 hover:shadow-2xl hover:bg-white/20 w-full">
+                            <Zap className="text-teal-400 h-10 w-10 mb-3" />
+                            <p className="text-white font-bold text-xl mb-1">Fast Growth</p>
+                            <p className="text-teal-100 text-sm">Mentorship & Career paths</p>
+                        </div>
+                    </Reveal>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ const FocusAreas: React.FC<FocusAreasProps> = ({ onNavigateToCategory }) => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div className="max-w-2xl">
               <h2 className="text-burgundy-700 font-bold uppercase tracking-wider text-sm mb-2">Core Sectors</h2>
-              <h3 className="text-4xl md:text-5xl font-serif font-bold text-gray-900">Areas of Focus</h3>
+              <h3 className="text-4xl md:text-5xl font-serif font-bold text-gray-900">Thematic Areas</h3>
               <p className="mt-4 text-lg text-gray-500">
                 L4D specializes in critical sectors that define the region's development trajectory. Click on a sector to see related projects.
               </p>

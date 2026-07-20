@@ -290,7 +290,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                             </div>
                             <span className="text-xs text-teal-400 font-semibold bg-teal-950/40 px-2 py-0.5 rounded-full">Youth</span>
                           </div>
-                          <h4 className="text-3xl md:text-4xl font-mono font-bold text-gray-100 mb-1">
+                          <h4 className="text-3xl md:text-4xl font-bold text-gray-100 mb-1">
                             <CountUp end={13246} suffix="+" />
                           </h4>
                           <p className="text-sm font-semibold text-gray-300">Days of Employment</p>
@@ -306,7 +306,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                             </div>
                             <span className="text-xs text-teal-400 font-semibold bg-teal-950/40 px-2 py-0.5 rounded-full">Continuous</span>
                           </div>
-                          <h4 className="text-3xl md:text-4xl font-mono font-bold text-gray-100 mb-1">
+                          <h4 className="text-3xl md:text-4xl font-bold text-gray-100 mb-1">
                             <CountUp end={53} suffix="" /> <span className="text-lg font-serif text-gray-400">FTEs</span>
                           </h4>
                           <p className="text-sm font-semibold text-gray-300">Full-Time Equivalent Positions</p>
@@ -367,7 +367,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                             <span>Policy Improvements</span>
                             <span className="text-teal-400">Real-World</span>
                           </div>
-                          <h5 className="text-xl font-mono font-bold text-gray-100 mb-2">
+                          <h5 className="text-xl font-bold text-gray-100 mb-2">
                             Enhancing Livelihoods
                           </h5>
                           <p className="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -380,7 +380,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                             <span>Local Governance</span>
                             <span className="text-teal-400">Capacity Building</span>
                           </div>
-                          <h5 className="text-xl font-mono font-bold text-gray-100 mb-2">
+                          <h5 className="text-xl font-bold text-gray-100 mb-2">
                             Evidence-Based Leadership
                           </h5>
                           <p className="text-xs text-gray-500 mt-1 leading-relaxed">
@@ -406,7 +406,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                           </div>
                           <span className="text-xs text-teal-400 font-semibold bg-teal-950/40 px-2 py-0.5 rounded-full">Mentorship</span>
                         </div>
-                        <h4 className="text-4xl font-mono font-bold text-gray-100 mb-1">
+                        <h4 className="text-4xl font-bold text-gray-100 mb-1">
                           <CountUp end={50} suffix="+" />
                         </h4>
                         <p className="text-sm font-semibold text-gray-300">University Graduates Trained</p>
@@ -422,7 +422,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                           </div>
                           <span className="text-xs text-teal-400 font-semibold bg-teal-950/40 px-2 py-0.5 rounded-full">Gender Target</span>
                         </div>
-                        <h4 className="text-4xl font-mono font-bold text-gray-100 mb-1">
+                        <h4 className="text-4xl font-bold text-gray-100 mb-1">
                           <CountUp end={40} suffix="%" />
                         </h4>
                         <p className="text-sm font-semibold text-gray-300">Women Field Researchers</p>
@@ -468,7 +468,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                             <span>Mobile Data Collection</span>
                             <span className="text-teal-400">SurveyCTO</span>
                           </div>
-                          <h5 className="text-4xl font-mono font-bold text-gray-100">
+                          <h5 className="text-4xl font-bold text-gray-100">
                             <CountUp end={30} suffix="%" />
                             <span className="text-sm font-serif text-gray-400 ml-2">Efficiency Gains</span>
                           </h5>
@@ -480,7 +480,9 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                         <div className="border-t border-teal-800/50 pt-6">
                           <h6 className="text-xs font-semibold text-gray-400 mb-2">Technological Standards Used</h6>
                           <div className="flex flex-wrap gap-2">
-                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">SurveyCTO API</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">SurveyCTO</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">CommCare</span>
+                            <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Super Voice Recorder</span>
                             <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Cloud Data Sync</span>
                             <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Advanced QA Filters</span>
                             <span className="text-[11px] bg-teal-900/60 text-gray-300 px-2.5 py-1 rounded-md border border-teal-800/50">Econometrics</span>
@@ -751,7 +753,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                   <div className="bg-teal-50 rounded-2xl p-4 border border-teal-100">
                     <span className="text-[10px] uppercase tracking-wider font-bold text-teal-800 block mb-1">Impact Highlight</span>
                     <p className="text-xs text-teal-950 font-semibold leading-normal">
-                      Over **50+ graduates** trained. Alumni have progressed directly to technical analyst and leadership positions in the World Bank, Mastercard Foundation, FAO, and government agencies.
+                      Over <span className="font-bold">50+ graduates</span> trained. Alumni have progressed directly to technical analyst and leadership positions in the World Bank, Mastercard Foundation, FAO, and government agencies.
                     </p>
                   </div>
                 )}
@@ -789,7 +791,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
                   <div className="bg-teal-50 rounded-2xl p-4 border border-teal-100">
                     <span className="text-[10px] uppercase tracking-wider font-bold text-teal-800 block mb-1">Impact Highlight</span>
                     <p className="text-xs text-teal-950 font-semibold leading-normal">
-                      A consistent **40% gender inclusivity standard** is maintained across all operations, facilitating robust professional paths and ensuring findings reflect a wider range of perspectives.
+                      A consistent <span className="font-bold">40% gender inclusivity standard</span> is maintained across all operations, facilitating robust professional paths and ensuring findings reflect a wider range of perspectives.
                     </p>
                   </div>
                 )}
@@ -863,7 +865,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
               </div>
               <h4 className="text-xl font-serif font-bold text-gray-900 mb-3">Agricultural Intensification</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Evaluated core national initiatives including the **Land Husbandry Water Harvesting & Hillside Irrigation Project** and **SAIP II** to optimize food security, local agricultural productivity, and market linkages across Rwanda.
+                Evaluated core national initiatives including the <span className="font-bold">Land Husbandry Water Harvesting & Hillside Irrigation Project</span> and <span className="font-bold">SAIP II</span> to optimize food security, local agricultural productivity, and market linkages across Rwanda.
               </p>
             </div>
           </Reveal>
@@ -876,7 +878,7 @@ const ImpactPage: React.FC<ImpactPageProps> = ({ onNavigate }) => {
               </div>
               <h4 className="text-xl font-serif font-bold text-gray-900 mb-3">Cross-Border Livelihoods</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Pioneered strategic studies examining **informal cross-border trade** dynamics. Our research influenced crucial policy changes to protect, regularize, and expand the livelihoods of thousands of smallholder cross-border traders.
+                Pioneered strategic studies examining <span className="font-bold">informal cross-border trade</span> dynamics. Our research influenced crucial policy changes to protect, regularize, and expand the livelihoods of thousands of smallholder cross-border traders.
               </p>
             </div>
           </Reveal>

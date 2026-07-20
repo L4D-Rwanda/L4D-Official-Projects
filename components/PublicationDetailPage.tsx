@@ -40,39 +40,17 @@ const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, on
   };
 
   const handleDownloadFile = () => {
-    const textContent = `
-Publication: ${publication.title}
-Type: ${publication.type}
-Date: ${publication.date}
-
-=========================================
-ABSTRACT & KEY FINDINGS
-=========================================
-Detailed analysis and findings regarding ${publication.title.toLowerCase()}. This resource offers key data, methodological insights, and strategic recommendations for policymakers.
-
---- Executive Summary ---
-In response to growing challenges in the region, this publication examines the core drivers and potential solutions related to ${publication.title.toLowerCase()}. Through extensive data collection and stakeholder engagement, we outline actionable insights designed to support evidence-based decision making.
-
-The findings emphasize the critical need for coordinated policy frameworks, sustained investment in local capacity, and adaptive strategies to navigate an evolving socioeconomic landscape.
-
---- Methodology ---
-Our approach combined qualitative and quantitative methods, including extensive literature review, field surveys, and key informant interviews. Data was analyzed using advanced statistical software to ensure validity and reliability of the outcomes.
-
---- Key Recommendations ---
-1. Strengthen institutional frameworks to enable long-term impact.
-2. Enhance local capacity through targeted training and resources.
-3. Promote multi-sectoral collaboration to address systemic challenges.
-4. Invest in comprehensive monitoring and evaluation systems.
-
-Published by High Lands Centre of Leadership for Development (L4D).
-  `.trim();
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
+    // Generate a mock PDF file since documents are only available in PDF format
+    const pdfContent = `%PDF-1.4\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> >>\nendobj\n4 0 obj\n<< /Length 53 >>\nstream\nBT\n/F1 24 Tf\n100 700 Td\n(Publication Downloaded) Tj\nET\nendstream\nendobj\nxref\n0 5\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000115 00000 n \n0000000288 00000 n \ntrailer\n<< /Size 5 /Root 1 0 R >>\nstartxref\n390\n%%EOF`;
+    
+    const blob = new Blob([pdfContent], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
+    
     // Replace characters that might be invalid in filenames
-    link.download = `${publication.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_details.txt`;
+    link.download = `${publication.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.pdf`;
+    
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -134,7 +112,7 @@ Published by High Lands Centre of Leadership for Development (L4D).
                 className="px-6 py-3 bg-teal-700 text-white font-bold rounded-full hover:bg-teal-800 transition-all shadow-md flex items-center gap-2 group print:hidden"
               >
                 <Printer size={18} />
-                Download / Print View
+                Preview
               </button>
               
               <button 
@@ -142,7 +120,7 @@ Published by High Lands Centre of Leadership for Development (L4D).
                 className="px-6 py-3 bg-white/60 backdrop-blur-md border border-gray-200 text-gray-700 font-bold rounded-full hover:bg-gray-50 transition-all flex items-center gap-2 print:hidden"
               >
                 <Download size={18} />
-                Download File
+                Download
               </button>
               
               <button 
