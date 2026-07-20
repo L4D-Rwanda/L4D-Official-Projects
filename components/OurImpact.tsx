@@ -77,7 +77,7 @@ const OurImpact = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-10 p-6 bg-teal-950/40 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-2xl border border-teal-800">
+              <div className="mt-10 p-6 bg-teal-950/40 backdrop-blur-md rounded-2xl border border-teal-800">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
                     <Users className="w-6 h-6 text-teal-300" />

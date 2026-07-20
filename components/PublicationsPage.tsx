@@ -122,7 +122,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                 </div>
                 <div className="lg:w-1/2 relative flex justify-center lg:justify-end print:hidden">
                    <div className="absolute inset-0 bg-gradient-to-tr from-teal-600 to-teal-400 rounded-[30px] rotate-3 opacity-10 transform scale-95 translate-y-4"></div>
-                   <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[30px] w-full max-w-md aspect-[4/3] flex items-center justify-center border border-gray-100 shadow-2xl relative z-10 overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+                   <div className="bg-white/60 backdrop-blur-md rounded-[30px] w-full max-w-md aspect-[4/3] flex items-center justify-center border border-gray-100 shadow-2xl relative z-10 overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
                       <div className="absolute inset-0 bg-gray-50 pattern-grid-lg opacity-50"></div>
                       <BookOpen size={80} className="text-teal-700/20 group-hover:scale-110 group-hover:text-teal-700/30 transition-all duration-700" />
                       
@@ -191,7 +191,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 print:grid-cols-1 print:gap-4 print:my-0">
            {isLoading ? (
              Array.from({ length: 6 }).map((_, index) => (
-               <div key={index} className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[24px] p-8 border border-gray-100 shadow-sm flex flex-col h-full animate-pulse">
+               <div key={index} className="bg-white/60 backdrop-blur-md rounded-[24px] p-8 border border-gray-100 shadow-sm flex flex-col h-full animate-pulse">
                   <div className="flex justify-between items-start mb-6">
                      <div className="w-12 h-12 bg-gray-200 rounded-2xl" />
                      <div className="h-6 bg-gray-200 rounded-full w-24" />
@@ -214,7 +214,7 @@ const PublicationsPage: React.FC<PublicationsPageProps> = ({ initialCategory, in
                 <Reveal key={`${pub.title}-${index}`} delay={index % 3 * 100}>
                   <div 
                     onClick={() => handleRead(pub)}
-                    className="group bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[24px] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 hover:border-teal-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer relative overflow-hidden print:shadow-none print:border-b print:border-gray-200 print:rounded-none print:p-4 print:mt-4 print:page-break-inside-avoid"
+                    className="group bg-white/60 backdrop-blur-md rounded-[24px] p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-teal-900/5 hover:border-teal-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer relative overflow-hidden print:shadow-none print:border-b print:border-gray-200 print:rounded-none print:p-4 print:mt-4 print:page-break-inside-avoid"
                   >
                      {/* Top colored bar based on type */}
                      <div className={`absolute top-0 left-0 w-full h-1.5 ${

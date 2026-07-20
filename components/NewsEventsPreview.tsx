@@ -37,7 +37,7 @@ const NewsEventsPreview: React.FC<NewsEventsPreviewProps> = ({ onViewMore, onNav
           {latestEvents.map((item, index) => (
             <Reveal key={item.id} delay={index * 100}>
               <div 
-                className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[24px] border border-white/60 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 hover:border-teal-100 transition-all duration-300 group cursor-pointer h-full flex flex-col"
+                className="bg-white/60 backdrop-blur-md rounded-[24px] border border-white/60 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,128,128,0.08)] hover:-translate-y-1 hover:border-teal-100 transition-all duration-300 group cursor-pointer h-full flex flex-col"
                 onClick={() => onNavigateToNewsEvent && onNavigateToNewsEvent(item.id)}
               >
                 <div className="relative h-48 sm:h-56 overflow-hidden">

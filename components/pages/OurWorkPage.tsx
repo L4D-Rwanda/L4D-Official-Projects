@@ -35,7 +35,7 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
         
         {/* Policy Research */}
         <Reveal>
-          <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <BookOpen size={48} />
              </div>
@@ -56,7 +56,7 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
 
         {/* Impact MEL */}
         <Reveal delay={100}>
-          <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <BarChart3 size={48} />
              </div>
@@ -77,7 +77,7 @@ const OurWorkPage: React.FC<OurWorkPageProps> = ({ onNavigate }) => {
 
         {/* Leadership Mentorship Coaching */}
         <Reveal delay={200}>
-          <div className="bg-white/60 backdrop-blur-md hover:backdrop-blur-xl hover:scale-[1.02] rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
+          <div className="bg-white/60 backdrop-blur-md rounded-[32px] p-8 md:p-12 shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-12 items-center hover:shadow-xl transition-shadow group">
              <div className="flex-shrink-0 w-24 h-24 bg-teal-50 text-teal-700 rounded-full flex items-center justify-center">
                <Users size={48} />
              </div>
