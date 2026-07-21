@@ -63,37 +63,32 @@ export const SERVICES: Service[] = [
 
 export const FOCUS_AREAS: FocusArea[] = [
   {
-    title: 'Agriculture',
-    description: 'Sustainable farming practices, food security, and value chain analysis.',
+    title: 'Agri-food Systems',
+    description: 'Analyzing value chains, market dynamics, and sustainable farming practices from food systems perspective.',
     image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800',
   },
   {
-    title: 'Environment & Climate Change',
-    description: 'Adaptation strategies, conservation, biodiversity, environmental resilience, and green economy.',
-    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'Gender',
-    description: 'Inclusive development, women\'s empowerment, and social equity.',
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
-  },
-  {
-    title: 'Socioeconomic Development',
-    description: 'Poverty reduction, economic policy, and community livelihoods.',
+    title: 'Rural Transformation',
+    description: 'Assessing interventions that improve socio-economic conditions in rural communities.',
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800',
   },
   {
-    title: 'Education',
-    description: 'Policy reform, curriculum development, and access to quality learning.',
-    image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800',
+    title: 'Environment & Climate Change',
+    description: 'Researching resilient strategies for vulnerable populations facing environmental shifts.',
+    image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800',
   },
+  {
+    title: 'Gender & Social Inclusion',
+    description: 'Ensuring equitable policy outcomes through gender-disaggregated analysis and inclusive methodologies.',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
+  }
 ];
 
 export const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'Design a Regional Agrifood Systems Investment Plan (RASIP) for the East African Community (EAC) for 2026–2035',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: 'Alliance for a Green Revolution in Africa (AGRA)',
     description: 'Coordinating and designing the high-level regional agrifood investment plan for 2026-2035 across East African Community member states to accelerate sustainable agricultural transformation, climate adaptation, and trade integration.',
     status: 'Completed',
@@ -103,7 +98,7 @@ export const PROJECTS: Project[] = [
   {
     id: '2',
     title: 'Assessment on Decentralization of Small-Scale Irrigation Technology (SSIT) In Rwanda for TWIYUBAKIRE - ENGAGE PROJECT',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: "CCOAIB",
     description: 'Evaluating the decentralization frameworks of small-scale irrigation technologies (SSIT) across Rwanda to identify key operational bottlenecks and provide evidence-based recommendations to enhance local ownership and irrigation efficiency.',
     status: 'Completed',
@@ -113,7 +108,7 @@ export const PROJECTS: Project[] = [
   {
     id: '3',
     title: 'Impact Monitoring and Evaluation of Development Initiatives',
-    category: 'Socioeconomic Development',
+    category: 'Rural Transformation',
     client: 'Mastercard Foundation',
     description: 'Ongoing longitudinal impact monitoring and strategic evaluations of regional youth empowerment and job creation interventions, assessing systemic livelihood shifts and program attribution.',
     status: 'Ongoing',
@@ -123,7 +118,7 @@ export const PROJECTS: Project[] = [
   {
     id: '4',
     title: 'Agricultural Land Market Policy Formulation in Rwanda',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: 'Alliance for a Green Revolution in Africa (AGRA)',
     description: 'Critical policy research examining land market dynamics, land lease constraints, and agricultural productivity in Rwanda to establish a robust and inclusive land utilization guidelines framework.',
     status: 'Ongoing',
@@ -133,7 +128,7 @@ export const PROJECTS: Project[] = [
   {
     id: '5',
     title: 'Sustainable Agricultural Intensification and Food Security Project (SAIP II)',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: 'Rwanda Agriculture And Animal Resources Development Board (RAB)',
     description: 'Conducting baseline, midline, and endline evaluations of Rwanda\'s core national agricultural intensification program, focusing on crop yield, market linkages, and household nutritional status.',
     status: 'Completed',
@@ -143,7 +138,7 @@ export const PROJECTS: Project[] = [
   {
     id: '6',
     title: 'Midline Survey for the Sustainable Agricultural Productivity and Market Linkage Project (SAPMP)',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: 'RAB & Korea International Cooperation Agency (KOICA)',
     description: 'Rigorous quantitative and qualitative midline survey evaluating irrigation infrastructure, horticultural value chains, and marketing channels in target districts.',
     status: 'Completed',
@@ -153,7 +148,7 @@ export const PROJECTS: Project[] = [
   {
     id: '7',
     title: 'Formative Qualitative Research: Barriers and Opportunities for Youth in Agricultural Value Chains',
-    category: 'Gender',
+    category: 'Gender & Social Inclusion',
     client: 'International Food Policy Research Institute (IFPRI)',
     description: 'In-depth research identifying socio-economic barriers and entry opportunities for young women and young men in high-value agricultural value chains across multiple provinces in Rwanda.',
     status: 'Completed',
@@ -163,7 +158,7 @@ export const PROJECTS: Project[] = [
   {
     id: '8',
     title: 'Contextualizing Food Loss and Waste in Africa: Case of Rwanda',
-    category: 'Agriculture',
+    category: 'Agri-food Systems',
     client: 'World Resources Institute (WRI)',
     description: 'A comprehensive multi-dimensional analysis of food loss and waste (FLW) across four major value chains in Rwanda: maize, cassava, tomatoes, and coffee, using direct measurement and survey methodologies.',
     status: 'Completed',
@@ -193,7 +188,7 @@ export const PROJECTS: Project[] = [
   {
     id: '11',
     title: 'Development of Rwanda\'s National Unit and Civic Engagement Policy',
-    category: 'Socioeconomic Development',
+    category: 'Rural Transformation',
     client: 'MINUBUMWE',
     description: 'Facilitating research, national consultations, and draft policy framing to deliver a comprehensive policy guiding national unity, social cohesion, and active citizenship.',
     status: 'Completed',
@@ -203,7 +198,7 @@ export const PROJECTS: Project[] = [
   {
     id: '12',
     title: 'Rapid Appraisals on the Impacts of COVID-19 on MSMEs in the Agro-Food Sector',
-    category: 'Socioeconomic Development',
+    category: 'Rural Transformation',
     client: 'FAO Representation in Ethiopia',
     description: 'Multicountry assessment analyzing COVID-19 related market shocks and supply chain disruptions for micro, small, and medium enterprises (MSMEs) in Burundi, Kenya, Rwanda, South Sudan, and Uganda.',
     status: 'Completed',
