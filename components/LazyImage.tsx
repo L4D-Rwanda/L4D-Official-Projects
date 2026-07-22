@@ -46,6 +46,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
             isLoaded ? 'opacity-100' : 'opacity-0'
           } ${className}`}
           onLoad={() => setIsLoaded(true)}
+          referrerPolicy="no-referrer"
           {...props}
         />
       )}

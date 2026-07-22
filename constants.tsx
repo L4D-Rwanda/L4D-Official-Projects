@@ -442,7 +442,7 @@ export const TESTIMONIALS: Testimonial[] = [
 export const TEAM: TeamMember[] = [
   {
     name: "Prof. Alfred R. Bizoza",
-    role: "Founder & President",
+    role: "Founder & Chair",
     bio: "Renowned expert in agricultural economics and policy research with decades of experience guiding evidence-based development.",
     image: "https://lh3.googleusercontent.com/d/1EiByhvCUjkqYeHLUWL6Swf8JVzTr8TiY",
     type: "Board",
@@ -452,7 +452,7 @@ export const TEAM: TeamMember[] = [
     name: "Marie Chantal Rwakazina",
     role: "Managing Director",
     bio: "Experienced executive driving operational excellence and strategic partnerships to strengthen credible development initiatives.",
-    image: "https://images.unsplash.com/photo-1573496359-136d475583dc?auto=format&fit=crop&q=80&w=800",
+    image: "https://ui-avatars.com/api/?name=Marie+Chantal+Rwakazina&background=115e59&color=fff&size=512",
     type: "Board",
     researchFocus: ["Strategic Management", "Partnerships", "Operational Excellence"]
   },
@@ -460,13 +460,13 @@ export const TEAM: TeamMember[] = [
     name: "Dr. Teferi Tensay Mequaninte",
     role: "Head of Policy Research",
     bio: "Accomplished policy researcher leading comprehensive studies in socio-economic development and guiding policy formulation.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
+    image: "https://ui-avatars.com/api/?name=Teferi+Tensay+Mequaninte&background=115e59&color=fff&size=512",
     type: "Staff",
     researchFocus: ["Socio-economic Development", "Policy Formulation", "Quantitative Analysis"]
   },
   {
     name: "Patrick Byishimo",
-    role: "Policy Research Fellow/Data Manager",
+    role: "Research Fellow/Data Manager",
     bio: "Specializes in data management and quantitative policy research, ensuring data integrity and robust analysis for policy formulation.",
     image: "https://ui-avatars.com/api/?name=Patrick+Byishimo&background=115e59&color=fff&size=512",
     type: "Staff",
@@ -474,15 +474,15 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Jean Bosco Nkurikiye",
-    role: "Policy Research Fellow/Data Analyst",
+    role: "Research Fellow/Data Analyst",
     bio: "Skilled data analyst with a deep understanding of statistical methods and their application in developmental policy research.",
-    image: "https://ui-avatars.com/api/?name=Jean+Bosco+Nkurikiye&background=115e59&color=fff&size=512",
+    image: "/team/jean_bosco_gen_43.jpg",
     type: "Staff",
     researchFocus: ["Statistical Analysis", "Econometrics"]
   },
   {
     name: "Yvette Kagoyire",
-    role: "Policy Research Operations Manager",
+    role: "Research Operations Manager",
     bio: "Coordinates policy research activities, manages logistics, and ensures the smooth execution of field operations.",
     image: "https://ui-avatars.com/api/?name=Yvette+Kagoyire&background=115e59&color=fff&size=512",
     type: "Staff",
@@ -492,7 +492,7 @@ export const TEAM: TeamMember[] = [
     name: "Divine Irakoze",
     role: "Finance & HR",
     bio: "Manages financial planning and human resources, supporting the administrative backbone of the Centre.",
-    image: "https://ui-avatars.com/api/?name=Divine+Irakoze&background=115e59&color=fff&size=512",
+    image: "/team/divine_gen_43.jpg",
     type: "Staff",
     researchFocus: ["Financial Planning", "Human Resources"]
   },
@@ -514,9 +514,9 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Iris Landi",
-    role: "Associate Researcher - Gender Expert",
+    role: "Internal - Research and Knowledge Management Officer",
     bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
-    image: "https://ui-avatars.com/api/?name=Iris+Landi&background=115e59&color=fff&size=512",
+    image: "/team/iris_gen_43.jpg",
     type: "Consultant",
     researchFocus: ["Gender Studies", "Social Inclusion"]
   },
@@ -524,13 +524,13 @@ export const TEAM: TeamMember[] = [
     name: "Richard Ngabo",
     role: "IT & Comms Officer",
     bio: "Drives internal IT infrastructure and leads communication strategies to amplify the Centre's policy research impact.",
-    image: "https://ui-avatars.com/api/?name=Richard+Ngabo&background=115e59&color=fff&size=512",
+    image: "/team/richard_gen_43.jpg",
     type: "Staff",
     researchFocus: ["IT Infrastructure", "Science Communication"]
   },
   {
     name: "Simeon Sibomana",
-    role: "Policy Research Assistant/Field Supervisor",
+    role: "Research Assistant/Field Supervisor",
     bio: "Supervises field operations and assists in comprehensive data collection strategies for ongoing projects.",
     image: "https://ui-avatars.com/api/?name=Simeon+Sibomana&background=115e59&color=fff&size=512",
     type: "Staff",
@@ -538,15 +538,15 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Bridget Vuguziga",
-    role: "Policy Research Assistant/Field Supervisor",
+    role: "Research Assistant/Field Supervisor",
     bio: "Plays a vital role in fieldwork, providing oversight and contributing to crucial qualitative and quantitative assessments.",
-    image: "https://ui-avatars.com/api/?name=Bridget+Vuguziga&background=115e59&color=fff&size=512",
+    image: "/team/bridget_gen_43.jpg",
     type: "Staff",
     researchFocus: ["Qualitative Assessment", "Field Supervision"]
   },
   {
     name: "Dusabe Ruth",
-    role: "Policy Research Assistant/Field Supervisor",
+    role: "Research Assistant/Field Supervisor",
     bio: "Engages in rigorous field monitoring, ensuring data fidelity and bridging community insights with policy research objectives.",
     image: "https://ui-avatars.com/api/?name=Dusabe+Ruth&background=115e59&color=fff&size=512",
     type: "Staff",
@@ -554,11 +554,27 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Bonaventure Mugabe",
-    role: "Policy Research Assistant/Field Supervisor",
+    role: "Research Assistant/Field Supervisor",
     bio: "Brings deep contextual knowledge to field supervision, guaranteeing the accurate capture of localized policy research inputs.",
     image: "https://ui-avatars.com/api/?name=Bonaventure+Mugabe&background=115e59&color=fff&size=512",
     type: "Staff",
     researchFocus: ["Localized Research", "Data Capture"]
+  },
+  {
+    name: "Kevin Kimenyi",
+    role: "Data Analyst",
+    bio: "Skilled data analyst contributing to the interpretation of quantitative and qualitative data.",
+    image: "/team/kevin_gen_43.jpg",
+    type: "Staff",
+    researchFocus: ["Data Analysis"]
+  },
+  {
+    name: "Harrison Manyumwa",
+    role: "Monitoring, Evaluation, and Learning (MEL) Coordinator",
+    bio: "Coordinates monitoring, evaluation, and learning to ensure project effectiveness and continuous improvement.",
+    image: "https://ui-avatars.com/api/?name=Harrison+Manyumwa&background=115e59&color=fff&size=512",
+    type: "Staff",
+    researchFocus: ["Monitoring", "Evaluation"]
   }
 ];
 

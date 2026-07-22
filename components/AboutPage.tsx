@@ -68,18 +68,18 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
   return (
     <Reveal delay={index * 100}>
       <div className="group relative bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
-        {isFounder ? (
-          <div className="h-80 overflow-hidden relative bg-gray-50 flex items-center justify-center p-6">
-            <img 
+        {member.image && !member.image.includes('ui-avatars.com') ? (
+          <div className={`${isFounder ? "aspect-square" : "aspect-[4/3]"} overflow-hidden relative bg-gray-50 flex items-center justify-center p-6`}>
+            <img referrerPolicy="no-referrer" 
               src={member.image} 
               alt={member.name} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
+              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 rounded-2xl shadow-sm bg-white"
               loading="lazy"
             />
             <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
           </div>
         ) : (
-          <div className="h-80 overflow-hidden relative bg-gradient-to-br from-teal-50 to-teal-100/50 flex items-center justify-center p-6">
+          <div className={`${isFounder ? "aspect-square" : "aspect-[4/3]"} overflow-hidden relative bg-gradient-to-br from-teal-50 to-teal-100/50 flex items-center justify-center p-6`}>
             <div className="w-24 h-24 rounded-full bg-teal-800 text-white flex items-center justify-center text-3xl font-bold font-serif shadow-inner group-hover:scale-110 transition-transform duration-500">
               {initials}
             </div>
@@ -164,7 +164,7 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-teal-100 rounded-[30px] transform rotate-3 scale-95"></div>
-              <img 
+              <img referrerPolicy="no-referrer" 
                 src="https://lh3.googleusercontent.com/d/1De3GysxtCdJ8VaMuM9HUpaycNcXi2-aA" 
                 alt="L4D Collaboration" 
                 className="relative rounded-[30px] shadow-xl w-full object-cover h-[500px]"
