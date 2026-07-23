@@ -444,57 +444,50 @@ export const TEAM: TeamMember[] = [
     name: "Prof. Alfred R. Bizoza",
     role: "Founder & Chair",
     bio: "Renowned expert in agricultural economics and policy research with decades of experience guiding evidence-based development.",
-    image: "/images/team/bizoza_sq.jpg",
+    image: "/images/team/Prof-Alfred-R-Bizoza.jpg",
     type: "Board",
-    focusArea: ["Agricultural Economics", "Policy Research", "Institutional Development"]
   },
   {
     name: "Marie Chantal Rwakazina",
     role: "Managing Director",
     bio: "Experienced executive driving operational excellence and strategic partnerships to strengthen credible development initiatives.",
-    image: "/images/team/marie_chantal_sq.jpg",
+    image: "/images/team/Marie-Chantal.png",
     type: "Board",
-    researchFocus: ["Strategic Management", "Partnerships", "Operational Excellence"]
   },
   {
     name: "Dr. Teferi Tensay Mequaninte",
     role: "Head of Policy Research",
     bio: "Accomplished policy researcher leading comprehensive studies in socio-economic development and guiding policy formulation.",
-    image: "/images/team/teferi_sq.jpg",
+    image: "/images/team/Teferi-Tensay-Mequaninte.png",
     type: "Staff",
-    researchFocus: ["Socio-economic Development", "Policy Formulation", "Quantitative Analysis"]
   },
   {
     name: "Patrick Byishimo",
     role: "Research Fellow/Data Manager",
     bio: "Specializes in data management and quantitative policy research, ensuring data integrity and robust analysis for policy formulation.",
-    image: "/images/team/patrick_sq.jpg",
+    image: "/images/team/Patrick-Byishimo.png",
     type: "Staff",
-    researchFocus: ["Data Management", "Quantitative Methods"]
   },
   {
     name: "Jean Bosco Nkurikiye",
     role: "Research Fellow/Data Analyst",
     bio: "Skilled data analyst with a deep understanding of statistical methods and their application in developmental policy research.",
-    image: "/images/team/jean_bosco_sq.jpg",
+    image: "/images/team/Jean Bosco-Nkurikiye.png",
     type: "Staff",
-    researchFocus: ["Statistical Analysis", "Econometrics"]
   },
   {
     name: "Yvette Kagoyire",
     role: "Research Operations Manager",
     bio: "Coordinates policy research activities, manages logistics, and ensures the smooth execution of field operations.",
-    image: "/images/team/yvette_sq.jpg",
+    image: "/images/team/Yvette-Kagoyire.png",
     type: "Staff",
-    researchFocus: ["Field Operations", "Logistics"]
   },
   {
     name: "Divine Irakoze",
     role: "Finance & HR",
     bio: "Manages financial planning and human resources, supporting the administrative backbone of the Centre.",
-    image: "/images/team/divine_sq.jpg",
+    image: "/images/team/Divine-Irakoze.png",
     type: "Staff",
-    researchFocus: ["Financial Planning", "Human Resources"]
   },
   {
     name: "Monique Abimpaye",
@@ -502,23 +495,20 @@ export const TEAM: TeamMember[] = [
     bio: "Leads coordination for project evaluations to ensure alignment with expected outcomes and quality standards.",
     image: "",
     type: "Staff",
-    researchFocus: ["Project Evaluation", "Quality Assurance"]
   },
   {
     name: "Iris Landi",
     role: "Research and Knowledge Management Officer",
     bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
-    image: "/images/team/iris_sq.jpg",
+    image: "/images/team/Iris-Landi.png",
     type: "Staff",
-    researchFocus: ["Gender Studies", "Social Inclusion"]
   },
   {
     name: "Richard Ngabo",
     role: "IT & Comms Officer",
     bio: "Drives internal IT infrastructure and leads communication strategies to amplify the Centre's policy research impact.",
-    image: "/images/team/richard_sq.jpg",
+    image: "/images/team/Richard-Ngabo.png",
     type: "Staff",
-    researchFocus: ["IT Infrastructure", "Science Communication"]
   },
   {
     name: "Simeon Sibomana",
@@ -526,47 +516,41 @@ export const TEAM: TeamMember[] = [
     bio: "Supervises field operations and assists in comprehensive data collection strategies for ongoing projects.",
     image: "",
     type: "Staff",
-    researchFocus: ["Data Collection", "Field Supervision"]
   },
   {
     name: "Bridget Vuguziga",
     role: "Research Assistant/Field Supervisor",
     bio: "Plays a vital role in fieldwork, providing oversight and contributing to crucial qualitative and quantitative assessments.",
-    image: "/images/team/bridget_sq.jpg",
+    image: "/images/team/Bridget-Vuguziga.png",
     type: "Staff",
-    researchFocus: ["Qualitative Assessment", "Field Supervision"]
   },
   {
     name: "Dusabe Ruth",
     role: "Research Assistant/Field Supervisor",
     bio: "Engages in rigorous field monitoring, ensuring data fidelity and bridging community insights with policy research objectives.",
-    image: "/images/team/ruth_sq.jpg",
+    image: "/images/team/Ruth-Dusabe.png",
     type: "Staff",
-    researchFocus: ["Field Monitoring", "Community Engagement"]
   },
   {
     name: "Bonaventure Mugabe",
     role: "Research Assistant/Field Supervisor",
     bio: "Brings deep contextual knowledge to field supervision, guaranteeing the accurate capture of localized policy research inputs.",
-    image: "/images/team/bonaventure_sq.jpg",
+    image: "/images/team/Bona-Mugabe.png",
     type: "Staff",
-    researchFocus: ["Localized Research", "Data Capture"]
   },
   {
     name: "Kevin Kimenyi",
     role: "Data Analyst",
     bio: "Skilled data analyst contributing to the interpretation of quantitative and qualitative data.",
-    image: "/images/team/kevin_sq.jpg",
+    image: "/images/team/Kevin-Kimenyi.png",
     type: "Staff",
-    researchFocus: ["Data Analysis"]
   },
   {
     name: "Harrison Manyumwa",
     role: "Monitoring, Evaluation, and Learning (MEL) Coordinator",
     bio: "Coordinates monitoring, evaluation, and learning to ensure project effectiveness and continuous improvement.",
-    image: "/images/team/harrison_sq.jpg",
+    image: "/images/team/Harrison-Manyumwa.jpeg",
     type: "Staff",
-    researchFocus: ["Monitoring", "Evaluation"]
   }
 ];
 
