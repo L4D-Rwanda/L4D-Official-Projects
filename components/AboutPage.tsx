@@ -61,9 +61,60 @@ const getInitials = (name: string) => {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 };
 
+// Eagerly import/glob team images so Vite bundles them into assets and provides resolved asset URLs for live production deployments
+const teamImagesGlob = import.meta.glob('../public/images/team/*.{jpg,jpeg,png,webp,JPG,PNG}', { eager: true, import: 'default' }) as Record<string, string>;
+
+export const resolveTeamImage = (imagePath: string): string => {
+  if (!imagePath) return '';
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('data:')) {
+    return imagePath;
+  }
+
+  const fileName = imagePath.split('/').pop()?.toLowerCase() || '';
+
+  // 1. Try matching in Vite bundled glob assets
+  for (const [key, value] of Object.entries(teamImagesGlob)) {
+    if (key.toLowerCase().endsWith('/' + fileName)) {
+      return value;
+    }
+  }
+
+  // 2. Fallback to BASE_URL + clean path
+  const cleanPath = imagePath.replace(/^\//, '');
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const prefix = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+
+  return prefix + cleanPath;
+};
+
 const TeamCard = ({ member, index }: { member: any, index: number }) => {
   const [imgError, setImgError] = useState(false);
-  const isFounder = member.role.toLowerCase().includes('founder') || member.name.toLowerCase().includes('bizoza');
+  const [imgSrc, setImgSrc] = useState(() => resolveTeamImage(member.image));
+  const [retryCount, setRetryCount] = useState(0);
+
+  useEffect(() => {
+    setImgError(false);
+    setRetryCount(0);
+    setImgSrc(resolveTeamImage(member.image));
+  }, [member.image]);
+
+  const handleImageError = () => {
+    const fileName = member.image ? member.image.split('/').pop() : '';
+    if (retryCount === 0 && fileName) {
+      // Try direct relative path without leading slash
+      setImgSrc(`images/team/${fileName}`);
+      setRetryCount(1);
+    } else if (retryCount === 1 && fileName) {
+      // Try with BASE_URL
+      const baseUrl = import.meta.env.BASE_URL || './';
+      const prefix = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+      setImgSrc(`${prefix}images/team/${fileName}`);
+      setRetryCount(2);
+    } else {
+      setImgError(true);
+    }
+  };
+
   const initials = getInitials(member.name);
 
   return (
@@ -72,12 +123,12 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
         {member.image && !imgError ? (
           <div className={`aspect-square overflow-hidden relative bg-gray-50 flex items-center justify-center p-6`}>
             <img 
-              src={member.image} 
+              src={imgSrc} 
               alt={member.name} 
               className="w-full aspect-square object-cover object-center transition-transform duration-700 group-hover:scale-105 rounded-[20%] shadow-sm bg-white"
               style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center', borderRadius: '20%' }}
               loading="lazy"
-              onError={() => setImgError(true)}
+              onError={handleImageError}
             />
             <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[20%] pointer-events-none"></div>
           </div>
