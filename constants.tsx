@@ -210,123 +210,123 @@ export const PROJECTS: Project[] = [
 export const CLIENTS: Client[] = [
   {
     name: 'DOT Rwanda',
-    logo: 'https://lh3.googleusercontent.com/d/1irDNc0D5xecAMVdDM1j-yYLKiSmBIUpZ'
+    logo: "https://lh3.googleusercontent.com/d/1irDNc0D5xecAMVdDM1j-yYLKiSmBIUpZ"
   },
   {
     name: 'Mastercard Foundation',
-    logo: 'https://lh3.googleusercontent.com/d/1rJwR1qIxjQe8PKkVMNReARlp3LY-01V8'
+    logo: "https://lh3.googleusercontent.com/d/1rJwR1qIxjQe8PKkVMNReARlp3LY-01V8"
   },
   {
     name: 'MINAGRI',
-    logo: 'https://lh3.googleusercontent.com/d/1HNRnuUniEuZlZgxpJE0xf_VTVFIzs0bU'
+    logo: "https://lh3.googleusercontent.com/d/1HNRnuUniEuZlZgxpJE0xf_VTVFIzs0bU"
   },
   {
     name: 'Ministries',
-    logo: 'https://lh3.googleusercontent.com/d/1Lb0wtMXRePoeV_yBDv6-Grg6hyN3RpI7'
+    logo: "https://lh3.googleusercontent.com/d/1Lb0wtMXRePoeV_yBDv6-Grg6hyN3RpI7"
   },
   {
     name: 'NAEB',
-    logo: 'https://lh3.googleusercontent.com/d/1j1mmdoKZafU-_EFA4oz2J-Lp1AnUREU1'
+    logo: "https://lh3.googleusercontent.com/d/1j1mmdoKZafU-_EFA4oz2J-Lp1AnUREU1"
   },
   {
     name: 'RAB',
-    logo: 'https://lh3.googleusercontent.com/d/1pj04BXKJ7en7Qvp3i91yKcDajrBpuzzy'
+    logo: "https://lh3.googleusercontent.com/d/1pj04BXKJ7en7Qvp3i91yKcDajrBpuzzy"
   },
   {
     name: 'RTI',
-    logo: 'https://lh3.googleusercontent.com/d/1GkyFZqIRrmXw66I9tDGp_wYCFlNmq_s9'
+    logo: "https://lh3.googleusercontent.com/d/1GkyFZqIRrmXw66I9tDGp_wYCFlNmq_s9"
   },
   {
     name: 'SNV',
-    logo: 'https://lh3.googleusercontent.com/d/1ixX9b01j9A1u9nZysMaqMx5dfNyTiaXF'
+    logo: "https://lh3.googleusercontent.com/d/1ixX9b01j9A1u9nZysMaqMx5dfNyTiaXF"
   },
   {
     name: 'Trademark',
-    logo: 'https://lh3.googleusercontent.com/d/1yjY_MvNI-W8wroTs2ov-c4Z7OR0DltCp'
+    logo: "https://lh3.googleusercontent.com/d/1yjY_MvNI-W8wroTs2ov-c4Z7OR0DltCp"
   },
   {
     name: 'UN Women',
-    logo: 'https://lh3.googleusercontent.com/d/1E87NEY2tMGgFqUjSCk9x9B93H_peDPaP'
+    logo: "https://lh3.googleusercontent.com/d/1E87NEY2tMGgFqUjSCk9x9B93H_peDPaP"
   },
   {
     name: 'University of Rwanda',
-    logo: 'https://lh3.googleusercontent.com/d/1HnvS9xgaj5Pugi8_VwgvhePAur1PhX-m'
+    logo: "https://lh3.googleusercontent.com/d/1HnvS9xgaj5Pugi8_VwgvhePAur1PhX-m"
   },
   {
     name: 'Urwego Finance',
-    logo: 'https://lh3.googleusercontent.com/d/1_O1HeJGeyy_uhb9nQZagZNkbrK1nIeA8'
+    logo: "https://lh3.googleusercontent.com/d/1_O1HeJGeyy_uhb9nQZagZNkbrK1nIeA8"
   },
   {
     name: 'Women For Women International',
-    logo: 'https://lh3.googleusercontent.com/d/1deXGC8pPxMHF2MGGEj0U0Vkpfqrr6FmI'
+    logo: "https://lh3.googleusercontent.com/d/1deXGC8pPxMHF2MGGEj0U0Vkpfqrr6FmI"
   },
   {
     name: 'FAO',
-    logo: 'https://lh3.googleusercontent.com/d/1XupACUJmY2EUYIuis1Rp8gEyzGcQNL-r'
+    logo: "https://lh3.googleusercontent.com/d/1XupACUJmY2EUYIuis1Rp8gEyzGcQNL-r"
   },
   {
     name: 'World Bank',
-    logo: 'https://lh3.googleusercontent.com/d/1Y0EguvtDeSe9_D4DjDUfKVIMEEJyl_vJ'
+    logo: "https://lh3.googleusercontent.com/d/1Y0EguvtDeSe9_D4DjDUfKVIMEEJyl_vJ"
   },
   {
     name: 'USAID',
-    logo: 'https://lh3.googleusercontent.com/d/153gEk5jxMnez80kiSkgJQwLO6kUXtNsd'
+    logo: "https://lh3.googleusercontent.com/d/153gEk5jxMnez80kiSkgJQwLO6kUXtNsd"
   },
   {
     name: 'UNDP',
-    logo: 'https://lh3.googleusercontent.com/d/1gezW2xAyHMesrR3lrahjywRR2W3LlOP2'
+    logo: "https://lh3.googleusercontent.com/d/1gezW2xAyHMesrR3lrahjywRR2W3LlOP2"
   },
   {
     name: 'European Union',
-    logo: 'https://lh3.googleusercontent.com/d/1y-eFqaDvaTT_lYA5xXoPx5F0MFW6RDGc'
+    logo: "https://lh3.googleusercontent.com/d/1y-eFqaDvaTT_lYA5xXoPx5F0MFW6RDGc"
   },
   {
     name: 'GIZ',
-    logo: 'https://lh3.googleusercontent.com/d/1WpPRZVvvHcYQxsqrRnY6q3D8ppgsI6Nh'
+    logo: "https://lh3.googleusercontent.com/d/1WpPRZVvvHcYQxsqrRnY6q3D8ppgsI6Nh"
   },
   {
     name: 'IFPRI',
-    logo: 'https://lh3.googleusercontent.com/d/1glB43dFgwNuoqXeIqIX6Lt4RJtkJ_lqA'
+    logo: "https://lh3.googleusercontent.com/d/1glB43dFgwNuoqXeIqIX6Lt4RJtkJ_lqA"
   },
   {
     name: 'KOICA',
-    logo: 'https://lh3.googleusercontent.com/d/1jSFBS8bM-qYp1rhgdv4yfQgVY_H6zZEv'
+    logo: "https://lh3.googleusercontent.com/d/1jSFBS8bM-qYp1rhgdv4yfQgVY_H6zZEv"
   },
   {
     name: 'GMO',
-    logo: 'https://lh3.googleusercontent.com/d/15iYDCMzQm5QAQDOJYe0j02vLTJw97ONd'
+    logo: "https://lh3.googleusercontent.com/d/15iYDCMzQm5QAQDOJYe0j02vLTJw97ONd"
   },
   {
     name: 'Good Neighbors',
-    logo: 'https://lh3.googleusercontent.com/d/1nkP5GZp2x6H4Bg38p5_G2ppSkkuXL6Qg'
+    logo: "https://lh3.googleusercontent.com/d/1nkP5GZp2x6H4Bg38p5_G2ppSkkuXL6Qg"
   },
   {
     name: 'IUCN',
-    logo: 'https://lh3.googleusercontent.com/d/1Ptf_32OZDRXC_LZHWTA6hvmxSBO44Eqq'
+    logo: "https://lh3.googleusercontent.com/d/1Ptf_32OZDRXC_LZHWTA6hvmxSBO44Eqq"
   },
   {
     name: 'JICA',
-    logo: 'https://lh3.googleusercontent.com/d/13_kZoFpSnpSxSr6tDg7FxSrPmbKdQ4wm'
+    logo: "https://lh3.googleusercontent.com/d/13_kZoFpSnpSxSr6tDg7FxSrPmbKdQ4wm"
   },
   {
     name: 'WRI',
-    logo: 'https://lh3.googleusercontent.com/d/1HXOjGqUMEcvQr3BSsZRVKTXNxnfjs2l0'
+    logo: "https://lh3.googleusercontent.com/d/1HXOjGqUMEcvQr3BSsZRVKTXNxnfjs2l0"
   },
   {
     name: 'MINICOM',
-    logo: 'https://lh3.googleusercontent.com/d/15rlBHijykIqPW9MaGgYQ4mntqIX1-SiY'
+    logo: "https://lh3.googleusercontent.com/d/15rlBHijykIqPW9MaGgYQ4mntqIX1-SiY"
   },
   {
     name: 'MINEDUC',
-    logo: 'https://lh3.googleusercontent.com/d/1WB0888fN67U23kY6M3mPjurQjNLqXOBV'
+    logo: "https://lh3.googleusercontent.com/d/1WB0888fN67U23kY6M3mPjurQjNLqXOBV"
   },
   {
     name: 'African Development Fund',
-    logo: 'https://lh3.googleusercontent.com/d/1LVO1LtvsOnLQf11IXFm68HDblOAT3v1E'
+    logo: "https://lh3.googleusercontent.com/d/1LVO1LtvsOnLQf11IXFm68HDblOAT3v1E"
   },
   {
     name: 'World Vision',
-    logo: 'https://lh3.googleusercontent.com/d/1lD2XP05H__pWWbl37d6PvnKOeuHpRykr'
+    logo: "https://lh3.googleusercontent.com/d/1lD2XP05H__pWWbl37d6PvnKOeuHpRykr"
   }
 ];
 
@@ -444,7 +444,7 @@ export const TEAM: TeamMember[] = [
     name: "Prof. Alfred R. Bizoza",
     role: "Founder & Chair",
     bio: "Renowned expert in agricultural economics and policy research with decades of experience guiding evidence-based development.",
-    image: "https://lh3.googleusercontent.com/d/1EiByhvCUjkqYeHLUWL6Swf8JVzTr8TiY",
+    image: "/images/team/Photo_Founder-President_Prof.-Alfred-R.-BIZOZA.jpg",
     type: "Board",
     focusArea: ["Agricultural Economics", "Policy Research", "Institutional Development"]
   },
@@ -452,7 +452,7 @@ export const TEAM: TeamMember[] = [
     name: "Marie Chantal Rwakazina",
     role: "Managing Director",
     bio: "Experienced executive driving operational excellence and strategic partnerships to strengthen credible development initiatives.",
-    image: "/team/marie_chantal_sq.jpg",
+    image: "/images/team/marie_chantal_sq.jpg",
     type: "Board",
     researchFocus: ["Strategic Management", "Partnerships", "Operational Excellence"]
   },
@@ -460,7 +460,7 @@ export const TEAM: TeamMember[] = [
     name: "Dr. Teferi Tensay Mequaninte",
     role: "Head of Policy Research",
     bio: "Accomplished policy researcher leading comprehensive studies in socio-economic development and guiding policy formulation.",
-    image: "/team/teferi_sq.jpg",
+    image: "/images/team/teferi_sq.jpg",
     type: "Staff",
     researchFocus: ["Socio-economic Development", "Policy Formulation", "Quantitative Analysis"]
   },
@@ -476,7 +476,7 @@ export const TEAM: TeamMember[] = [
     name: "Jean Bosco Nkurikiye",
     role: "Research Fellow/Data Analyst",
     bio: "Skilled data analyst with a deep understanding of statistical methods and their application in developmental policy research.",
-    image: "/team/jean_bosco_sq.jpg",
+    image: "/images/team/jean_bosco_sq.jpg",
     type: "Staff",
     researchFocus: ["Statistical Analysis", "Econometrics"]
   },
@@ -492,17 +492,9 @@ export const TEAM: TeamMember[] = [
     name: "Divine Irakoze",
     role: "Finance & HR",
     bio: "Manages financial planning and human resources, supporting the administrative backbone of the Centre.",
-    image: "/team/divine_sq.jpg",
+    image: "/images/team/divine_sq.jpg",
     type: "Staff",
     researchFocus: ["Financial Planning", "Human Resources"]
-  },
-  {
-    name: "Belise Kangabe Hategeka",
-    role: "Impact Analyst",
-    bio: "Focuses on monitoring and evaluating the impact of policy research findings and developmental interventions.",
-    image: "https://ui-avatars.com/api/?name=Belise+Kangabe+Hategeka&background=115e59&color=fff&size=512",
-    type: "Staff",
-    researchFocus: ["Impact Evaluation", "M&E"]
   },
   {
     name: "Monique Abimpaye",
@@ -516,7 +508,7 @@ export const TEAM: TeamMember[] = [
     name: "Iris Landi",
     role: "Research and Knowledge Management Officer",
     bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
-    image: "/team/iris_sq.jpg",
+    image: "/images/team/iris_sq.jpg",
     type: "Staff",
     researchFocus: ["Gender Studies", "Social Inclusion"]
   },
@@ -524,7 +516,7 @@ export const TEAM: TeamMember[] = [
     name: "Richard Ngabo",
     role: "IT & Comms Officer",
     bio: "Drives internal IT infrastructure and leads communication strategies to amplify the Centre's policy research impact.",
-    image: "/team/richard_sq.jpg",
+    image: "/images/team/richard_sq.jpg",
     type: "Staff",
     researchFocus: ["IT Infrastructure", "Science Communication"]
   },
@@ -540,7 +532,7 @@ export const TEAM: TeamMember[] = [
     name: "Bridget Vuguziga",
     role: "Research Assistant/Field Supervisor",
     bio: "Plays a vital role in fieldwork, providing oversight and contributing to crucial qualitative and quantitative assessments.",
-    image: "/team/bridget_sq.jpg",
+    image: "/images/team/bridget_sq.jpg",
     type: "Staff",
     researchFocus: ["Qualitative Assessment", "Field Supervision"]
   },
@@ -556,7 +548,7 @@ export const TEAM: TeamMember[] = [
     name: "Bonaventure Mugabe",
     role: "Research Assistant/Field Supervisor",
     bio: "Brings deep contextual knowledge to field supervision, guaranteeing the accurate capture of localized policy research inputs.",
-    image: "/team/bonaventure_sq.jpg",
+    image: "/images/team/bonaventure_sq.jpg",
     type: "Staff",
     researchFocus: ["Localized Research", "Data Capture"]
   },
@@ -564,7 +556,7 @@ export const TEAM: TeamMember[] = [
     name: "Kevin Kimenyi",
     role: "Data Analyst",
     bio: "Skilled data analyst contributing to the interpretation of quantitative and qualitative data.",
-    image: "/team/kevin_sq.jpg",
+    image: "/images/team/kevin_sq.jpg",
     type: "Staff",
     researchFocus: ["Data Analysis"]
   },
@@ -572,7 +564,7 @@ export const TEAM: TeamMember[] = [
     name: "Harrison Manyumwa",
     role: "Monitoring, Evaluation, and Learning (MEL) Coordinator",
     bio: "Coordinates monitoring, evaluation, and learning to ensure project effectiveness and continuous improvement.",
-    image: "/team/harrison_sq.jpg",
+    image: "/images/team/harrison_sq.jpg",
     type: "Staff",
     researchFocus: ["Monitoring", "Evaluation"]
   }

@@ -7,7 +7,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ variant = 'default', className = "h-12 w-auto" }) => {
   // Direct link to the official logo image
-  // Using lh3.googleusercontent.com for reliable direct image hosting of Drive files
+  
   const logoUrl = "https://lh3.googleusercontent.com/d/1hj3SBqipvYlF3hJs6wTErfLINnnWEboV";
 
   return (
