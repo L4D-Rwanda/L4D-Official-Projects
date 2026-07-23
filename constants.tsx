@@ -514,10 +514,10 @@ export const TEAM: TeamMember[] = [
   },
   {
     name: "Iris Landi",
-    role: "Internal - Research and Knowledge Management Officer",
+    role: "Research and Knowledge Management Officer",
     bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
     image: "/team/iris_gen_43.jpg",
-    type: "Consultant",
+    type: "Staff",
     researchFocus: ["Gender Studies", "Social Inclusion"]
   },
   {
