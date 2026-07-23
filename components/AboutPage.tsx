@@ -88,6 +88,7 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
             <img 
               src={imgSrc} 
               alt={member.name} 
+              referrerPolicy="no-referrer"
               className="w-full aspect-square object-cover object-center transition-transform duration-700 group-hover:scale-105 rounded-[20%] shadow-sm bg-white"
               style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', objectPosition: 'center', borderRadius: '20%' }}
               loading="lazy"
