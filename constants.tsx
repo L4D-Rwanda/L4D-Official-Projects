@@ -444,7 +444,7 @@ export const TEAM: TeamMember[] = [
     name: "Prof. Alfred R. Bizoza",
     role: "Founder & Chair",
     bio: "Renowned expert in agricultural economics and policy research with decades of experience guiding evidence-based development.",
-    image: "/images/team/Photo_Founder-President_Prof.-Alfred-R.-BIZOZA.jpg",
+    image: "/images/team/bizoza_sq.jpg",
     type: "Board",
     focusArea: ["Agricultural Economics", "Policy Research", "Institutional Development"]
   },
@@ -468,7 +468,7 @@ export const TEAM: TeamMember[] = [
     name: "Patrick Byishimo",
     role: "Research Fellow/Data Manager",
     bio: "Specializes in data management and quantitative policy research, ensuring data integrity and robust analysis for policy formulation.",
-    image: "https://ui-avatars.com/api/?name=Patrick+Byishimo&background=115e59&color=fff&size=512",
+    image: "/images/team/patrick_sq.jpg",
     type: "Staff",
     researchFocus: ["Data Management", "Quantitative Methods"]
   },
@@ -484,7 +484,7 @@ export const TEAM: TeamMember[] = [
     name: "Yvette Kagoyire",
     role: "Research Operations Manager",
     bio: "Coordinates policy research activities, manages logistics, and ensures the smooth execution of field operations.",
-    image: "https://ui-avatars.com/api/?name=Yvette+Kagoyire&background=115e59&color=fff&size=512",
+    image: "/images/team/yvette_sq.jpg",
     type: "Staff",
     researchFocus: ["Field Operations", "Logistics"]
   },
@@ -500,7 +500,7 @@ export const TEAM: TeamMember[] = [
     name: "Monique Abimpaye",
     role: "Evaluation Coordinator",
     bio: "Leads coordination for project evaluations to ensure alignment with expected outcomes and quality standards.",
-    image: "https://ui-avatars.com/api/?name=Monique+Abimpaye&background=115e59&color=fff&size=512",
+    image: "",
     type: "Staff",
     researchFocus: ["Project Evaluation", "Quality Assurance"]
   },
@@ -524,7 +524,7 @@ export const TEAM: TeamMember[] = [
     name: "Simeon Sibomana",
     role: "Research Assistant/Field Supervisor",
     bio: "Supervises field operations and assists in comprehensive data collection strategies for ongoing projects.",
-    image: "https://ui-avatars.com/api/?name=Simeon+Sibomana&background=115e59&color=fff&size=512",
+    image: "",
     type: "Staff",
     researchFocus: ["Data Collection", "Field Supervision"]
   },
@@ -540,7 +540,7 @@ export const TEAM: TeamMember[] = [
     name: "Dusabe Ruth",
     role: "Research Assistant/Field Supervisor",
     bio: "Engages in rigorous field monitoring, ensuring data fidelity and bridging community insights with policy research objectives.",
-    image: "https://ui-avatars.com/api/?name=Dusabe+Ruth&background=115e59&color=fff&size=512",
+    image: "/images/team/ruth_sq.jpg",
     type: "Staff",
     researchFocus: ["Field Monitoring", "Community Engagement"]
   },
