@@ -452,7 +452,7 @@ export const TEAM: TeamMember[] = [
     name: "Marie Chantal Rwakazina",
     role: "Managing Director",
     bio: "Experienced executive driving operational excellence and strategic partnerships to strengthen credible development initiatives.",
-    image: "https://ui-avatars.com/api/?name=Marie+Chantal+Rwakazina&background=115e59&color=fff&size=512",
+    image: "/team/marie_chantal_sq.jpg",
     type: "Board",
     researchFocus: ["Strategic Management", "Partnerships", "Operational Excellence"]
   },
@@ -460,7 +460,7 @@ export const TEAM: TeamMember[] = [
     name: "Dr. Teferi Tensay Mequaninte",
     role: "Head of Policy Research",
     bio: "Accomplished policy researcher leading comprehensive studies in socio-economic development and guiding policy formulation.",
-    image: "https://ui-avatars.com/api/?name=Teferi+Tensay+Mequaninte&background=115e59&color=fff&size=512",
+    image: "/team/teferi_sq.jpg",
     type: "Staff",
     researchFocus: ["Socio-economic Development", "Policy Formulation", "Quantitative Analysis"]
   },
@@ -476,7 +476,7 @@ export const TEAM: TeamMember[] = [
     name: "Jean Bosco Nkurikiye",
     role: "Research Fellow/Data Analyst",
     bio: "Skilled data analyst with a deep understanding of statistical methods and their application in developmental policy research.",
-    image: "/team/jean_bosco_gen_43.jpg",
+    image: "/team/jean_bosco_sq.jpg",
     type: "Staff",
     researchFocus: ["Statistical Analysis", "Econometrics"]
   },
@@ -492,7 +492,7 @@ export const TEAM: TeamMember[] = [
     name: "Divine Irakoze",
     role: "Finance & HR",
     bio: "Manages financial planning and human resources, supporting the administrative backbone of the Centre.",
-    image: "/team/divine_gen_43.jpg",
+    image: "/team/divine_sq.jpg",
     type: "Staff",
     researchFocus: ["Financial Planning", "Human Resources"]
   },
@@ -516,7 +516,7 @@ export const TEAM: TeamMember[] = [
     name: "Iris Landi",
     role: "Research and Knowledge Management Officer",
     bio: "Brings extensive expertise in gender studies, promoting inclusive and equitable policy recommendations.",
-    image: "/team/iris_gen_43.jpg",
+    image: "/team/iris_sq.jpg",
     type: "Staff",
     researchFocus: ["Gender Studies", "Social Inclusion"]
   },
@@ -524,7 +524,7 @@ export const TEAM: TeamMember[] = [
     name: "Richard Ngabo",
     role: "IT & Comms Officer",
     bio: "Drives internal IT infrastructure and leads communication strategies to amplify the Centre's policy research impact.",
-    image: "/team/richard_gen_43.jpg",
+    image: "/team/richard_sq.jpg",
     type: "Staff",
     researchFocus: ["IT Infrastructure", "Science Communication"]
   },
@@ -540,7 +540,7 @@ export const TEAM: TeamMember[] = [
     name: "Bridget Vuguziga",
     role: "Research Assistant/Field Supervisor",
     bio: "Plays a vital role in fieldwork, providing oversight and contributing to crucial qualitative and quantitative assessments.",
-    image: "/team/bridget_gen_43.jpg",
+    image: "/team/bridget_sq.jpg",
     type: "Staff",
     researchFocus: ["Qualitative Assessment", "Field Supervision"]
   },
@@ -556,7 +556,7 @@ export const TEAM: TeamMember[] = [
     name: "Bonaventure Mugabe",
     role: "Research Assistant/Field Supervisor",
     bio: "Brings deep contextual knowledge to field supervision, guaranteeing the accurate capture of localized policy research inputs.",
-    image: "https://ui-avatars.com/api/?name=Bonaventure+Mugabe&background=115e59&color=fff&size=512",
+    image: "/team/bonaventure_sq.jpg",
     type: "Staff",
     researchFocus: ["Localized Research", "Data Capture"]
   },
@@ -564,7 +564,7 @@ export const TEAM: TeamMember[] = [
     name: "Kevin Kimenyi",
     role: "Data Analyst",
     bio: "Skilled data analyst contributing to the interpretation of quantitative and qualitative data.",
-    image: "/team/kevin_gen_43.jpg",
+    image: "/team/kevin_sq.jpg",
     type: "Staff",
     researchFocus: ["Data Analysis"]
   },
@@ -572,7 +572,7 @@ export const TEAM: TeamMember[] = [
     name: "Harrison Manyumwa",
     role: "Monitoring, Evaluation, and Learning (MEL) Coordinator",
     bio: "Coordinates monitoring, evaluation, and learning to ensure project effectiveness and continuous improvement.",
-    image: "https://ui-avatars.com/api/?name=Harrison+Manyumwa&background=115e59&color=fff&size=512",
+    image: "/team/harrison_sq.jpg",
     type: "Staff",
     researchFocus: ["Monitoring", "Evaluation"]
   }

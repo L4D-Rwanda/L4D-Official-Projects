@@ -69,7 +69,7 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
     <Reveal delay={index * 100}>
       <div className="group relative bg-white/60 backdrop-blur-md rounded-[30px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full">
         {member.image && !member.image.includes('ui-avatars.com') ? (
-          <div className={`${isFounder ? "aspect-square" : "aspect-[4/3]"} overflow-hidden relative bg-gray-50 flex items-center justify-center p-6`}>
+          <div className={`aspect-square overflow-hidden relative bg-gray-50 flex items-center justify-center p-6`}>
             <img referrerPolicy="no-referrer" 
               src={member.image} 
               alt={member.name} 
@@ -79,7 +79,7 @@ const TeamCard = ({ member, index }: { member: any, index: number }) => {
             <div className="absolute inset-x-6 inset-y-6 bg-gradient-to-t from-teal-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
           </div>
         ) : (
-          <div className={`${isFounder ? "aspect-square" : "aspect-[4/3]"} overflow-hidden relative bg-gradient-to-br from-teal-50 to-teal-100/50 flex items-center justify-center p-6`}>
+          <div className={`aspect-square overflow-hidden relative bg-gradient-to-br from-teal-50 to-teal-100/50 flex items-center justify-center p-6`}>
             <div className="w-24 h-24 rounded-full bg-teal-800 text-white flex items-center justify-center text-3xl font-bold font-serif shadow-inner group-hover:scale-110 transition-transform duration-500">
               {initials}
             </div>
