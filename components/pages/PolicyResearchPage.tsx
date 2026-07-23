@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Reveal from '../Reveal';
-import { ArrowLeft, BookOpen, Users, Globe2, Briefcase, Leaf, Building, Lightbulb } from 'lucide-react';
+import BackButton from '../BackButton';
+import { BookOpen, Users, Globe2, Briefcase, Leaf, Building, Lightbulb } from 'lucide-react';
 
 const THEMES = [
   { name: 'Inclusive Development', icon: Users },
@@ -12,15 +13,33 @@ const THEMES = [
   { name: 'Market Systems Development', icon: Lightbulb },
 ];
 
-const PolicyResearchPage: React.FC = () => {
+interface PolicyResearchPageProps {
+  onNavigate?: (page: string) => void;
+  onBack?: () => void;
+}
+
+const PolicyResearchPage: React.FC<PolicyResearchPageProps> = ({ onNavigate, onBack }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else if (onNavigate) {
+      onNavigate('services');
+    } else if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.back();
+    }
+  };
+
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
       <div className="bg-gray-50 py-16 md:py-24 mb-16 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="text-left mb-6">
+            <BackButton onClick={handleBack} label="Back to Services" />
+          </div>
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Policy Research</h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

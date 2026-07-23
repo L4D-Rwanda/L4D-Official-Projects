@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { NEWS_EVENTS, PROJECTS } from '../constants';
 import Reveal from './Reveal';
-import { ArrowLeft, Calendar, Share2, Printer, Tag, ArrowRight } from 'lucide-react';
+import BackButton from './BackButton';
+import { Calendar, Share2, Printer, Tag, ArrowRight } from 'lucide-react';
 
 interface NewsEventDetailPageProps {
   id: string;
@@ -21,12 +22,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
       <div className="pt-32 pb-16 min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Item not found</h2>
-          <button 
-            onClick={onBack}
-            className="text-teal-600 font-bold hover:text-teal-800 transition-colors"
-          >
-            Go Back
-          </button>
+          <BackButton onClick={onBack} label="Go Back" />
         </div>
       </div>
     );
@@ -60,13 +56,7 @@ const NewsEventDetailPage: React.FC<NewsEventDetailPageProps> = ({ id, onBack, o
     <div className="pt-24 pb-24 min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <button 
-            onClick={onBack}
-            className="flex items-center text-gray-500 hover:text-teal-600 font-bold mb-8 transition-colors group print:hidden"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" />
-            Back to News & Events
-          </button>
+          <BackButton onClick={onBack} label="Back to News & Events" className="mb-8" />
 
           {/* Hero Section */}
           <div className="bg-white/60 backdrop-blur-md rounded-t-[40px] overflow-hidden shadow-sm border border-gray-100 border-b-0">

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SERVICES } from '../constants';
 import Reveal from './Reveal';
-import { ArrowLeft } from 'lucide-react';
+import BackButton from './BackButton';
 
 interface ServiceDetailPageProps {
   serviceId: string;
@@ -18,8 +18,8 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
   if (!service) {
     return (
       <div className="pt-32 pb-20 min-h-screen text-center">
-        <h1 className="text-2xl font-bold">Service Not Found</h1>
-        <button onClick={onBack} className="text-teal-700 underline mt-4">Go Back</button>
+        <h1 className="text-2xl font-bold mb-4">Service Not Found</h1>
+        <BackButton onClick={onBack} label="Go Back" />
       </div>
     );
   }
@@ -31,12 +31,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
       <div className="pt-24 pb-20 min-h-screen bg-gray-50">
         <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <button 
-              onClick={onBack}
-              className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" /> Back to Overview
-            </button>
+            <BackButton onClick={onBack} label="Back to Services" className="mb-6" />
             
             <Reveal>
               <div className="flex items-center gap-4 mb-6">
@@ -114,12 +109,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
       <div className="pt-24 pb-20 min-h-screen bg-gray-50">
         <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <button 
-              onClick={onBack}
-              className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" /> Back to Overview
-            </button>
+            <BackButton onClick={onBack} label="Back to Services" className="mb-6" />
             
             <Reveal>
               <div className="flex items-center gap-4 mb-6">
@@ -197,12 +187,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
       <div className="pt-24 pb-20 min-h-screen bg-gray-50">
         <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <button 
-              onClick={onBack}
-              className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" /> Back to Overview
-            </button>
+            <BackButton onClick={onBack} label="Back to Services" className="mb-6" />
             
             <Reveal>
               <div className="flex items-center gap-4 mb-6">
@@ -279,12 +264,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
       <div className="pt-24 pb-20 min-h-screen bg-gray-50">
         <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <button 
-              onClick={onBack}
-              className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" /> Back to Overview
-            </button>
+            <BackButton onClick={onBack} label="Back to Services" className="mb-6" />
             
             <Reveal>
               <div className="flex items-center gap-4 mb-6">
@@ -360,12 +340,7 @@ const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ serviceId, onBack
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
       <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <button 
-            onClick={onBack}
-            className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" /> Back to Overview
-          </button>
+          <BackButton onClick={onBack} label="Back to Services" className="mb-6" />
           
           <Reveal>
             <div className="flex items-center gap-4 mb-6">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Reveal from './Reveal';
 import Logo from './Logo';
+import BackButton from './BackButton';
 import { 
   Activity, BookOpen, Globe, GraduationCap, Scale, Sprout, TrendingUp, 
   MapPin, Calendar, FileText, ArrowRight, Download, ArrowLeft,
@@ -263,6 +264,7 @@ const NationalImpactPage: React.FC<NationalImpactPageProps> = ({ onNavigate }) =
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-burgundy-50 rounded-full filter blur-3xl opacity-30 translate-y-12"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <BackButton onClick={() => onNavigate('impact')} label="Back to Impact" className="mb-6" />
           <Reveal>
             <span className="text-teal-700 font-bold tracking-widest uppercase text-xs mb-3 inline-flex items-center gap-1.5 px-3 py-1 bg-teal-50 rounded-full border border-teal-100/50">
               <Activity size={12} /> L4D POLICY INSIGHTS

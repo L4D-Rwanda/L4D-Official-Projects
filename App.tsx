@@ -15,7 +15,6 @@ import Testimonials from './components/Testimonials';
 import PartnerSlider from './components/PartnerSlider';
 import NewsEventsPreview from './components/NewsEventsPreview';
 import Reveal from './components/Reveal';
-import { ArrowLeft } from 'lucide-react';
 
 // Pages
 import AboutPage from './components/AboutPage';
@@ -33,31 +32,6 @@ import CareersPage from './components/CareersPage';
 import ContactPage from './components/ContactPage';
 
 import PrivacyTermsPage from './components/StaticPage';
-
-const GlobalBackButton: React.FC<{ onBack: () => void, isVisible: boolean }> = ({ onBack, isVisible }) => {
-  const [show, setShow] = useState(false);
-  
-  useEffect(() => {
-    if (isVisible) {
-      setTimeout(() => setShow(true), 100);
-    } else {
-      setShow(false);
-    }
-  }, [isVisible]);
-
-  return (
-    <button
-      onClick={onBack}
-      className={`fixed top-28 left-8 z-50 p-3 px-5 rounded-full bg-white text-teal-800 shadow-lg border border-teal-100 transition-all duration-500 transform hover:bg-teal-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 flex items-center font-semibold text-sm print:hidden ${
-        show ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10 pointer-events-none'
-      }`}
-      aria-label="Go back"
-    >
-      <ArrowLeft className="h-5 w-5 mr-2" />
-      Back
-    </button>
-  );
-};
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -177,21 +151,21 @@ const App: React.FC = () => {
       case 'national-impact':
         return <NationalImpactPage onNavigate={handleNavigation} />;
       case 'projects':
-        return <ProjectsPage onNavigate={handleNavigation} />;
+        return <ProjectsPage onNavigate={handleNavigation} onBack={() => handleNavigation('impact')} />;
       case 'programs':
-        return <ProgramsPage onNavigate={handleNavigation} />;
+        return <ProgramsPage onNavigate={handleNavigation} onContact={() => handleNavigation('contact')} />;
       case 'publications':
         return <PublicationsPage initialCategory={publicationCategory} initialPublicationTitle={selectedPublicationTitle} onNavigateToPublication={(title) => handlePublicationClick(publicationCategory || 'All', title)} />;
       case 'news-events':
         return <NewsEventsPage onNavigateToNewsEvent={(id) => handleNavigation(`news-event/${id}`)} />;
       case 'careers':
-        return <CareersPage onBack={() => handleNavigation('home')} />;
+        return <CareersPage />;
       case 'contact':
-        return <ContactPage />;
+        return <ContactPage onBack={handleGoBack} />;
       case 'privacy':
-        return <PrivacyTermsPage title="Privacy Policy" />;
+        return <PrivacyTermsPage title="Privacy Policy" onBack={handleGoBack} />;
       case 'terms':
-        return <PrivacyTermsPage title="Terms of Service" />;
+        return <PrivacyTermsPage title="Terms of Service" onBack={handleGoBack} />;
       default:
         return null;
     }
@@ -211,7 +185,6 @@ const App: React.FC = () => {
 
       <Footer onNavigate={handleNavigation} onNavigateToPublicationCategory={(cat) => handlePublicationClick(cat)} />
       <BackToTop />
-      <GlobalBackButton onBack={handleGoBack} isVisible={currentPage !== 'home'} />
     </div>
   );
 };

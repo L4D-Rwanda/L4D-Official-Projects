@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import Reveal from './Reveal';
+import BackButton from './BackButton';
 
 interface StaticPageProps {
   title: string;
+  onBack?: () => void;
 }
 
-const StaticPage: React.FC<StaticPageProps> = ({ title }) => {
+const StaticPage: React.FC<StaticPageProps> = ({ title, onBack }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [title]);
@@ -13,6 +15,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ title }) => {
   return (
     <div className="pt-32 pb-20 min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {onBack && <BackButton onClick={onBack} label="Back" className="mb-6" />}
         <Reveal>
           <div className="bg-white/60 backdrop-blur-md p-8 md:p-16 rounded-[30px] shadow-sm border border-gray-100">
             <h1 className="text-4xl font-serif font-bold text-gray-900 mb-8">{title}</h1>

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { PUBLICATIONS, PROJECTS } from '../constants';
 import Reveal from './Reveal';
-import { ArrowLeft, Download, Calendar, FileText, Share2, Printer, Activity, User, ArrowRight } from 'lucide-react';
+import BackButton from './BackButton';
+import { Download, Calendar, FileText, Share2, Printer, Activity, User, ArrowRight } from 'lucide-react';
 
 interface PublicationDetailPageProps {
   title: string;
@@ -19,8 +20,8 @@ const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, on
   if (!publication) {
     return (
       <div className="pt-32 pb-20 min-h-screen text-center">
-        <h1 className="text-2xl font-bold">Publication Not Found</h1>
-        <button onClick={onBack} className="text-teal-700 underline mt-4">Go Back</button>
+        <h1 className="text-2xl font-bold mb-4">Publication Not Found</h1>
+        <BackButton onClick={onBack} label="Go Back" />
       </div>
     );
   }
@@ -79,12 +80,7 @@ const PublicationDetailPage: React.FC<PublicationDetailPageProps> = ({ title, on
     <div className="pt-24 pb-20 min-h-screen bg-gray-50 font-sans print:bg-white print:pt-0">
       <div className="bg-white/60 backdrop-blur-md py-16 mb-16 border-b border-gray-100 print:hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <button 
-            onClick={onBack}
-            className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" /> Back to Publications
-          </button>
+          <BackButton onClick={onBack} label="Back to Publications" className="mb-6" />
           
           <Reveal>
             <div className="flex items-center gap-3 mb-6">

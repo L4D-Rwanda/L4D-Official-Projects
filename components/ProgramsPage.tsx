@@ -1,30 +1,46 @@
 import React, { useEffect } from 'react';
 import Reveal from './Reveal';
-import { Users, Globe2, Handshake, ArrowRight, ArrowLeft } from 'lucide-react';
+import BackButton from './BackButton';
+import { Users, Globe2, Handshake, ArrowRight } from 'lucide-react';
 import PartnerSlider from './PartnerSlider';
 
 interface ProgramsPageProps {
   onBack?: () => void;
   onContact?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
-const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
+const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact, onNavigate }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleBack = () => {
+    if (onBack) {
+      onBack();
+    } else if (onNavigate) {
+      onNavigate('impact');
+    } else if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.back();
+    }
+  };
+
+  const handlePartnerClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onContact) {
+      onContact();
+    } else if (onNavigate) {
+      onNavigate('contact');
+    } else {
+      window.location.href = '#contact';
+    }
+  };
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
       <div className="bg-gray-50 py-16 mb-16 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {onBack && (
-            <button 
-              onClick={onBack}
-              className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" /> Back to Impact
-            </button>
-          )}
+          <BackButton onClick={handleBack} label="Back to Impact" className="mb-6" />
           <Reveal>
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Programs & Partnerships</h1>
             <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
@@ -98,7 +114,7 @@ const ProgramsPage: React.FC<ProgramsPageProps> = ({ onBack, onContact }) => {
             </div>
             
             <div className="mt-16 text-center">
-                <a href="#contact" onClick={(e) => { e.preventDefault(); onContact?.(); }} className="inline-flex items-center px-8 py-4 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg group">
+                <a href="#contact" onClick={handlePartnerClick} className="inline-flex items-center px-8 py-4 bg-white/60 backdrop-blur-md text-teal-900 font-bold rounded-full hover:bg-teal-50 transition-colors shadow-lg group">
                    Become a Partner <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </a>
             </div>

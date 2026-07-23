@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { PROJECTS, FOCUS_AREAS, PUBLICATIONS, NEWS_EVENTS } from '../constants';
 import Reveal from './Reveal';
+import BackButton from './BackButton';
 import { Project } from '../types';
-import { X, Calendar, User, Tag, Activity, ArrowRight, ArrowLeft, CheckCircle2, FileText, Download, ExternalLink } from 'lucide-react';
+import { X, Calendar, User, Tag, Activity, ArrowRight, CheckCircle2, FileText, Download, ExternalLink } from 'lucide-react';
 import LazyImage from './LazyImage';
 
 interface ProjectsPageProps {
@@ -11,6 +12,7 @@ interface ProjectsPageProps {
   onNavigateToPublicationCategory?: (category: string, title?: string) => void;
   onNavigateToNewsEvent?: (id: string) => void;
   onBack?: () => void;
+  onNavigate?: (page: string) => void;
 }
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialProjectId, onNavigateToPublicationCategory, onNavigateToNewsEvent, onBack }) => {
@@ -85,23 +87,26 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
 
   return (
     <div className="pt-24 pb-20 min-h-screen bg-gray-50">
+      {/* Header section with clean background and border-b */}
+      <div className="bg-gray-50 py-16 border-b border-gray-100 relative overflow-hidden mb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {onBack && (
+            <div className="text-left mb-6">
+              <BackButton onClick={onBack} label="Back to Impact" />
+            </div>
+          )}
+          <Reveal>
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Our Projects</h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Explore our portfolio of research and advisory projects across key development sectors.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {onBack && (
-          <button 
-            onClick={onBack}
-            className="flex items-center text-gray-500 hover:text-teal-700 transition-colors mb-6 font-medium"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" /> Back to Impact
-          </button>
-        )}
-        <Reveal>
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Our Projects</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our portfolio of research and advisory projects across key development sectors.
-            </p>
-          </div>
-        </Reveal>
 
         {/* Filter Tabs */}
         <Reveal delay={100}>
@@ -224,7 +229,8 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ initialCategory, initialPro
                {/* Close Button */}
                <button 
                  onClick={() => setSelectedProject(null)} 
-                 className="absolute top-6 right-6 z-20 p-2 bg-black/20 hover:bg-black/40 backdrop-blur-md rounded-full text-white transition-all transform hover:scale-110"
+                 className="absolute top-6 right-6 z-20 p-2.5 bg-black/30 hover:bg-black/50 backdrop-blur-md rounded-full text-white transition-all transform hover:scale-110 shadow-md"
+                 aria-label="Close project details"
                >
                   <X size={20} />
                </button>
