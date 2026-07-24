@@ -244,9 +244,9 @@ const AboutPage: React.FC = () => {
             </div>
           </Reveal>
 
-          {/* Advisory Board */}
+          {/* Executive Committee */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Advisory Board</h3>
+            <h3 className="text-2xl font-bold font-serif text-gray-900 mb-8 pb-4 border-b border-gray-100">Executive Committee</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {TEAM.filter(m => m.type === 'Board' || m.type === 'Leadership').map((member, index) => (
                  <TeamCard key={index} member={member} index={index} />
